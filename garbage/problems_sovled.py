@@ -3,15 +3,16 @@ import requests
 def get_user_accepted_submissions_in_contest(handle, contest_id):
     url = f"https://codeforces.com/api/user.status?handle={handle}&from=1&count=1000"
     response = requests.get(url)
-    
+
     if response.status_code == 200:
         data = response.json()
+        print(data)
         if data['status'] == 'OK':
             submissions = data['result']
             
             solved_problems = set()
             for sub in submissions:
-                if sub['verdict'] == 'OK' and sub['contestId'] == contest_id:
+                if sub['verdict'] == 'OK':
                     problem_id = sub['problem']['index']  # like 'A', 'B', 'C'
                     problem_name = sub['problem']['name']
                     solved_problems.add((problem_id, problem_name))

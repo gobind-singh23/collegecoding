@@ -2,7 +2,7 @@ import requests
 import json
 
 def get_user_info(handle):
-    url = f"https://codeforces.com/api/user.rating?handle=tourist"
+    url = f"https://codeforces.com/api/user.status?handle={handle}&from=1&"
     response = requests.get(url)
     # print(len(response.json()['result']['rows']))
     if response.status_code == 200:

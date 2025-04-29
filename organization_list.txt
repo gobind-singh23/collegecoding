@@ -44,7 +44,7 @@
     "IIT Dehli",
     "IIT Delhi",
     "IIT Dharwad",
-    "IIT Dholakpur, Ghatkopar"
+    "IIT Dholakpur, Ghatkopar",
     "IIT DoLakpur",
     "IIT FARIDABAD",
     "IIT G",
@@ -146,7 +146,7 @@
     "IIT,JU",
     "IIT, NSTU",
     "IIT,Patna",
-    "IIT,University of Dhaka"
+    "IIT,University of Dhaka",
     "BITS Goa",
     "BITS Pilani Goa Campus",
     "BITS Pilani KK Birla Goa Campus",
@@ -154,6 +154,6 @@
     "BITS Pilani Hyderabad Campus",
     "BITS Pilani, Hyderabad Campus",
     "BITS Pilani-Hyderabad Campus",
-    "BITS-Pilani Hyderabad Campus"
+    "BITS-Pilani Hyderabad Campus",
     "BITS-Pilani, Pilani campus"
 ]
