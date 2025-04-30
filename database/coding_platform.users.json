@@ -1,0 +1,4785 @@
+[{
+  "_id": {
+    "$oid": "6810e0c2bb069a690cdba8e6"
+  },
+  "handle": "Oatschamp",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745871003,
+  "maxRating": 1316,
+  "organization": "IITROORKEE",
+  "rating": 1302
+},
+{
+  "_id": {
+    "$oid": "6810e0c2bb069a690cdba8e7"
+  },
+  "handle": "Suryxnshu",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745942179,
+  "maxRating": 1100,
+  "organization": "IITPATNA",
+  "rating": 1100
+},
+{
+  "_id": {
+    "$oid": "6810e0c3bb069a690cdba8e8"
+  },
+  "handle": "pushkar_j123",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745873667,
+  "maxRating": 1662,
+  "organization": "IITROORKEE",
+  "rating": 1662
+},
+{
+  "_id": {
+    "$oid": "6810e0c4bb069a690cdba8e9"
+  },
+  "handle": "enlighted_prani",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745897939,
+  "maxRating": 1427,
+  "organization": "IITPATNA",
+  "rating": 1324
+},
+{
+  "_id": {
+    "$oid": "6810e0c5bb069a690cdba8ea"
+  },
+  "handle": "manmeet_ki_muskan_2.0",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745939180,
+  "maxRating": 1441,
+  "organization": "IITBHU",
+  "rating": 1339
+},
+{
+  "_id": {
+    "$oid": "6810e0c6bb069a690cdba8eb"
+  },
+  "handle": "MehulVarshney",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745937052,
+  "maxRating": 1067,
+  "organization": "BITSPILANI",
+  "rating": 1067
+},
+{
+  "_id": {
+    "$oid": "6810e0c7bb069a690cdba8ec"
+  },
+  "handle": "Krishnadev44",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745936432,
+  "maxRating": 1361,
+  "organization": "IITPATNA",
+  "rating": 1342
+},
+{
+  "_id": {
+    "$oid": "6810e0c8bb069a690cdba8ed"
+  },
+  "handle": "shalu_chauhan121",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745943937,
+  "maxRating": 1114,
+  "organization": "IITBHU",
+  "rating": 1088
+},
+{
+  "_id": {
+    "$oid": "6810e0cabb069a690cdba8ee"
+  },
+  "handle": "SushXReddy",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745909480,
+  "maxRating": 566,
+  "organization": "IITPATNA",
+  "rating": 566
+},
+{
+  "_id": {
+    "$oid": "6810e0cabb069a690cdba8ef"
+  },
+  "handle": "MrSurfer",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745935632,
+  "maxRating": 1609,
+  "organization": "IITROORKEE",
+  "rating": 1609
+},
+{
+  "_id": {
+    "$oid": "6810e0cbbb069a690cdba8f0"
+  },
+  "handle": "brokesoul",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745934912,
+  "maxRating": 1422,
+  "organization": "IITROORKEE",
+  "rating": 1388
+},
+{
+  "_id": {
+    "$oid": "6810e0ccbb069a690cdba8f1"
+  },
+  "handle": "Eshan_Karia",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745937480,
+  "maxRating": 1906,
+  "organization": "BITSPILANI",
+  "rating": 1728
+},
+{
+  "_id": {
+    "$oid": "6810e0cdbb069a690cdba8f2"
+  },
+  "handle": "WizAhaan",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745939186,
+  "maxRating": 1699,
+  "organization": "IITROORKEE",
+  "rating": 1675
+},
+{
+  "_id": {
+    "$oid": "6810e0cebb069a690cdba8f3"
+  },
+  "handle": "arbitcoper",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745903859,
+  "maxRating": 1150,
+  "organization": "IITPATNA",
+  "rating": 1149
+},
+{
+  "_id": {
+    "$oid": "6810e0cfbb069a690cdba8f4"
+  },
+  "handle": "sharmajii7",
+  "college": "IITJODHPUR",
+  "lastOnlineTimeSeconds": 1745930742,
+  "maxRating": 1794,
+  "organization": "IITJODHPUR",
+  "rating": 1668
+},
+{
+  "_id": {
+    "$oid": "6810e0cfbb069a690cdba8f5"
+  },
+  "handle": "Alphabet",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745922932,
+  "maxRating": 1286,
+  "organization": "IITKHARAGPUR",
+  "rating": 1231
+},
+{
+  "_id": {
+    "$oid": "6810e0d0bb069a690cdba8f6"
+  },
+  "handle": "_ar07",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745929739,
+  "maxRating": 1713,
+  "organization": "IITKHARAGPUR",
+  "rating": 1527
+},
+{
+  "_id": {
+    "$oid": "6810e0d1bb069a690cdba8f7"
+  },
+  "handle": "manu_27",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745945275,
+  "maxRating": 1296,
+  "organization": "IITINDORE",
+  "rating": 1269
+},
+{
+  "_id": {
+    "$oid": "6810e0d2bb069a690cdba8f8"
+  },
+  "handle": "Abhrajyoti_00",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745934072,
+  "maxRating": 1370,
+  "organization": "IITGUWAHATI",
+  "rating": 1308
+},
+{
+  "_id": {
+    "$oid": "6810e0d3bb069a690cdba8f9"
+  },
+  "handle": "hemantpaliwal",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745892184,
+  "maxRating": 1039,
+  "organization": "IITROORKEE",
+  "rating": 922
+},
+{
+  "_id": {
+    "$oid": "68110255bb069a690cdbaaee"
+  },
+  "handle": "aayush-max",
+  "college": "IITDHARWAD",
+  "lastOnlineTimeSeconds": 1745939062,
+  "maxRating": 1107,
+  "organization": "IITDHARWAD",
+  "rating": 1103
+},
+{
+  "_id": {
+    "$oid": "68110255bb069a690cdbaaef"
+  },
+  "handle": "pavangadhiya06",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745922743,
+  "maxRating": 1293,
+  "organization": "IITROORKEE",
+  "rating": 1219
+},
+{
+  "_id": {
+    "$oid": "68110256bb069a690cdbaaf0"
+  },
+  "handle": "Suplex",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745921956,
+  "maxRating": 1694,
+  "organization": "IITPATNA",
+  "rating": 1313
+},
+{
+  "_id": {
+    "$oid": "68110256bb069a690cdbaaf1"
+  },
+  "handle": "r_vik",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745753199,
+  "maxRating": 1361,
+  "organization": "IITMANDI",
+  "rating": 1296
+},
+{
+  "_id": {
+    "$oid": "68110257bb069a690cdbaaf2"
+  },
+  "handle": "Riemann25",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745911319,
+  "maxRating": 1490,
+  "organization": "IITBOMBAY",
+  "rating": 1485
+},
+{
+  "_id": {
+    "$oid": "68110257bb069a690cdbaaf3"
+  },
+  "handle": "sai73ram",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745916262,
+  "maxRating": 1122,
+  "organization": "IITDHANBAD",
+  "rating": 1120
+},
+{
+  "_id": {
+    "$oid": "68110258bb069a690cdbaaf4"
+  },
+  "handle": "muk_007",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745944459,
+  "maxRating": 1660,
+  "organization": "IITROORKEE",
+  "rating": 1660
+},
+{
+  "_id": {
+    "$oid": "68110258bb069a690cdbaaf5"
+  },
+  "handle": "Kalpit_K",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745879784,
+  "maxRating": 1583,
+  "organization": "IITROORKEE",
+  "rating": 1497
+},
+{
+  "_id": {
+    "$oid": "68110259bb069a690cdbaaf6"
+  },
+  "handle": "dark_blade_68",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745934975,
+  "maxRating": 1096,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 1086
+},
+{
+  "_id": {
+    "$oid": "68110259bb069a690cdbaaf7"
+  },
+  "handle": "f20221318",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745943112,
+  "maxRating": 1691,
+  "organization": "BITSPILANI",
+  "rating": 1496
+},
+{
+  "_id": {
+    "$oid": "68110259bb069a690cdbaaf8"
+  },
+  "handle": "ravikumar14all",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745859327,
+  "maxRating": 1477,
+  "organization": "IITROORKEE",
+  "rating": 1116
+},
+{
+  "_id": {
+    "$oid": "6811025abb069a690cdbaaf9"
+  },
+  "handle": "VectorVirtuoso",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745904136,
+  "maxRating": 1758,
+  "organization": "IITDELHI",
+  "rating": 1593
+},
+{
+  "_id": {
+    "$oid": "6811025bbb069a690cdbaafa"
+  },
+  "handle": "pc19937",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745944664,
+  "maxRating": 1693,
+  "organization": "IITINDORE",
+  "rating": 1476
+},
+{
+  "_id": {
+    "$oid": "6811025bbb069a690cdbaafb"
+  },
+  "handle": "ved_xyz",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745943429,
+  "maxRating": 1333,
+  "organization": "IITROORKEE",
+  "rating": 1271
+},
+{
+  "_id": {
+    "$oid": "6811025cbb069a690cdbaafc"
+  },
+  "handle": "ColdestKyurem",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745937699,
+  "maxRating": 1281,
+  "organization": "IITKHARAGPUR",
+  "rating": 1246
+},
+{
+  "_id": {
+    "$oid": "6811025cbb069a690cdbaafd"
+  },
+  "handle": "samsooong",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745867196,
+  "maxRating": 1081,
+  "organization": "IITROORKEE",
+  "rating": 1081
+},
+{
+  "_id": {
+    "$oid": "6811025dbb069a690cdbaafe"
+  },
+  "handle": "unhindered",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745940099,
+  "maxRating": 1836,
+  "organization": "IITPATNA",
+  "rating": 1708
+},
+{
+  "_id": {
+    "$oid": "6811025dbb069a690cdbaaff"
+  },
+  "handle": "FranXenoz",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745863106,
+  "maxRating": 1095,
+  "organization": "IITHYDERABAD",
+  "rating": 1068
+},
+{
+  "_id": {
+    "$oid": "6811025ebb069a690cdbab00"
+  },
+  "handle": "Thakur_chandrapal_singh",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745879632,
+  "maxRating": 1102,
+  "organization": "IITROORKEE",
+  "rating": 1044
+},
+{
+  "_id": {
+    "$oid": "6811025ebb069a690cdbab01"
+  },
+  "handle": "himanshubhardwaj169",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745849388,
+  "maxRating": 1634,
+  "organization": "BITSPILANI",
+  "rating": 1150
+},
+{
+  "_id": {
+    "$oid": "6811025ebb069a690cdbab02"
+  },
+  "handle": "coder_neha",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745858290,
+  "maxRating": 905,
+  "organization": "IITROORKEE",
+  "rating": 845
+},
+{
+  "_id": {
+    "$oid": "6811025fbb069a690cdbab03"
+  },
+  "handle": "KARANPAL_lalka",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745855542,
+  "maxRating": 1525,
+  "organization": "IITROORKEE",
+  "rating": 1461
+},
+{
+  "_id": {
+    "$oid": "6811025fbb069a690cdbab04"
+  },
+  "handle": "Mischievius",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745938939,
+  "maxRating": 1656,
+  "organization": "BITSPILANI",
+  "rating": 1643
+},
+{
+  "_id": {
+    "$oid": "68110260bb069a690cdbab05"
+  },
+  "handle": "amit2.0kr",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745726711,
+  "maxRating": 984,
+  "organization": "IITBHU",
+  "rating": 978
+},
+{
+  "_id": {
+    "$oid": "68110260bb069a690cdbab06"
+  },
+  "handle": "deepanshusau",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745892436,
+  "maxRating": 1893,
+  "organization": "IITBHU",
+  "rating": 1631
+},
+{
+  "_id": {
+    "$oid": "68110261bb069a690cdbab07"
+  },
+  "handle": "RishabhXHecker",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745876009,
+  "maxRating": 1589,
+  "organization": "IITROORKEE",
+  "rating": 1457
+},
+{
+  "_id": {
+    "$oid": "68110261bb069a690cdbab08"
+  },
+  "handle": "gdl200123",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745943329,
+  "maxRating": 945,
+  "organization": "IITBHU",
+  "rating": 945
+},
+{
+  "_id": {
+    "$oid": "68110261bb069a690cdbab09"
+  },
+  "handle": "Ghost_212",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745874138,
+  "maxRating": 999,
+  "organization": "BITSPILANI",
+  "rating": 999
+},
+{
+  "_id": {
+    "$oid": "68110262bb069a690cdbab0a"
+  },
+  "handle": "roman_dmitry",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745929935,
+  "maxRating": 1490,
+  "organization": "IITKHARAGPUR",
+  "rating": 1490
+},
+{
+  "_id": {
+    "$oid": "68110262bb069a690cdbab0b"
+  },
+  "handle": "Pili_02",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745867630,
+  "maxRating": 1584,
+  "organization": "BITSPILANI",
+  "rating": 1365
+},
+{
+  "_id": {
+    "$oid": "68110263bb069a690cdbab0c"
+  },
+  "handle": "Sleekassassin",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745861968,
+  "maxRating": 2039,
+  "organization": "IITDELHI",
+  "rating": 2039
+},
+{
+  "_id": {
+    "$oid": "68110264bb069a690cdbab0d"
+  },
+  "handle": "Coding............",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745910076,
+  "maxRating": 1809,
+  "organization": "IITROORKEE",
+  "rating": 1802
+},
+{
+  "_id": {
+    "$oid": "68110264bb069a690cdbab0e"
+  },
+  "handle": "vdsathvikreddy",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745938642,
+  "maxRating": 1409,
+  "organization": "IITBOMBAY",
+  "rating": 1356
+},
+{
+  "_id": {
+    "$oid": "68110265bb069a690cdbab0f"
+  },
+  "handle": "Jrke",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745944018,
+  "maxRating": 2059,
+  "organization": "IITROORKEE",
+  "rating": 2059
+},
+{
+  "_id": {
+    "$oid": "68110265bb069a690cdbab10"
+  },
+  "handle": "Kohinoor",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745927747,
+  "maxRating": 1719,
+  "organization": "IITDELHI",
+  "rating": 1639
+},
+{
+  "_id": {
+    "$oid": "68110265bb069a690cdbab11"
+  },
+  "handle": "gursimarsinghmiglani",
+  "college": "IITMADRAS",
+  "lastOnlineTimeSeconds": 1745920405,
+  "maxRating": 1958,
+  "organization": "IITMADRAS",
+  "rating": 1789
+},
+{
+  "_id": {
+    "$oid": "68110266bb069a690cdbab12"
+  },
+  "handle": "mst_molik",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745935737,
+  "maxRating": 1630,
+  "organization": "IITMANDI",
+  "rating": 1541
+},
+{
+  "_id": {
+    "$oid": "68110266bb069a690cdbab13"
+  },
+  "handle": "Balu2907",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745943020,
+  "maxRating": 1367,
+  "organization": "IITBOMBAY",
+  "rating": 1367
+},
+{
+  "_id": {
+    "$oid": "68110267bb069a690cdbab14"
+  },
+  "handle": "adnanahmad",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745937946,
+  "maxRating": 1603,
+  "organization": "IITMANDI",
+  "rating": 1603
+},
+{
+  "_id": {
+    "$oid": "68110267bb069a690cdbab15"
+  },
+  "handle": "anfanite396",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745892712,
+  "maxRating": 2140,
+  "organization": "IITMANDI",
+  "rating": 2064
+},
+{
+  "_id": {
+    "$oid": "68110268bb069a690cdbab16"
+  },
+  "handle": "dirty_keys",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745797412,
+  "maxRating": 1507,
+  "organization": "IITROORKEE",
+  "rating": 1502
+},
+{
+  "_id": {
+    "$oid": "68110268bb069a690cdbab17"
+  },
+  "handle": "crazyGAUTAM",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745941655,
+  "maxRating": 1376,
+  "organization": "IITROORKEE",
+  "rating": 1376
+},
+{
+  "_id": {
+    "$oid": "68110269bb069a690cdbab18"
+  },
+  "handle": "cameogag",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745855611,
+  "maxRating": 1005,
+  "organization": "IITBHU",
+  "rating": 911
+},
+{
+  "_id": {
+    "$oid": "68110269bb069a690cdbab19"
+  },
+  "handle": "srujal194",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745934442,
+  "maxRating": 1607,
+  "organization": "BITSPILANI",
+  "rating": 1438
+},
+{
+  "_id": {
+    "$oid": "6811026abb069a690cdbab1a"
+  },
+  "handle": "Chhota-Bheem",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745939773,
+  "maxRating": 1634,
+  "organization": "IITDELHI",
+  "rating": 1560
+},
+{
+  "_id": {
+    "$oid": "6811026abb069a690cdbab1b"
+  },
+  "handle": "Mahakaal17",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745864330,
+  "maxRating": 1192,
+  "organization": "IITGUWAHATI",
+  "rating": 1085
+},
+{
+  "_id": {
+    "$oid": "6811026bbb069a690cdbab1c"
+  },
+  "handle": "Rohan-kumar",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745892612,
+  "maxRating": 1592,
+  "organization": "IITBHU",
+  "rating": 1189
+},
+{
+  "_id": {
+    "$oid": "6811026bbb069a690cdbab1d"
+  },
+  "handle": "vidit_shrimali",
+  "college": "IITBILAI",
+  "lastOnlineTimeSeconds": 1745940211,
+  "maxRating": 1226,
+  "organization": "IITBILAI",
+  "rating": 1226
+},
+{
+  "_id": {
+    "$oid": "6811026bbb069a690cdbab1e"
+  },
+  "handle": "Abhinav_2004",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745892761,
+  "maxRating": 936,
+  "organization": "IITINDORE",
+  "rating": 912
+},
+{
+  "_id": {
+    "$oid": "6811026cbb069a690cdbab1f"
+  },
+  "handle": "ClickBait325",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745943573,
+  "maxRating": 1400,
+  "organization": "IITROORKEE",
+  "rating": 1400
+},
+{
+  "_id": {
+    "$oid": "6811026cbb069a690cdbab20"
+  },
+  "handle": "palsaksham025",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745941265,
+  "maxRating": 1284,
+  "organization": "IITKHARAGPUR",
+  "rating": 1260
+},
+{
+  "_id": {
+    "$oid": "6811026dbb069a690cdbab21"
+  },
+  "handle": "_shanky",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745684792,
+  "maxRating": 2293,
+  "organization": "IITBHU",
+  "rating": 1784
+},
+{
+  "_id": {
+    "$oid": "6811026dbb069a690cdbab22"
+  },
+  "handle": "Chirag352",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745933661,
+  "maxRating": 1313,
+  "organization": "IITMANDI",
+  "rating": 1313
+},
+{
+  "_id": {
+    "$oid": "6811026ebb069a690cdbab23"
+  },
+  "handle": "jvatsal79",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745855243,
+  "maxRating": 1914,
+  "organization": "IITDELHI",
+  "rating": 1794
+},
+{
+  "_id": {
+    "$oid": "6811026fbb069a690cdbab24"
+  },
+  "handle": "Vedika_",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745856447,
+  "maxRating": 850,
+  "organization": "IITROORKEE",
+  "rating": 850
+},
+{
+  "_id": {
+    "$oid": "6811026fbb069a690cdbab25"
+  },
+  "handle": "shrey71",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745944826,
+  "maxRating": 1853,
+  "organization": "BITSPILANI",
+  "rating": 1837
+},
+{
+  "_id": {
+    "$oid": "6811026fbb069a690cdbab26"
+  },
+  "handle": "mohityadav2003",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745892855,
+  "maxRating": 1421,
+  "organization": "IITGUWAHATI",
+  "rating": 1267
+},
+{
+  "_id": {
+    "$oid": "68110270bb069a690cdbab27"
+  },
+  "handle": "arman_01",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745676987,
+  "maxRating": 1241,
+  "organization": "IITBHU",
+  "rating": 1131
+},
+{
+  "_id": {
+    "$oid": "68110270bb069a690cdbab28"
+  },
+  "handle": "Anshul007",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745902008,
+  "maxRating": 1557,
+  "organization": "IITKANPUR",
+  "rating": 1289
+},
+{
+  "_id": {
+    "$oid": "68110271bb069a690cdbab29"
+  },
+  "handle": "rahuliitism",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745935887,
+  "maxRating": 920,
+  "organization": "IITDHANBAD",
+  "rating": 920
+},
+{
+  "_id": {
+    "$oid": "68110271bb069a690cdbab2a"
+  },
+  "handle": "Supersidd",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745899303,
+  "maxRating": 1672,
+  "organization": "BITSPILANI",
+  "rating": 1576
+},
+{
+  "_id": {
+    "$oid": "68110272bb069a690cdbab2b"
+  },
+  "handle": "Jon_Snow.",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745869031,
+  "maxRating": 1552,
+  "organization": "IITGUWAHATI",
+  "rating": 1490
+},
+{
+  "_id": {
+    "$oid": "68110272bb069a690cdbab2c"
+  },
+  "handle": "HarshalHolkar",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745903518,
+  "maxRating": 1654,
+  "organization": "IITDELHI",
+  "rating": 1522
+},
+{
+  "_id": {
+    "$oid": "68110273bb069a690cdbab2d"
+  },
+  "handle": "EronAt",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745939307,
+  "maxRating": 1151,
+  "organization": "BITSPILANI",
+  "rating": 1151
+},
+{
+  "_id": {
+    "$oid": "68110273bb069a690cdbab2e"
+  },
+  "handle": "aarishtickoo",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745865589,
+  "maxRating": 1239,
+  "organization": "IITDELHI",
+  "rating": 1167
+},
+{
+  "_id": {
+    "$oid": "68110274bb069a690cdbab2f"
+  },
+  "handle": "ep24btech11021",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745865029,
+  "maxRating": 999,
+  "organization": "IITHYDERABAD",
+  "rating": 994
+},
+{
+  "_id": {
+    "$oid": "68110274bb069a690cdbab30"
+  },
+  "handle": "RameshD",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745889638,
+  "maxRating": 1217,
+  "organization": "IITINDORE",
+  "rating": 1200
+},
+{
+  "_id": {
+    "$oid": "68110274bb069a690cdbab31"
+  },
+  "handle": "LRC11",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745910862,
+  "maxRating": 1814,
+  "organization": "IITINDORE",
+  "rating": 1754
+},
+{
+  "_id": {
+    "$oid": "68110275bb069a690cdbab32"
+  },
+  "handle": "neeleshreddyb",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745889002,
+  "maxRating": 1302,
+  "organization": "IITBHU",
+  "rating": 1252
+},
+{
+  "_id": {
+    "$oid": "68110275bb069a690cdbab33"
+  },
+  "handle": "ssAmanSoni1",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745877507,
+  "maxRating": 1843,
+  "organization": "IITGUWAHATI",
+  "rating": 1493
+},
+{
+  "_id": {
+    "$oid": "68110276bb069a690cdbab34"
+  },
+  "handle": "Yash_Maniya",
+  "college": "IITJODHPUR",
+  "lastOnlineTimeSeconds": 1745895218,
+  "maxRating": 1664,
+  "organization": "IITJODHPUR",
+  "rating": 1580
+},
+{
+  "_id": {
+    "$oid": "68110276bb069a690cdbab35"
+  },
+  "handle": "ConsoleLogMe",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745856073,
+  "maxRating": 1346,
+  "organization": "IITGUWAHATI",
+  "rating": 1323
+},
+{
+  "_id": {
+    "$oid": "68110277bb069a690cdbab36"
+  },
+  "handle": "atigdng",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745935542,
+  "maxRating": 1256,
+  "organization": "IITHYDERABAD",
+  "rating": 1256
+},
+{
+  "_id": {
+    "$oid": "68110277bb069a690cdbab37"
+  },
+  "handle": "ARYAN_pro_321",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745855278,
+  "maxRating": 1311,
+  "organization": "IITKHARAGPUR",
+  "rating": 1062
+},
+{
+  "_id": {
+    "$oid": "68110278bb069a690cdbab38"
+  },
+  "handle": "rohantheowen",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745866935,
+  "maxRating": 1685,
+  "organization": "BITSPILANI",
+  "rating": 1685
+},
+{
+  "_id": {
+    "$oid": "68110278bb069a690cdbab39"
+  },
+  "handle": "SomilP",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745898968,
+  "maxRating": 1628,
+  "organization": "IITROORKEE",
+  "rating": 1467
+},
+{
+  "_id": {
+    "$oid": "68110279bb069a690cdbab3a"
+  },
+  "handle": "MridulAhi",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745913327,
+  "maxRating": 2591,
+  "organization": "IITDELHI",
+  "rating": 2554
+},
+{
+  "_id": {
+    "$oid": "68110279bb069a690cdbab3b"
+  },
+  "handle": "siddhu_k",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745942574,
+  "maxRating": 1482,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 1274
+},
+{
+  "_id": {
+    "$oid": "6811027abb069a690cdbab3c"
+  },
+  "handle": "iridescent_1024",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745913368,
+  "maxRating": 2140,
+  "organization": "IITDELHI",
+  "rating": 2140
+},
+{
+  "_id": {
+    "$oid": "6811027abb069a690cdbab3d"
+  },
+  "handle": "Black_Jesus",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745938360,
+  "maxRating": 1323,
+  "organization": "IITDHANBAD",
+  "rating": 1199
+},
+{
+  "_id": {
+    "$oid": "6811027bbb069a690cdbab3e"
+  },
+  "handle": "sairaj2k05",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745734225,
+  "maxRating": 1574,
+  "organization": "IITBHU",
+  "rating": 1519
+},
+{
+  "_id": {
+    "$oid": "6811027bbb069a690cdbab3f"
+  },
+  "handle": "nerdykafka",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745860134,
+  "maxRating": 1794,
+  "organization": "IITBHU",
+  "rating": 1771
+},
+{
+  "_id": {
+    "$oid": "6811027cbb069a690cdbab40"
+  },
+  "handle": "Saad_Manda",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745905549,
+  "maxRating": 938,
+  "organization": "IITPATNA",
+  "rating": 938
+},
+{
+  "_id": {
+    "$oid": "6811027cbb069a690cdbab41"
+  },
+  "handle": "HackerGupta069",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745936667,
+  "maxRating": 1836,
+  "organization": "IITROORKEE",
+  "rating": 1811
+},
+{
+  "_id": {
+    "$oid": "6811027cbb069a690cdbab42"
+  },
+  "handle": "yashcoder07",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745917110,
+  "maxRating": 1572,
+  "organization": "IITBHU",
+  "rating": 1553
+},
+{
+  "_id": {
+    "$oid": "6811027dbb069a690cdbab43"
+  },
+  "handle": "the-caped-crusader",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745937343,
+  "maxRating": 1009,
+  "organization": "IITROORKEE",
+  "rating": 977
+},
+{
+  "_id": {
+    "$oid": "6811027ebb069a690cdbab44"
+  },
+  "handle": "Levi0p",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745892914,
+  "maxRating": 1190,
+  "organization": "BITSPILANI",
+  "rating": 1185
+},
+{
+  "_id": {
+    "$oid": "6811027ebb069a690cdbab45"
+  },
+  "handle": "Chirag_Bhutra",
+  "college": "IITJODHPUR",
+  "lastOnlineTimeSeconds": 1745860165,
+  "maxRating": 1035,
+  "organization": "IITJODHPUR",
+  "rating": 1035
+},
+{
+  "_id": {
+    "$oid": "6811027fbb069a690cdbab46"
+  },
+  "handle": "sahil_beck",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745890755,
+  "maxRating": 1655,
+  "organization": "IITDELHI",
+  "rating": 1528
+},
+{
+  "_id": {
+    "$oid": "68110280bb069a690cdbab47"
+  },
+  "handle": "brv1760hanu",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745933272,
+  "maxRating": 1142,
+  "organization": "IITINDORE",
+  "rating": 1110
+},
+{
+  "_id": {
+    "$oid": "68110280bb069a690cdbab48"
+  },
+  "handle": "soumil_10",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745921615,
+  "maxRating": 1323,
+  "organization": "IITKHARAGPUR",
+  "rating": 1217
+},
+{
+  "_id": {
+    "$oid": "68110280bb069a690cdbab49"
+  },
+  "handle": "JJstar",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745942136,
+  "maxRating": 1620,
+  "organization": "IITDHANBAD",
+  "rating": 1609
+},
+{
+  "_id": {
+    "$oid": "68110281bb069a690cdbab4a"
+  },
+  "handle": "-puneet-",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745940076,
+  "maxRating": 1504,
+  "organization": "IITDHANBAD",
+  "rating": 1483
+},
+{
+  "_id": {
+    "$oid": "68110281bb069a690cdbab4b"
+  },
+  "handle": "Honoured_1",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745930317,
+  "maxRating": 975,
+  "organization": "IITDELHI",
+  "rating": 908
+},
+{
+  "_id": {
+    "$oid": "68110282bb069a690cdbab4c"
+  },
+  "handle": "smarth.sood.bme22",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745862635,
+  "maxRating": 1171,
+  "organization": "IITBHU",
+  "rating": 1104
+},
+{
+  "_id": {
+    "$oid": "68110282bb069a690cdbab4d"
+  },
+  "handle": "Swayam5800",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745891613,
+  "maxRating": 1496,
+  "organization": "IITDHANBAD",
+  "rating": 1433
+},
+{
+  "_id": {
+    "$oid": "68110283bb069a690cdbab4e"
+  },
+  "handle": "shreyk",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745903642,
+  "maxRating": 1650,
+  "organization": "IITROORKEE",
+  "rating": 1392
+},
+{
+  "_id": {
+    "$oid": "68110284bb069a690cdbab4f"
+  },
+  "handle": "swayx113",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745936457,
+  "maxRating": 1382,
+  "organization": "BITSPILANI",
+  "rating": 1382
+},
+{
+  "_id": {
+    "$oid": "68110284bb069a690cdbab50"
+  },
+  "handle": "siic",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745859925,
+  "maxRating": 1691,
+  "organization": "IITMANDI",
+  "rating": 1512
+},
+{
+  "_id": {
+    "$oid": "68110285bb069a690cdbab51"
+  },
+  "handle": "Hell",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745859882,
+  "maxRating": 1696,
+  "organization": "IITROORKEE",
+  "rating": 1696
+},
+{
+  "_id": {
+    "$oid": "68110285bb069a690cdbab52"
+  },
+  "handle": "bubli.brahma",
+  "college": "IITBILAI",
+  "lastOnlineTimeSeconds": 1745766258,
+  "maxRating": 1669,
+  "organization": "IITBILAI",
+  "rating": 1669
+},
+{
+  "_id": {
+    "$oid": "68110286bb069a690cdbab53"
+  },
+  "handle": "shubhxtech",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745906603,
+  "maxRating": 1494,
+  "organization": "IITMANDI",
+  "rating": 1360
+},
+{
+  "_id": {
+    "$oid": "68110286bb069a690cdbab54"
+  },
+  "handle": "ayushman11",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745913463,
+  "maxRating": 1287,
+  "organization": "IITBOMBAY",
+  "rating": 1287
+},
+{
+  "_id": {
+    "$oid": "68110286bb069a690cdbab55"
+  },
+  "handle": "Proachtavish",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745874696,
+  "maxRating": 1429,
+  "organization": "IITBHU",
+  "rating": 1303
+},
+{
+  "_id": {
+    "$oid": "68110287bb069a690cdbab56"
+  },
+  "handle": "yoyo0869",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745937348,
+  "maxRating": 1656,
+  "organization": "IITPATNA",
+  "rating": 1628
+},
+{
+  "_id": {
+    "$oid": "68110287bb069a690cdbab57"
+  },
+  "handle": "rohitrjn",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745892747,
+  "maxRating": 1673,
+  "organization": "IITKANPUR",
+  "rating": 1395
+},
+{
+  "_id": {
+    "$oid": "68110288bb069a690cdbab58"
+  },
+  "handle": "1223abbd",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745865667,
+  "maxRating": 1528,
+  "organization": "IITMANDI",
+  "rating": 1391
+},
+{
+  "_id": {
+    "$oid": "68110288bb069a690cdbab59"
+  },
+  "handle": "BitManipulated",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745937558,
+  "maxRating": 1416,
+  "organization": "IITBHU",
+  "rating": 1265
+},
+{
+  "_id": {
+    "$oid": "68110289bb069a690cdbab5a"
+  },
+  "handle": "sksusha8853",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745869405,
+  "maxRating": 2092,
+  "organization": "IITINDORE",
+  "rating": 1840
+},
+{
+  "_id": {
+    "$oid": "68110289bb069a690cdbab5b"
+  },
+  "handle": "23CS02002",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745898552,
+  "maxRating": 1365,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 1293
+},
+{
+  "_id": {
+    "$oid": "6811028abb069a690cdbab5c"
+  },
+  "handle": "pulkit_k26",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745924388,
+  "maxRating": 1350,
+  "organization": "IITDELHI",
+  "rating": 1292
+},
+{
+  "_id": {
+    "$oid": "6811028abb069a690cdbab5d"
+  },
+  "handle": "Suyash_711",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745924684,
+  "maxRating": 1406,
+  "organization": "IITDELHI",
+  "rating": 1390
+},
+{
+  "_id": {
+    "$oid": "6811028abb069a690cdbab5e"
+  },
+  "handle": "Prateek_Agarwal",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745936389,
+  "maxRating": 1572,
+  "organization": "BITSPILANI",
+  "rating": 1559
+},
+{
+  "_id": {
+    "$oid": "6811028bbb069a690cdbab5f"
+  },
+  "handle": "guptaatharva_0120",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745854924,
+  "maxRating": 1694,
+  "organization": "IITROORKEE",
+  "rating": 1694
+},
+{
+  "_id": {
+    "$oid": "6811028bbb069a690cdbab60"
+  },
+  "handle": "Ryan22oct",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745896497,
+  "maxRating": 1588,
+  "organization": "IITGUWAHATI",
+  "rating": 1559
+},
+{
+  "_id": {
+    "$oid": "6811028cbb069a690cdbab61"
+  },
+  "handle": "realaditya_24",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745934875,
+  "maxRating": 1124,
+  "organization": "IITROORKEE",
+  "rating": 1124
+},
+{
+  "_id": {
+    "$oid": "6811028cbb069a690cdbab62"
+  },
+  "handle": "somplz",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745930365,
+  "maxRating": 1541,
+  "organization": "IITDHANBAD",
+  "rating": 1173
+},
+{
+  "_id": {
+    "$oid": "6811028dbb069a690cdbab63"
+  },
+  "handle": "Aditya987",
+  "college": "IITROPAR",
+  "lastOnlineTimeSeconds": 1745942445,
+  "maxRating": 1188,
+  "organization": "IITROPAR",
+  "rating": 1113
+},
+{
+  "_id": {
+    "$oid": "6811028dbb069a690cdbab64"
+  },
+  "handle": "yatharthsinghal1",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745883840,
+  "maxRating": 2205,
+  "organization": "IITDELHI",
+  "rating": 2071
+},
+{
+  "_id": {
+    "$oid": "6811028dbb069a690cdbab65"
+  },
+  "handle": "horniniqa",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745904515,
+  "maxRating": 1050,
+  "organization": "IITHYDERABAD",
+  "rating": 1050
+},
+{
+  "_id": {
+    "$oid": "6811028ebb069a690cdbab66"
+  },
+  "handle": "The_Parzival",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745910916,
+  "maxRating": 1151,
+  "organization": "IITINDORE",
+  "rating": 1135
+},
+{
+  "_id": {
+    "$oid": "6811028fbb069a690cdbab67"
+  },
+  "handle": "slprtkS_1",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745934868,
+  "maxRating": 1004,
+  "organization": "IITBHU",
+  "rating": 1004
+},
+{
+  "_id": {
+    "$oid": "6811028fbb069a690cdbab68"
+  },
+  "handle": "jharwal_ji",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745930950,
+  "maxRating": 1635,
+  "organization": "IITDELHI",
+  "rating": 1635
+},
+{
+  "_id": {
+    "$oid": "6811028fbb069a690cdbab69"
+  },
+  "handle": "grivann",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745864763,
+  "maxRating": 1275,
+  "organization": "IITROORKEE",
+  "rating": 1265
+},
+{
+  "_id": {
+    "$oid": "68110290bb069a690cdbab6a"
+  },
+  "handle": "alpha_6124",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745938475,
+  "maxRating": 1850,
+  "organization": "IITGUWAHATI",
+  "rating": 1607
+},
+{
+  "_id": {
+    "$oid": "68110290bb069a690cdbab6b"
+  },
+  "handle": "lakshay_7_garg",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745927538,
+  "maxRating": 1371,
+  "organization": "IITMANDI",
+  "rating": 1306
+},
+{
+  "_id": {
+    "$oid": "68110291bb069a690cdbab6c"
+  },
+  "handle": "Samarth123",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745922853,
+  "maxRating": 1609,
+  "organization": "IITROORKEE",
+  "rating": 1609
+},
+{
+  "_id": {
+    "$oid": "68110291bb069a690cdbab6d"
+  },
+  "handle": "apoorvtandon81",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745910796,
+  "maxRating": 1775,
+  "organization": "IITINDORE",
+  "rating": 1695
+},
+{
+  "_id": {
+    "$oid": "68110292bb069a690cdbab6e"
+  },
+  "handle": "Pps_4998",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745878033,
+  "maxRating": 1345,
+  "organization": "IITBHU",
+  "rating": 1298
+},
+{
+  "_id": {
+    "$oid": "68110292bb069a690cdbab6f"
+  },
+  "handle": "rahul_iitkgp",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745932972,
+  "maxRating": 1571,
+  "organization": "IITKHARAGPUR",
+  "rating": 1530
+},
+{
+  "_id": {
+    "$oid": "68110293bb069a690cdbab70"
+  },
+  "handle": "AdityaDSingh",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745942086,
+  "maxRating": 1695,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 1377
+},
+{
+  "_id": {
+    "$oid": "68110293bb069a690cdbab71"
+  },
+  "handle": "Hawkstar",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745937346,
+  "maxRating": 1396,
+  "organization": "BITSPILANI",
+  "rating": 1396
+},
+{
+  "_id": {
+    "$oid": "68110294bb069a690cdbab72"
+  },
+  "handle": "DustOfSnow",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745937524,
+  "maxRating": 1895,
+  "organization": "IITBOMBAY",
+  "rating": 1786
+},
+{
+  "_id": {
+    "$oid": "68110294bb069a690cdbab73"
+  },
+  "handle": "sayanpal2707",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745928290,
+  "maxRating": 1304,
+  "organization": "IITGUWAHATI",
+  "rating": 1221
+},
+{
+  "_id": {
+    "$oid": "68110294bb069a690cdbab74"
+  },
+  "handle": "Link6384",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745941552,
+  "maxRating": 1399,
+  "organization": "IITROORKEE",
+  "rating": 1237
+},
+{
+  "_id": {
+    "$oid": "68110295bb069a690cdbab75"
+  },
+  "handle": "kryoton_98",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745892980,
+  "maxRating": 1487,
+  "organization": "IITKHARAGPUR",
+  "rating": 1458
+},
+{
+  "_id": {
+    "$oid": "68110295bb069a690cdbab76"
+  },
+  "handle": "nit_inn",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745900496,
+  "maxRating": 1355,
+  "organization": "IITROORKEE",
+  "rating": 1355
+},
+{
+  "_id": {
+    "$oid": "68110296bb069a690cdbab77"
+  },
+  "handle": "aaradhy__001",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745864300,
+  "maxRating": 1608,
+  "organization": "IITDHANBAD",
+  "rating": 1558
+},
+{
+  "_id": {
+    "$oid": "68110296bb069a690cdbab78"
+  },
+  "handle": "shaikh_4355",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745919591,
+  "maxRating": 1082,
+  "organization": "IITKHARAGPUR",
+  "rating": 1055
+},
+{
+  "_id": {
+    "$oid": "68110297bb069a690cdbab79"
+  },
+  "handle": "haveOlogntime",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745931184,
+  "maxRating": 1917,
+  "organization": "IITKANPUR",
+  "rating": 1848
+},
+{
+  "_id": {
+    "$oid": "68110297bb069a690cdbab7a"
+  },
+  "handle": "summertime.sadness",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745862280,
+  "maxRating": 1939,
+  "organization": "IITBHU",
+  "rating": 1876
+},
+{
+  "_id": {
+    "$oid": "68110298bb069a690cdbab7b"
+  },
+  "handle": "not_insync",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745934205,
+  "maxRating": 1800,
+  "organization": "IITKANPUR",
+  "rating": 1768
+},
+{
+  "_id": {
+    "$oid": "68110298bb069a690cdbab7c"
+  },
+  "handle": "KiRa_X",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745929715,
+  "maxRating": 1434,
+  "organization": "IITKANPUR",
+  "rating": 1434
+},
+{
+  "_id": {
+    "$oid": "68110299bb069a690cdbab7d"
+  },
+  "handle": "Pranad",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745915477,
+  "maxRating": 1514,
+  "organization": "IITROORKEE",
+  "rating": 1451
+},
+{
+  "_id": {
+    "$oid": "68110299bb069a690cdbab7e"
+  },
+  "handle": "anonymuspj",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745935453,
+  "maxRating": 1763,
+  "organization": "IITKHARAGPUR",
+  "rating": 1602
+},
+{
+  "_id": {
+    "$oid": "6811029abb069a690cdbab7f"
+  },
+  "handle": "arnav_gupta",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745730729,
+  "maxRating": 1488,
+  "organization": "BITSPILANI",
+  "rating": 1425
+},
+{
+  "_id": {
+    "$oid": "6811029abb069a690cdbab80"
+  },
+  "handle": "cksquare",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745902598,
+  "maxRating": 1834,
+  "organization": "IITINDORE",
+  "rating": 1834
+},
+{
+  "_id": {
+    "$oid": "6811029bbb069a690cdbab81"
+  },
+  "handle": "saikari2420",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745915826,
+  "maxRating": 1442,
+  "organization": "IITINDORE",
+  "rating": 1399
+},
+{
+  "_id": {
+    "$oid": "6811029bbb069a690cdbab82"
+  },
+  "handle": "nirbhaykck",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745911962,
+  "maxRating": 1038,
+  "organization": "IITKANPUR",
+  "rating": 1038
+},
+{
+  "_id": {
+    "$oid": "6811029cbb069a690cdbab83"
+  },
+  "handle": "BayernForce",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745871189,
+  "maxRating": 1623,
+  "organization": "IITKHARAGPUR",
+  "rating": 1493
+},
+{
+  "_id": {
+    "$oid": "6811029dbb069a690cdbab84"
+  },
+  "handle": "Yash_2310",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745930202,
+  "maxRating": 1682,
+  "organization": "IITROORKEE",
+  "rating": 1520
+},
+{
+  "_id": {
+    "$oid": "6811029dbb069a690cdbab85"
+  },
+  "handle": "ritam1234",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745868662,
+  "maxRating": 1452,
+  "organization": "IITKHARAGPUR",
+  "rating": 1425
+},
+{
+  "_id": {
+    "$oid": "6811029dbb069a690cdbab86"
+  },
+  "handle": "JagguBandar",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745919947,
+  "maxRating": 2290,
+  "organization": "IITDELHI",
+  "rating": 2230
+},
+{
+  "_id": {
+    "$oid": "6811029ebb069a690cdbab87"
+  },
+  "handle": "VanshRA",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745857477,
+  "maxRating": 2189,
+  "organization": "IITKHARAGPUR",
+  "rating": 1935
+},
+{
+  "_id": {
+    "$oid": "6811029ebb069a690cdbab88"
+  },
+  "handle": "RohitYuvaraJJadekar",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745864443,
+  "maxRating": 1456,
+  "organization": "IITDELHI",
+  "rating": 1351
+},
+{
+  "_id": {
+    "$oid": "6811029fbb069a690cdbab89"
+  },
+  "handle": "ram.bhakt",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745944254,
+  "maxRating": 1835,
+  "organization": "IITDELHI",
+  "rating": 1722
+},
+{
+  "_id": {
+    "$oid": "6811029fbb069a690cdbab8a"
+  },
+  "handle": "Bytevortex",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745851196,
+  "maxRating": 1033,
+  "organization": "BITSPILANI",
+  "rating": 980
+},
+{
+  "_id": {
+    "$oid": "681102a0bb069a690cdbab8b"
+  },
+  "handle": "Prady",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745939761,
+  "maxRating": 2032,
+  "organization": "IITROORKEE",
+  "rating": 1924
+},
+{
+  "_id": {
+    "$oid": "681102a0bb069a690cdbab8c"
+  },
+  "handle": "satvikmittal638",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745857267,
+  "maxRating": 1286,
+  "organization": "IITKANPUR",
+  "rating": 1236
+},
+{
+  "_id": {
+    "$oid": "681102a1bb069a690cdbab8d"
+  },
+  "handle": "itishagarwal",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745664759,
+  "maxRating": 1880,
+  "organization": "IITKHARAGPUR",
+  "rating": 1158
+},
+{
+  "_id": {
+    "$oid": "681102a1bb069a690cdbab8e"
+  },
+  "handle": "bighn3xhh",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745712114,
+  "maxRating": 1607,
+  "organization": "IITROORKEE",
+  "rating": 1607
+},
+{
+  "_id": {
+    "$oid": "681102a1bb069a690cdbab8f"
+  },
+  "handle": "Rishi_677",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745917635,
+  "maxRating": 1509,
+  "organization": "IITROORKEE",
+  "rating": 1504
+},
+{
+  "_id": {
+    "$oid": "681102a2bb069a690cdbab90"
+  },
+  "handle": "tamtu_comder",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745867589,
+  "maxRating": 1750,
+  "organization": "BITSPILANI",
+  "rating": 1750
+},
+{
+  "_id": {
+    "$oid": "681102a2bb069a690cdbab91"
+  },
+  "handle": "kalpesh05",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745939674,
+  "maxRating": 1045,
+  "organization": "BITSPILANI",
+  "rating": 1045
+},
+{
+  "_id": {
+    "$oid": "681102a3bb069a690cdbab92"
+  },
+  "handle": "Bits_to_Bytes",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745843314,
+  "maxRating": 1628,
+  "organization": "IITBHU",
+  "rating": 1385
+},
+{
+  "_id": {
+    "$oid": "681102a3bb069a690cdbab93"
+  },
+  "handle": "kingmessi",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745708954,
+  "maxRating": 2319,
+  "organization": "IITBHU",
+  "rating": 2187
+},
+{
+  "_id": {
+    "$oid": "681102a4bb069a690cdbab94"
+  },
+  "handle": "Utsav_21",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745870027,
+  "maxRating": 1427,
+  "organization": "IITMANDI",
+  "rating": 1392
+},
+{
+  "_id": {
+    "$oid": "681102a4bb069a690cdbab95"
+  },
+  "handle": "ShreyGupta1060",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745932006,
+  "maxRating": 1656,
+  "organization": "IITMANDI",
+  "rating": 1564
+},
+{
+  "_id": {
+    "$oid": "681102a5bb069a690cdbab96"
+  },
+  "handle": "sidat",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745911913,
+  "maxRating": 2215,
+  "organization": "BITSPILANI",
+  "rating": 2090
+},
+{
+  "_id": {
+    "$oid": "681102a5bb069a690cdbab97"
+  },
+  "handle": "sahilbansal17",
+  "college": "IITJAMMU",
+  "lastOnlineTimeSeconds": 1745938633,
+  "maxRating": 1759,
+  "organization": "IITJAMMU",
+  "rating": 1339
+},
+{
+  "_id": {
+    "$oid": "681102a6bb069a690cdbab98"
+  },
+  "handle": "devendraa_18_",
+  "college": "IITROPAR",
+  "lastOnlineTimeSeconds": 1745940206,
+  "maxRating": 1336,
+  "organization": "IITROPAR",
+  "rating": 1256
+},
+{
+  "_id": {
+    "$oid": "681102a6bb069a690cdbab99"
+  },
+  "handle": "swarup19",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745919048,
+  "maxRating": 1614,
+  "organization": "BITSPILANI",
+  "rating": 1378
+},
+{
+  "_id": {
+    "$oid": "681102a7bb069a690cdbab9a"
+  },
+  "handle": "Redemption2025",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745888788,
+  "maxRating": 1191,
+  "organization": "IITPATNA",
+  "rating": 1129
+},
+{
+  "_id": {
+    "$oid": "681102a7bb069a690cdbab9b"
+  },
+  "handle": "KushalBijarniya",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745870071,
+  "maxRating": 1719,
+  "organization": "IITMANDI",
+  "rating": 1666
+},
+{
+  "_id": {
+    "$oid": "681102a8bb069a690cdbab9c"
+  },
+  "handle": "KaSo06",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745919513,
+  "maxRating": 1712,
+  "organization": "IITROORKEE",
+  "rating": 1712
+},
+{
+  "_id": {
+    "$oid": "681102a8bb069a690cdbab9d"
+  },
+  "handle": "anuraganand2046",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745862342,
+  "maxRating": 1681,
+  "organization": "IITDHANBAD",
+  "rating": 1503
+},
+{
+  "_id": {
+    "$oid": "681102a8bb069a690cdbab9e"
+  },
+  "handle": "__Anshul__",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745864847,
+  "maxRating": 1452,
+  "organization": "IITBHU",
+  "rating": 1429
+},
+{
+  "_id": {
+    "$oid": "681102a9bb069a690cdbab9f"
+  },
+  "handle": "NullMeowference",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745933339,
+  "maxRating": 1778,
+  "organization": "IITDELHI",
+  "rating": 1662
+},
+{
+  "_id": {
+    "$oid": "681102aabb069a690cdbaba0"
+  },
+  "handle": "Maxima",
+  "college": "IITMADRAS",
+  "lastOnlineTimeSeconds": 1745936780,
+  "maxRating": 1595,
+  "organization": "IITMADRAS",
+  "rating": 1536
+},
+{
+  "_id": {
+    "$oid": "681102acbb069a690cdbaba1"
+  },
+  "handle": "HarshitMathur",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745871879,
+  "maxRating": 1328,
+  "organization": "IITDHANBAD",
+  "rating": 1328
+},
+{
+  "_id": {
+    "$oid": "681102acbb069a690cdbaba2"
+  },
+  "handle": "codack_mayank",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745929573,
+  "maxRating": 1876,
+  "organization": "IITKANPUR",
+  "rating": 1824
+},
+{
+  "_id": {
+    "$oid": "681102adbb069a690cdbaba3"
+  },
+  "handle": "akm19117012",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745910095,
+  "maxRating": 1111,
+  "organization": "IITROORKEE",
+  "rating": 989
+},
+{
+  "_id": {
+    "$oid": "681102adbb069a690cdbaba4"
+  },
+  "handle": "gora2501",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745934352,
+  "maxRating": 1289,
+  "organization": "IITGUWAHATI",
+  "rating": 1279
+},
+{
+  "_id": {
+    "$oid": "681102aebb069a690cdbaba5"
+  },
+  "handle": "Parth_3406",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745858356,
+  "maxRating": 1565,
+  "organization": "IITROORKEE",
+  "rating": 1325
+},
+{
+  "_id": {
+    "$oid": "681102aebb069a690cdbaba6"
+  },
+  "handle": "NotFound",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745935761,
+  "maxRating": 1820,
+  "organization": "IITBHU",
+  "rating": 1702
+},
+{
+  "_id": {
+    "$oid": "681102aebb069a690cdbaba7"
+  },
+  "handle": "sandeeprajkanna",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745936164,
+  "maxRating": 1736,
+  "organization": "IITKHARAGPUR",
+  "rating": 1541
+},
+{
+  "_id": {
+    "$oid": "681102afbb069a690cdbaba8"
+  },
+  "handle": "anuraj_27",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745945116,
+  "maxRating": 1571,
+  "organization": "IITKANPUR",
+  "rating": 1445
+},
+{
+  "_id": {
+    "$oid": "681102afbb069a690cdbaba9"
+  },
+  "handle": "Ruthvik2835",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745934729,
+  "maxRating": 2014,
+  "organization": "IITINDORE",
+  "rating": 1961
+},
+{
+  "_id": {
+    "$oid": "681102b0bb069a690cdbabaa"
+  },
+  "handle": "DJ_theCODER",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745924521,
+  "maxRating": 1110,
+  "organization": "IITKHARAGPUR",
+  "rating": 1095
+},
+{
+  "_id": {
+    "$oid": "681102b1bb069a690cdbabab"
+  },
+  "handle": "Lucifer_30",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745908949,
+  "maxRating": 1714,
+  "organization": "IITPATNA",
+  "rating": 1576
+},
+{
+  "_id": {
+    "$oid": "681102b1bb069a690cdbabac"
+  },
+  "handle": "vedantjain29",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745943504,
+  "maxRating": 2008,
+  "organization": "IITINDORE",
+  "rating": 1891
+},
+{
+  "_id": {
+    "$oid": "681102b1bb069a690cdbabad"
+  },
+  "handle": "hawk851",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745931884,
+  "maxRating": 1573,
+  "organization": "IITDHANBAD",
+  "rating": 1573
+},
+{
+  "_id": {
+    "$oid": "681102b2bb069a690cdbabae"
+  },
+  "handle": "ambrollins619",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745922222,
+  "maxRating": 1727,
+  "organization": "IITPATNA",
+  "rating": 1724
+},
+{
+  "_id": {
+    "$oid": "681102b2bb069a690cdbabaf"
+  },
+  "handle": "Grey_Matter",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745929062,
+  "maxRating": 2022,
+  "organization": "IITDHANBAD",
+  "rating": 1525
+},
+{
+  "_id": {
+    "$oid": "681102b3bb069a690cdbabb0"
+  },
+  "handle": "Senku",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745940651,
+  "maxRating": 1762,
+  "organization": "IITGUWAHATI",
+  "rating": 1659
+},
+{
+  "_id": {
+    "$oid": "681102b3bb069a690cdbabb1"
+  },
+  "handle": "ayush_345",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745858107,
+  "maxRating": 1562,
+  "organization": "IITBHU",
+  "rating": 1311
+},
+{
+  "_id": {
+    "$oid": "681102b4bb069a690cdbabb2"
+  },
+  "handle": "shriyakhare",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745852974,
+  "maxRating": 948,
+  "organization": "IITDELHI",
+  "rating": 623
+},
+{
+  "_id": {
+    "$oid": "681102b4bb069a690cdbabb3"
+  },
+  "handle": "abhiap2004",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745936783,
+  "maxRating": 1683,
+  "organization": "IITINDORE",
+  "rating": 1585
+},
+{
+  "_id": {
+    "$oid": "681102b5bb069a690cdbabb4"
+  },
+  "handle": "Mankirat_Singh",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745791511,
+  "maxRating": 1651,
+  "organization": "IITROORKEE",
+  "rating": 1646
+},
+{
+  "_id": {
+    "$oid": "681102b5bb069a690cdbabb5"
+  },
+  "handle": "friedel",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745937627,
+  "maxRating": 2095,
+  "organization": "IITROORKEE",
+  "rating": 1960
+},
+{
+  "_id": {
+    "$oid": "681102b5bb069a690cdbabb6"
+  },
+  "handle": "Mayank_kumar1710",
+  "college": "IITROPAR",
+  "lastOnlineTimeSeconds": 1745907035,
+  "maxRating": 1171,
+  "organization": "IITROPAR",
+  "rating": 1157
+},
+{
+  "_id": {
+    "$oid": "681102b6bb069a690cdbabb7"
+  },
+  "handle": "chinoscode",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745935904,
+  "maxRating": 1246,
+  "organization": "IITBOMBAY",
+  "rating": 1232
+},
+{
+  "_id": {
+    "$oid": "681102b6bb069a690cdbabb8"
+  },
+  "handle": "vaibhavseksaria",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745931575,
+  "maxRating": 1435,
+  "organization": "IITGUWAHATI",
+  "rating": 1314
+},
+{
+  "_id": {
+    "$oid": "681102b7bb069a690cdbabb9"
+  },
+  "handle": "WarriorFTW",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745925823,
+  "maxRating": 1230,
+  "organization": "IITINDORE",
+  "rating": 1222
+},
+{
+  "_id": {
+    "$oid": "681102b7bb069a690cdbabba"
+  },
+  "handle": "Warrior_G",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745940245,
+  "maxRating": 1779,
+  "organization": "IITROORKEE",
+  "rating": 1501
+},
+{
+  "_id": {
+    "$oid": "681102b8bb069a690cdbabbb"
+  },
+  "handle": "Amoghshyper",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745860463,
+  "maxRating": 1313,
+  "organization": "BITSPILANI",
+  "rating": 1294
+},
+{
+  "_id": {
+    "$oid": "681102b8bb069a690cdbabbc"
+  },
+  "handle": "udit12",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745931567,
+  "maxRating": 1161,
+  "organization": "IITROORKEE",
+  "rating": 1119
+},
+{
+  "_id": {
+    "$oid": "681102b9bb069a690cdbabbd"
+  },
+  "handle": "Parth2412",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745933025,
+  "maxRating": 1434,
+  "organization": "IITKANPUR",
+  "rating": 1434
+},
+{
+  "_id": {
+    "$oid": "681102b9bb069a690cdbabbe"
+  },
+  "handle": "arnavra3",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745930471,
+  "maxRating": 1980,
+  "organization": "IITPATNA",
+  "rating": 1730
+},
+{
+  "_id": {
+    "$oid": "681102babb069a690cdbabbf"
+  },
+  "handle": "SAI_03",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745752934,
+  "maxRating": 1573,
+  "organization": "IITPATNA",
+  "rating": 1397
+},
+{
+  "_id": {
+    "$oid": "681102babb069a690cdbabc0"
+  },
+  "handle": "PresentLogic",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745944841,
+  "maxRating": 1624,
+  "organization": "IITBHU",
+  "rating": 1624
+},
+{
+  "_id": {
+    "$oid": "681102bbbb069a690cdbabc1"
+  },
+  "handle": "nishchal_318",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745932140,
+  "maxRating": 1153,
+  "organization": "IITDHANBAD",
+  "rating": 1098
+},
+{
+  "_id": {
+    "$oid": "681102bbbb069a690cdbabc2"
+  },
+  "handle": "raj.shaibya",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745902863,
+  "maxRating": 1161,
+  "organization": "IITKHARAGPUR",
+  "rating": 1155
+},
+{
+  "_id": {
+    "$oid": "681102bcbb069a690cdbabc3"
+  },
+  "handle": "Daksh_Mor",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745863977,
+  "maxRating": 1419,
+  "organization": "IITDHANBAD",
+  "rating": 1338
+},
+{
+  "_id": {
+    "$oid": "681102bcbb069a690cdbabc4"
+  },
+  "handle": "sanskar1309",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745937463,
+  "maxRating": 1305,
+  "organization": "IITROORKEE",
+  "rating": 1257
+},
+{
+  "_id": {
+    "$oid": "681102bdbb069a690cdbabc5"
+  },
+  "handle": "astitva19",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745876242,
+  "maxRating": 1463,
+  "organization": "BITSPILANI",
+  "rating": 1462
+},
+{
+  "_id": {
+    "$oid": "681102bdbb069a690cdbabc6"
+  },
+  "handle": "aayush_001",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745936292,
+  "maxRating": 1584,
+  "organization": "IITDHANBAD",
+  "rating": 1584
+},
+{
+  "_id": {
+    "$oid": "681102bdbb069a690cdbabc7"
+  },
+  "handle": "thunderaadi",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745924940,
+  "maxRating": 942,
+  "organization": "IITPATNA",
+  "rating": 737
+},
+{
+  "_id": {
+    "$oid": "681102bebb069a690cdbabc8"
+  },
+  "handle": "dheereshagrwal",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745870447,
+  "maxRating": 1676,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 1556
+},
+{
+  "_id": {
+    "$oid": "681102bebb069a690cdbabc9"
+  },
+  "handle": "AdityaDey_006",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745756034,
+  "maxRating": 1087,
+  "organization": "IITDHANBAD",
+  "rating": 1087
+},
+{
+  "_id": {
+    "$oid": "681102bfbb069a690cdbabca"
+  },
+  "handle": "kaika_999",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745920141,
+  "maxRating": 1396,
+  "organization": "IITGUWAHATI",
+  "rating": 1297
+},
+{
+  "_id": {
+    "$oid": "681102bfbb069a690cdbabcb"
+  },
+  "handle": "Chirag_Gupta5",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745934690,
+  "maxRating": 1312,
+  "organization": "BITSPILANI",
+  "rating": 1140
+},
+{
+  "_id": {
+    "$oid": "681102c0bb069a690cdbabcc"
+  },
+  "handle": "__SchrodingersCat__",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745903077,
+  "maxRating": 1657,
+  "organization": "IITBHU",
+  "rating": 1354
+},
+{
+  "_id": {
+    "$oid": "681102c0bb069a690cdbabcd"
+  },
+  "handle": "Dhir16",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745918195,
+  "maxRating": 1188,
+  "organization": "BITSPILANI",
+  "rating": 1155
+},
+{
+  "_id": {
+    "$oid": "681102c0bb069a690cdbabce"
+  },
+  "handle": "orenji",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745923679,
+  "maxRating": 1793,
+  "organization": "IITINDORE",
+  "rating": 1510
+},
+{
+  "_id": {
+    "$oid": "681102c1bb069a690cdbabcf"
+  },
+  "handle": "husain2088",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745892749,
+  "maxRating": 1710,
+  "organization": "IITBOMBAY",
+  "rating": 1653
+},
+{
+  "_id": {
+    "$oid": "681102c1bb069a690cdbabd0"
+  },
+  "handle": "YogeshZT",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745890361,
+  "maxRating": 1276,
+  "organization": "IITDELHI",
+  "rating": 1276
+},
+{
+  "_id": {
+    "$oid": "681102c2bb069a690cdbabd1"
+  },
+  "handle": "aadityarajK1",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745857778,
+  "maxRating": 947,
+  "organization": "IITKHARAGPUR",
+  "rating": 872
+},
+{
+  "_id": {
+    "$oid": "681102c2bb069a690cdbabd2"
+  },
+  "handle": "Siddarth_MSR",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745908565,
+  "maxRating": 1843,
+  "organization": "IITHYDERABAD",
+  "rating": 1772
+},
+{
+  "_id": {
+    "$oid": "681102c3bb069a690cdbabd3"
+  },
+  "handle": "m_arush",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745872743,
+  "maxRating": 1869,
+  "organization": "IITGUWAHATI",
+  "rating": 1869
+},
+{
+  "_id": {
+    "$oid": "681102c4bb069a690cdbabd4"
+  },
+  "handle": "msvardhan19",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745911886,
+  "maxRating": 1765,
+  "organization": "IITHYDERABAD",
+  "rating": 1676
+},
+{
+  "_id": {
+    "$oid": "681102c4bb069a690cdbabd5"
+  },
+  "handle": "vivekananda1001",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745926035,
+  "maxRating": 1598,
+  "organization": "IITPATNA",
+  "rating": 1565
+},
+{
+  "_id": {
+    "$oid": "681102c4bb069a690cdbabd6"
+  },
+  "handle": "lakshya004",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745891093,
+  "maxRating": 1161,
+  "organization": "IITGUWAHATI",
+  "rating": 1069
+},
+{
+  "_id": {
+    "$oid": "681102c5bb069a690cdbabd7"
+  },
+  "handle": "Pritam_19",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745913174,
+  "maxRating": 1767,
+  "organization": "IITKHARAGPUR",
+  "rating": 1681
+},
+{
+  "_id": {
+    "$oid": "681102c5bb069a690cdbabd8"
+  },
+  "handle": "aarav_singh",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745935652,
+  "maxRating": 1111,
+  "organization": "IITROORKEE",
+  "rating": 1091
+},
+{
+  "_id": {
+    "$oid": "681102c6bb069a690cdbabd9"
+  },
+  "handle": "nawab_kh_an",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745870514,
+  "maxRating": 936,
+  "organization": "IITROORKEE",
+  "rating": 925
+},
+{
+  "_id": {
+    "$oid": "681102c6bb069a690cdbabda"
+  },
+  "handle": "Arisudan",
+  "college": "IITBILAI",
+  "lastOnlineTimeSeconds": 1745892582,
+  "maxRating": 1123,
+  "organization": "IITBILAI",
+  "rating": 1012
+},
+{
+  "_id": {
+    "$oid": "681102c7bb069a690cdbabdb"
+  },
+  "handle": "twistedumar",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745934918,
+  "maxRating": 1866,
+  "organization": "IITROORKEE",
+  "rating": 1837
+},
+{
+  "_id": {
+    "$oid": "681102c7bb069a690cdbabdc"
+  },
+  "handle": "Taha_adeel",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745892438,
+  "maxRating": 1854,
+  "organization": "IITHYDERABAD",
+  "rating": 1733
+},
+{
+  "_id": {
+    "$oid": "681102c7bb069a690cdbabdd"
+  },
+  "handle": "wefail",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745874846,
+  "maxRating": 1737,
+  "organization": "IITINDORE",
+  "rating": 1519
+},
+{
+  "_id": {
+    "$oid": "681102c8bb069a690cdbabde"
+  },
+  "handle": "Codemaster06",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745924836,
+  "maxRating": 1110,
+  "organization": "IITDELHI",
+  "rating": 1104
+},
+{
+  "_id": {
+    "$oid": "681102c8bb069a690cdbabdf"
+  },
+  "handle": "BinaryHunter_21",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745885265,
+  "maxRating": 1190,
+  "organization": "IITDELHI",
+  "rating": 1147
+},
+{
+  "_id": {
+    "$oid": "681102c9bb069a690cdbabe0"
+  },
+  "handle": "kumaraman6012",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745934571,
+  "maxRating": 1011,
+  "organization": "IITMANDI",
+  "rating": 1011
+},
+{
+  "_id": {
+    "$oid": "681102c9bb069a690cdbabe1"
+  },
+  "handle": "Sam_2027",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745881688,
+  "maxRating": 2001,
+  "organization": "IITBOMBAY",
+  "rating": 2001
+},
+{
+  "_id": {
+    "$oid": "681102cabb069a690cdbabe2"
+  },
+  "handle": "HSangwaiya",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745819336,
+  "maxRating": 1563,
+  "organization": "IITDELHI",
+  "rating": 1537
+},
+{
+  "_id": {
+    "$oid": "681102cabb069a690cdbabe3"
+  },
+  "handle": "sarathchandrakvl07",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745860229,
+  "maxRating": 1239,
+  "organization": "IITINDORE",
+  "rating": 1217
+},
+{
+  "_id": {
+    "$oid": "681102cbbb069a690cdbabe4"
+  },
+  "handle": "quater_nion",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745867046,
+  "maxRating": 1519,
+  "organization": "IITDHANBAD",
+  "rating": 1421
+},
+{
+  "_id": {
+    "$oid": "681102cbbb069a690cdbabe5"
+  },
+  "handle": "Slamix",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745932256,
+  "maxRating": 1626,
+  "organization": "IITPATNA",
+  "rating": 1608
+},
+{
+  "_id": {
+    "$oid": "681102ccbb069a690cdbabe6"
+  },
+  "handle": "utkarshsahu123",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745919914,
+  "maxRating": 1163,
+  "organization": "IITMANDI",
+  "rating": 1133
+},
+{
+  "_id": {
+    "$oid": "681102ccbb069a690cdbabe7"
+  },
+  "handle": "meenal__s",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745918667,
+  "maxRating": 775,
+  "organization": "IITBHU",
+  "rating": 775
+},
+{
+  "_id": {
+    "$oid": "681102ccbb069a690cdbabe8"
+  },
+  "handle": "BodaciousLord007",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745871313,
+  "maxRating": 1735,
+  "organization": "IITKHARAGPUR",
+  "rating": 1708
+},
+{
+  "_id": {
+    "$oid": "681102cdbb069a690cdbabe9"
+  },
+  "handle": "lucky__389",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745909298,
+  "maxRating": 2139,
+  "organization": "IITDELHI",
+  "rating": 1874
+},
+{
+  "_id": {
+    "$oid": "681102cdbb069a690cdbabea"
+  },
+  "handle": "vedant-k",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745921993,
+  "maxRating": 1514,
+  "organization": "IITBHU",
+  "rating": 1288
+},
+{
+  "_id": {
+    "$oid": "681102cebb069a690cdbabeb"
+  },
+  "handle": "dazai05",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745870076,
+  "maxRating": 1285,
+  "organization": "IITGUWAHATI",
+  "rating": 1188
+},
+{
+  "_id": {
+    "$oid": "681102cebb069a690cdbabec"
+  },
+  "handle": "Suvrat6",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745939861,
+  "maxRating": 1968,
+  "organization": "IITROORKEE",
+  "rating": 1951
+},
+{
+  "_id": {
+    "$oid": "681102cfbb069a690cdbabed"
+  },
+  "handle": "benkyochuu",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745919457,
+  "maxRating": 1252,
+  "organization": "IITMANDI",
+  "rating": 1173
+},
+{
+  "_id": {
+    "$oid": "681102cfbb069a690cdbabee"
+  },
+  "handle": "Afflatun",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745791040,
+  "maxRating": 1657,
+  "organization": "IITROORKEE",
+  "rating": 1611
+},
+{
+  "_id": {
+    "$oid": "681102d0bb069a690cdbabef"
+  },
+  "handle": "PRKM",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745869874,
+  "maxRating": 1181,
+  "organization": "IITROORKEE",
+  "rating": 1164
+},
+{
+  "_id": {
+    "$oid": "681102d0bb069a690cdbabf0"
+  },
+  "handle": "dpsvoyager.16",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745935261,
+  "maxRating": 1743,
+  "organization": "IITDELHI",
+  "rating": 1743
+},
+{
+  "_id": {
+    "$oid": "681102d1bb069a690cdbabf1"
+  },
+  "handle": "Praneeth018",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745921719,
+  "maxRating": 1291,
+  "organization": "IITHYDERABAD",
+  "rating": 1282
+},
+{
+  "_id": {
+    "$oid": "681102d1bb069a690cdbabf2"
+  },
+  "handle": "aftab_AFZAL",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745875632,
+  "maxRating": 1498,
+  "organization": "BITSPILANI",
+  "rating": 1412
+},
+{
+  "_id": {
+    "$oid": "681102d2bb069a690cdbabf3"
+  },
+  "handle": "aastik231205",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745908057,
+  "maxRating": 2136,
+  "organization": "IITROORKEE",
+  "rating": 2069
+},
+{
+  "_id": {
+    "$oid": "681102d2bb069a690cdbabf4"
+  },
+  "handle": "itisdevansh",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745688762,
+  "maxRating": 1732,
+  "organization": "IITGUWAHATI",
+  "rating": 1676
+},
+{
+  "_id": {
+    "$oid": "681102d2bb069a690cdbabf5"
+  },
+  "handle": "satyam343",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745892479,
+  "maxRating": 2400,
+  "organization": "IITKANPUR",
+  "rating": 2121
+},
+{
+  "_id": {
+    "$oid": "681102d3bb069a690cdbabf6"
+  },
+  "handle": "blackDread27",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745935824,
+  "maxRating": 1674,
+  "organization": "IITBHU",
+  "rating": 1674
+},
+{
+  "_id": {
+    "$oid": "681102d3bb069a690cdbabf7"
+  },
+  "handle": "sanchit30",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745932015,
+  "maxRating": 1394,
+  "organization": "IITGUWAHATI",
+  "rating": 1385
+},
+{
+  "_id": {
+    "$oid": "681102d4bb069a690cdbabf8"
+  },
+  "handle": "LogNMaster",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745916372,
+  "maxRating": 1440,
+  "organization": "IITBHU",
+  "rating": 1347
+},
+{
+  "_id": {
+    "$oid": "681102d4bb069a690cdbabf9"
+  },
+  "handle": "potatoninja22",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745874195,
+  "maxRating": 1385,
+  "organization": "IITDELHI",
+  "rating": 1377
+},
+{
+  "_id": {
+    "$oid": "681102d5bb069a690cdbabfa"
+  },
+  "handle": "MayankBhakat",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745935388,
+  "maxRating": 1824,
+  "organization": "IITGUWAHATI",
+  "rating": 1583
+},
+{
+  "_id": {
+    "$oid": "681102d6bb069a690cdbabfb"
+  },
+  "handle": "rohan_965",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745885539,
+  "maxRating": 1100,
+  "organization": "BITSPILANI",
+  "rating": 1100
+},
+{
+  "_id": {
+    "$oid": "681102d6bb069a690cdbabfc"
+  },
+  "handle": "animeshr098",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745932651,
+  "maxRating": 1223,
+  "organization": "IITKHARAGPUR",
+  "rating": 1223
+},
+{
+  "_id": {
+    "$oid": "681102d6bb069a690cdbabfd"
+  },
+  "handle": "me23b109",
+  "college": "IITMADRAS",
+  "lastOnlineTimeSeconds": 1745656631,
+  "maxRating": 1198,
+  "organization": "IITMADRAS",
+  "rating": 1198
+},
+{
+  "_id": {
+    "$oid": "681102d7bb069a690cdbabfe"
+  },
+  "handle": "jat.arc2004",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745937593,
+  "maxRating": 1944,
+  "organization": "IITPATNA",
+  "rating": 1851
+},
+{
+  "_id": {
+    "$oid": "681102d7bb069a690cdbabff"
+  },
+  "handle": "Utkarsh.iitkgp",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745932252,
+  "maxRating": 1499,
+  "organization": "IITKHARAGPUR",
+  "rating": 1464
+},
+{
+  "_id": {
+    "$oid": "681102d8bb069a690cdbac00"
+  },
+  "handle": "Sohiro",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745900484,
+  "maxRating": 951,
+  "organization": "IITROORKEE",
+  "rating": 951
+},
+{
+  "_id": {
+    "$oid": "681102d8bb069a690cdbac01"
+  },
+  "handle": "Gaurav_KG",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745905989,
+  "maxRating": 1607,
+  "organization": "IITPATNA",
+  "rating": 1607
+},
+{
+  "_id": {
+    "$oid": "681102d9bb069a690cdbac02"
+  },
+  "handle": "Mehku",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745923869,
+  "maxRating": 1006,
+  "organization": "IITMANDI",
+  "rating": 1002
+},
+{
+  "_id": {
+    "$oid": "681102d9bb069a690cdbac03"
+  },
+  "handle": "shashwat1511",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745919688,
+  "maxRating": 1628,
+  "organization": "IITGUWAHATI",
+  "rating": 1610
+},
+{
+  "_id": {
+    "$oid": "681102d9bb069a690cdbac04"
+  },
+  "handle": "code_ninja_7711",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745921862,
+  "maxRating": 1606,
+  "organization": "IITBOMBAY",
+  "rating": 1606
+},
+{
+  "_id": {
+    "$oid": "681102dabb069a690cdbac05"
+  },
+  "handle": "ajaybir_iitp28",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745944417,
+  "maxRating": 1285,
+  "organization": "IITPATNA",
+  "rating": 1285
+},
+{
+  "_id": {
+    "$oid": "681102dabb069a690cdbac06"
+  },
+  "handle": "CodingNinja007",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745914753,
+  "maxRating": 1296,
+  "organization": "IITDELHI",
+  "rating": 1194
+},
+{
+  "_id": {
+    "$oid": "681102dbbb069a690cdbac07"
+  },
+  "handle": "singhkamran084",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745905533,
+  "maxRating": 1667,
+  "organization": "IITROORKEE",
+  "rating": 1667
+},
+{
+  "_id": {
+    "$oid": "681102dbbb069a690cdbac08"
+  },
+  "handle": "snap",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745937362,
+  "maxRating": 1624,
+  "organization": "IITROORKEE",
+  "rating": 1624
+},
+{
+  "_id": {
+    "$oid": "681102dcbb069a690cdbac09"
+  },
+  "handle": "rsingh2003",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745887667,
+  "maxRating": 1482,
+  "organization": "IITBHU",
+  "rating": 1463
+},
+{
+  "_id": {
+    "$oid": "681102dcbb069a690cdbac0a"
+  },
+  "handle": "_aditya_b",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745892641,
+  "maxRating": 2052,
+  "organization": "IITBOMBAY",
+  "rating": 1899
+},
+{
+  "_id": {
+    "$oid": "681102ddbb069a690cdbac0b"
+  },
+  "handle": "aditya_5240",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745936863,
+  "maxRating": 1228,
+  "organization": "IITDHANBAD",
+  "rating": 1197
+},
+{
+  "_id": {
+    "$oid": "681102ddbb069a690cdbac0c"
+  },
+  "handle": "sakshamag23",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745876920,
+  "maxRating": 1546,
+  "organization": "IITKANPUR",
+  "rating": 1514
+},
+{
+  "_id": {
+    "$oid": "681102ddbb069a690cdbac0d"
+  },
+  "handle": "Rahulkr_620",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745852879,
+  "maxRating": 1481,
+  "organization": "IITGUWAHATI",
+  "rating": 1432
+},
+{
+  "_id": {
+    "$oid": "681102debb069a690cdbac0e"
+  },
+  "handle": "G_Ayan7",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745857927,
+  "maxRating": 1836,
+  "organization": "IITGUWAHATI",
+  "rating": 1567
+},
+{
+  "_id": {
+    "$oid": "681102debb069a690cdbac0f"
+  },
+  "handle": "shubham_07",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745929182,
+  "maxRating": 1533,
+  "organization": "IITKHARAGPUR",
+  "rating": 1436
+},
+{
+  "_id": {
+    "$oid": "681102dfbb069a690cdbac10"
+  },
+  "handle": "KalraJi",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745921934,
+  "maxRating": 1633,
+  "organization": "IITROORKEE",
+  "rating": 1633
+},
+{
+  "_id": {
+    "$oid": "681102dfbb069a690cdbac11"
+  },
+  "handle": "Sudhanshu6",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745909250,
+  "maxRating": 419,
+  "organization": "BITSPILANI",
+  "rating": 419
+},
+{
+  "_id": {
+    "$oid": "681102e0bb069a690cdbac12"
+  },
+  "handle": "shashantjindal",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745787948,
+  "maxRating": 1075,
+  "organization": "IITBOMBAY",
+  "rating": 1075
+},
+{
+  "_id": {
+    "$oid": "681102e0bb069a690cdbac13"
+  },
+  "handle": "Legend_Infinity",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745936009,
+  "maxRating": 1256,
+  "organization": "IITINDORE",
+  "rating": 1221
+},
+{
+  "_id": {
+    "$oid": "681102e1bb069a690cdbac14"
+  },
+  "handle": "Moonfr4ction",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745930024,
+  "maxRating": 1554,
+  "organization": "IITKHARAGPUR",
+  "rating": 1358
+},
+{
+  "_id": {
+    "$oid": "681102e1bb069a690cdbac15"
+  },
+  "handle": "Pew_Pew.",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745915460,
+  "maxRating": 1967,
+  "organization": "IITPATNA",
+  "rating": 1749
+},
+{
+  "_id": {
+    "$oid": "681102e2bb069a690cdbac16"
+  },
+  "handle": "Aryan_Jaiswal28",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745903908,
+  "maxRating": 1703,
+  "organization": "IITINDORE",
+  "rating": 1672
+},
+{
+  "_id": {
+    "$oid": "681102e2bb069a690cdbac17"
+  },
+  "handle": "XORcist1136",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745913852,
+  "maxRating": 1230,
+  "organization": "IITMANDI",
+  "rating": 1223
+},
+{
+  "_id": {
+    "$oid": "681102e2bb069a690cdbac18"
+  },
+  "handle": "Naman_Agarwal_03",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745872994,
+  "maxRating": 1963,
+  "organization": "BITSPILANI",
+  "rating": 1918
+},
+{
+  "_id": {
+    "$oid": "681102e3bb069a690cdbac19"
+  },
+  "handle": "Forge",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745942488,
+  "maxRating": 1812,
+  "organization": "IITROORKEE",
+  "rating": 1782
+},
+{
+  "_id": {
+    "$oid": "681102e3bb069a690cdbac1a"
+  },
+  "handle": "hc101",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745942100,
+  "maxRating": 1967,
+  "organization": "IITROORKEE",
+  "rating": 1678
+},
+{
+  "_id": {
+    "$oid": "681102e4bb069a690cdbac1b"
+  },
+  "handle": "tcs.codes",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745866588,
+  "maxRating": 1177,
+  "organization": "BITSPILANI",
+  "rating": 981
+},
+{
+  "_id": {
+    "$oid": "681102e4bb069a690cdbac1c"
+  },
+  "handle": "21cs01033",
+  "college": "IITBHUBANESHWAR",
+  "lastOnlineTimeSeconds": 1745945215,
+  "maxRating": 2224,
+  "organization": "IITBHUBANESHWAR",
+  "rating": 2048
+},
+{
+  "_id": {
+    "$oid": "681102e5bb069a690cdbac1d"
+  },
+  "handle": "evilbaker",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745892851,
+  "maxRating": 1441,
+  "organization": "IITBHU",
+  "rating": 1398
+},
+{
+  "_id": {
+    "$oid": "681102e5bb069a690cdbac1e"
+  },
+  "handle": "Terminator-7",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745859003,
+  "maxRating": 987,
+  "organization": "IITKHARAGPUR",
+  "rating": 982
+},
+{
+  "_id": {
+    "$oid": "681102e6bb069a690cdbac1f"
+  },
+  "handle": "ShreyHehe",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745892444,
+  "maxRating": 1802,
+  "organization": "IITGUWAHATI",
+  "rating": 1787
+},
+{
+  "_id": {
+    "$oid": "681102e6bb069a690cdbac20"
+  },
+  "handle": "sury666",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745676259,
+  "maxRating": 1534,
+  "organization": "IITKANPUR",
+  "rating": 1483
+},
+{
+  "_id": {
+    "$oid": "681102e7bb069a690cdbac21"
+  },
+  "handle": "COdERBRO69",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745941133,
+  "maxRating": 1314,
+  "organization": "IITHYDERABAD",
+  "rating": 1294
+},
+{
+  "_id": {
+    "$oid": "681102e7bb069a690cdbac22"
+  },
+  "handle": "shantanugupta2907",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745944585,
+  "maxRating": 1395,
+  "organization": "BITSPILANI",
+  "rating": 1277
+},
+{
+  "_id": {
+    "$oid": "681102e8bb069a690cdbac23"
+  },
+  "handle": "_Kartik_Pal",
+  "college": "IITROPAR",
+  "lastOnlineTimeSeconds": 1745937658,
+  "maxRating": 1098,
+  "organization": "IITROPAR",
+  "rating": 1062
+},
+{
+  "_id": {
+    "$oid": "681102e8bb069a690cdbac24"
+  },
+  "handle": "MiHarsh",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745739642,
+  "maxRating": 1146,
+  "organization": "IITDHANBAD",
+  "rating": 1036
+},
+{
+  "_id": {
+    "$oid": "681102e9bb069a690cdbac25"
+  },
+  "handle": "Anuj344",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745870418,
+  "maxRating": 1420,
+  "organization": "IITDHANBAD",
+  "rating": 1335
+},
+{
+  "_id": {
+    "$oid": "681102e9bb069a690cdbac26"
+  },
+  "handle": "Bitcoder3690",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745856002,
+  "maxRating": 784,
+  "organization": "IITGUWAHATI",
+  "rating": 760
+},
+{
+  "_id": {
+    "$oid": "681102eabb069a690cdbac27"
+  },
+  "handle": "sashakt1290",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745858052,
+  "maxRating": 1289,
+  "organization": "BITSPILANI",
+  "rating": 1249
+},
+{
+  "_id": {
+    "$oid": "681102eabb069a690cdbac28"
+  },
+  "handle": "devansh1356",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745930399,
+  "maxRating": 1635,
+  "organization": "IITGUWAHATI",
+  "rating": 1401
+},
+{
+  "_id": {
+    "$oid": "681102ebbb069a690cdbac29"
+  },
+  "handle": "RizzGod",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745944327,
+  "maxRating": 1842,
+  "organization": "IITDHANBAD",
+  "rating": 1757
+},
+{
+  "_id": {
+    "$oid": "681102ecbb069a690cdbac2a"
+  },
+  "handle": "Golgawitch",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745932428,
+  "maxRating": 1341,
+  "organization": "IITPATNA",
+  "rating": 1290
+},
+{
+  "_id": {
+    "$oid": "681102ecbb069a690cdbac2b"
+  },
+  "handle": "yeetholmes619",
+  "college": "IITJODHPUR",
+  "lastOnlineTimeSeconds": 1745923296,
+  "maxRating": 1894,
+  "organization": "IITJODHPUR",
+  "rating": 1628
+},
+{
+  "_id": {
+    "$oid": "681102edbb069a690cdbac2c"
+  },
+  "handle": "envariant",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745915241,
+  "maxRating": 2079,
+  "organization": "IITHYDERABAD",
+  "rating": 1972
+},
+{
+  "_id": {
+    "$oid": "681102edbb069a690cdbac2d"
+  },
+  "handle": "JB_GOAT",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745934218,
+  "maxRating": 958,
+  "organization": "IITMANDI",
+  "rating": 866
+},
+{
+  "_id": {
+    "$oid": "681102eebb069a690cdbac2e"
+  },
+  "handle": ".-O_O-.",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745892852,
+  "maxRating": 2133,
+  "organization": "IITGUWAHATI",
+  "rating": 2131
+},
+{
+  "_id": {
+    "$oid": "681102efbb069a690cdbac2f"
+  },
+  "handle": "Bhumishka",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745877615,
+  "maxRating": 1256,
+  "organization": "IITBHU",
+  "rating": 1242
+},
+{
+  "_id": {
+    "$oid": "681102efbb069a690cdbac30"
+  },
+  "handle": "AryRDW",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745861966,
+  "maxRating": 2226,
+  "organization": "IITKANPUR",
+  "rating": 2103
+},
+{
+  "_id": {
+    "$oid": "681102efbb069a690cdbac31"
+  },
+  "handle": "yellow_13",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745932304,
+  "maxRating": 1954,
+  "organization": "IITKANPUR",
+  "rating": 1779
+},
+{
+  "_id": {
+    "$oid": "681102f0bb069a690cdbac32"
+  },
+  "handle": "bhoomi_11",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745851636,
+  "maxRating": 1015,
+  "organization": "IITMANDI",
+  "rating": 1015
+},
+{
+  "_id": {
+    "$oid": "681102f0bb069a690cdbac33"
+  },
+  "handle": "moonlitt",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745703497,
+  "maxRating": 1596,
+  "organization": "IITBOMBAY",
+  "rating": 1527
+},
+{
+  "_id": {
+    "$oid": "681102f1bb069a690cdbac34"
+  },
+  "handle": "Noooooooob_coder",
+  "college": "IITMANDI",
+  "lastOnlineTimeSeconds": 1745889385,
+  "maxRating": 1984,
+  "organization": "IITMANDI",
+  "rating": 1812
+},
+{
+  "_id": {
+    "$oid": "681102f1bb069a690cdbac35"
+  },
+  "handle": "SuuvannAroraa",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745932014,
+  "maxRating": 1671,
+  "organization": "IITKANPUR",
+  "rating": 1671
+},
+{
+  "_id": {
+    "$oid": "681102f2bb069a690cdbac36"
+  },
+  "handle": "111theclasher",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745903237,
+  "maxRating": 1348,
+  "organization": "IITROORKEE",
+  "rating": 1348
+},
+{
+  "_id": {
+    "$oid": "681102f2bb069a690cdbac37"
+  },
+  "handle": "aizen_sosuke_",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745657142,
+  "maxRating": 1857,
+  "organization": "IITBHU",
+  "rating": 1598
+},
+{
+  "_id": {
+    "$oid": "681102f2bb069a690cdbac38"
+  },
+  "handle": "Entity069",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745934907,
+  "maxRating": 1996,
+  "organization": "IITROORKEE",
+  "rating": 1996
+},
+{
+  "_id": {
+    "$oid": "681102f3bb069a690cdbac39"
+  },
+  "handle": "Code04Unique",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745892772,
+  "maxRating": 1429,
+  "organization": "IITPATNA",
+  "rating": 1211
+},
+{
+  "_id": {
+    "$oid": "681102f3bb069a690cdbac3a"
+  },
+  "handle": "Kumar_Abhay",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745937806,
+  "maxRating": 1492,
+  "organization": "IITKHARAGPUR",
+  "rating": 1451
+},
+{
+  "_id": {
+    "$oid": "681102f4bb069a690cdbac3b"
+  },
+  "handle": "Vikranth77",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745938332,
+  "maxRating": 1188,
+  "organization": "IITBHU",
+  "rating": 1188
+},
+{
+  "_id": {
+    "$oid": "681102f4bb069a690cdbac3c"
+  },
+  "handle": "wasim_394",
+  "college": "IITJODHPUR",
+  "lastOnlineTimeSeconds": 1745920811,
+  "maxRating": 1624,
+  "organization": "IITJODHPUR",
+  "rating": 1430
+},
+{
+  "_id": {
+    "$oid": "681102f5bb069a690cdbac3d"
+  },
+  "handle": "Mrgreenapple24",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745945326,
+  "maxRating": 1207,
+  "organization": "BITSPILANI",
+  "rating": 1165
+},
+{
+  "_id": {
+    "$oid": "681102f5bb069a690cdbac3e"
+  },
+  "handle": "CODE__INFINITY",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745899780,
+  "maxRating": 1898,
+  "organization": "IITGUWAHATI",
+  "rating": 1741
+},
+{
+  "_id": {
+    "$oid": "681102f6bb069a690cdbac3f"
+  },
+  "handle": "parekh",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745865806,
+  "maxRating": 1437,
+  "organization": "BITSPILANI",
+  "rating": 1403
+},
+{
+  "_id": {
+    "$oid": "681102f6bb069a690cdbac40"
+  },
+  "handle": "demoralizer",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745942575,
+  "maxRating": 2560,
+  "organization": "IITBHU",
+  "rating": 2352
+},
+{
+  "_id": {
+    "$oid": "681102f6bb069a690cdbac41"
+  },
+  "handle": "Crick26",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745881269,
+  "maxRating": 1605,
+  "organization": "BITSPILANI",
+  "rating": 1537
+},
+{
+  "_id": {
+    "$oid": "681102f7bb069a690cdbac42"
+  },
+  "handle": "Nishsethi",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745871750,
+  "maxRating": 1209,
+  "organization": "IITDHANBAD",
+  "rating": 1133
+},
+{
+  "_id": {
+    "$oid": "681102f8bb069a690cdbac43"
+  },
+  "handle": "w3bml",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745901247,
+  "maxRating": 1257,
+  "organization": "BITSPILANI",
+  "rating": 1203
+},
+{
+  "_id": {
+    "$oid": "681102f8bb069a690cdbac44"
+  },
+  "handle": "adatiitg",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745927870,
+  "maxRating": 1146,
+  "organization": "IITGUWAHATI",
+  "rating": 1146
+},
+{
+  "_id": {
+    "$oid": "681102f8bb069a690cdbac45"
+  },
+  "handle": "aerojpeg",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745943379,
+  "maxRating": 1666,
+  "organization": "IITBOMBAY",
+  "rating": 1666
+},
+{
+  "_id": {
+    "$oid": "681102f9bb069a690cdbac46"
+  },
+  "handle": "hackerr22",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745911817,
+  "maxRating": 1409,
+  "organization": "IITBOMBAY",
+  "rating": 1409
+},
+{
+  "_id": {
+    "$oid": "681102f9bb069a690cdbac47"
+  },
+  "handle": "_elite84",
+  "college": "IITMADRAS",
+  "lastOnlineTimeSeconds": 1745929393,
+  "maxRating": 1116,
+  "organization": "IITMADRAS",
+  "rating": 1075
+},
+{
+  "_id": {
+    "$oid": "681102fabb069a690cdbac48"
+  },
+  "handle": "davidvivek",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745939686,
+  "maxRating": 1064,
+  "organization": "IITDHANBAD",
+  "rating": 1039
+},
+{
+  "_id": {
+    "$oid": "681102fabb069a690cdbac49"
+  },
+  "handle": "shreyashgirdharidhakate",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745928709,
+  "maxRating": 1041,
+  "organization": "IITKHARAGPUR",
+  "rating": 1018
+},
+{
+  "_id": {
+    "$oid": "681102fbbb069a690cdbac4a"
+  },
+  "handle": "Devve",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745931336,
+  "maxRating": 1493,
+  "organization": "IITBHU",
+  "rating": 1442
+},
+{
+  "_id": {
+    "$oid": "681102fbbb069a690cdbac4b"
+  },
+  "handle": "Vikash117223",
+  "college": "IITROPAR",
+  "lastOnlineTimeSeconds": 1745924939,
+  "maxRating": 1240,
+  "organization": "IITROPAR",
+  "rating": 1240
+},
+{
+  "_id": {
+    "$oid": "681102fcbb069a690cdbac4c"
+  },
+  "handle": "TH3YW3",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745865851,
+  "maxRating": 1728,
+  "organization": "IITROORKEE",
+  "rating": 1446
+},
+{
+  "_id": {
+    "$oid": "681102fcbb069a690cdbac4d"
+  },
+  "handle": "praveen_sr1",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745938974,
+  "maxRating": 1517,
+  "organization": "IITROORKEE",
+  "rating": 1517
+},
+{
+  "_id": {
+    "$oid": "681102fcbb069a690cdbac4e"
+  },
+  "handle": "L_thelostone",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745944801,
+  "maxRating": 1500,
+  "organization": "IITDELHI",
+  "rating": 1341
+},
+{
+  "_id": {
+    "$oid": "681102fdbb069a690cdbac4f"
+  },
+  "handle": "MSCharan14",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745896118,
+  "maxRating": 1332,
+  "organization": "IITBHU",
+  "rating": 1229
+},
+{
+  "_id": {
+    "$oid": "681102fdbb069a690cdbac50"
+  },
+  "handle": "sabbi_coder",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745899771,
+  "maxRating": 1391,
+  "organization": "BITSPILANI",
+  "rating": 1211
+},
+{
+  "_id": {
+    "$oid": "681102febb069a690cdbac51"
+  },
+  "handle": "AkshatJ23",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745858123,
+  "maxRating": 1273,
+  "organization": "IITKHARAGPUR",
+  "rating": 1273
+},
+{
+  "_id": {
+    "$oid": "681102febb069a690cdbac52"
+  },
+  "handle": "ReverseFlash081",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745934563,
+  "maxRating": 1884,
+  "organization": "IITKANPUR",
+  "rating": 1884
+},
+{
+  "_id": {
+    "$oid": "681102febb069a690cdbac53"
+  },
+  "handle": "HowSoOrz",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745861108,
+  "maxRating": 1630,
+  "organization": "IITGUWAHATI",
+  "rating": 1373
+},
+{
+  "_id": {
+    "$oid": "681102ffbb069a690cdbac54"
+  },
+  "handle": "shekhawat_g",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745870155,
+  "maxRating": 1502,
+  "organization": "IITROORKEE",
+  "rating": 1475
+},
+{
+  "_id": {
+    "$oid": "681102ffbb069a690cdbac55"
+  },
+  "handle": "TomaHawk04",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745929803,
+  "maxRating": 1639,
+  "organization": "IITROORKEE",
+  "rating": 1635
+},
+{
+  "_id": {
+    "$oid": "68110300bb069a690cdbac56"
+  },
+  "handle": "ImaginedTime",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745881531,
+  "maxRating": 1477,
+  "organization": "IITKHARAGPUR",
+  "rating": 1477
+},
+{
+  "_id": {
+    "$oid": "68110300bb069a690cdbac57"
+  },
+  "handle": "Ridham.",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745923146,
+  "maxRating": 2013,
+  "organization": "IITROORKEE",
+  "rating": 1838
+},
+{
+  "_id": {
+    "$oid": "68110301bb069a690cdbac58"
+  },
+  "handle": "shashantsah",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745875028,
+  "maxRating": 1333,
+  "organization": "IITINDORE",
+  "rating": 1306
+},
+{
+  "_id": {
+    "$oid": "68110301bb069a690cdbac59"
+  },
+  "handle": "sanchit1053",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745889752,
+  "maxRating": 1858,
+  "organization": "IITBOMBAY",
+  "rating": 1560
+},
+{
+  "_id": {
+    "$oid": "68110302bb069a690cdbac5a"
+  },
+  "handle": "singharpit2492",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745943301,
+  "maxRating": 1593,
+  "organization": "IITROORKEE",
+  "rating": 1593
+},
+{
+  "_id": {
+    "$oid": "68110302bb069a690cdbac5b"
+  },
+  "handle": "badri_vishal",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745757635,
+  "maxRating": 1397,
+  "organization": "BITSPILANI",
+  "rating": 1055
+},
+{
+  "_id": {
+    "$oid": "68110303bb069a690cdbac5c"
+  },
+  "handle": "suthardikshit57",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745871400,
+  "maxRating": 1200,
+  "organization": "IITINDORE",
+  "rating": 1172
+},
+{
+  "_id": {
+    "$oid": "68110303bb069a690cdbac5d"
+  },
+  "handle": "Nandeesh.Bhatrai",
+  "college": "IITGOA",
+  "lastOnlineTimeSeconds": 1745921747,
+  "maxRating": 1681,
+  "organization": "IITGOA",
+  "rating": 1597
+},
+{
+  "_id": {
+    "$oid": "68110303bb069a690cdbac5e"
+  },
+  "handle": "Dikshith_200",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745937571,
+  "maxRating": 1187,
+  "organization": "IITBHU",
+  "rating": 1183
+},
+{
+  "_id": {
+    "$oid": "68110304bb069a690cdbac5f"
+  },
+  "handle": "Minatooo0",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745868385,
+  "maxRating": 1736,
+  "organization": "IITDELHI",
+  "rating": 1717
+},
+{
+  "_id": {
+    "$oid": "68110304bb069a690cdbac60"
+  },
+  "handle": "_sumit_manjhi",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745919057,
+  "maxRating": 770,
+  "organization": "IITKHARAGPUR",
+  "rating": 770
+},
+{
+  "_id": {
+    "$oid": "68110305bb069a690cdbac61"
+  },
+  "handle": "muqeeth26832",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745860117,
+  "maxRating": 1330,
+  "organization": "IITHYDERABAD",
+  "rating": 1298
+},
+{
+  "_id": {
+    "$oid": "68110305bb069a690cdbac62"
+  },
+  "handle": "goats_9",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745921180,
+  "maxRating": 2181,
+  "organization": "IITHYDERABAD",
+  "rating": 2026
+},
+{
+  "_id": {
+    "$oid": "68110306bb069a690cdbac63"
+  },
+  "handle": "Error303-CodeNotFound",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745936016,
+  "maxRating": 1503,
+  "organization": "IITROORKEE",
+  "rating": 1417
+},
+{
+  "_id": {
+    "$oid": "68110306bb069a690cdbac64"
+  },
+  "handle": "bxtch8008",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745856333,
+  "maxRating": 1334,
+  "organization": "IITDELHI",
+  "rating": 1238
+},
+{
+  "_id": {
+    "$oid": "68110306bb069a690cdbac65"
+  },
+  "handle": "Akshay2025",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745858939,
+  "maxRating": 1413,
+  "organization": "IITHYDERABAD",
+  "rating": 1302
+},
+{
+  "_id": {
+    "$oid": "68110307bb069a690cdbac66"
+  },
+  "handle": "Aaditya_Raj_iitr",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745930907,
+  "maxRating": 885,
+  "organization": "IITROORKEE",
+  "rating": 885
+},
+{
+  "_id": {
+    "$oid": "68110308bb069a690cdbac67"
+  },
+  "handle": "NamanKr",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745945299,
+  "maxRating": 1978,
+  "organization": "IITDHANBAD",
+  "rating": 1947
+},
+{
+  "_id": {
+    "$oid": "68110308bb069a690cdbac68"
+  },
+  "handle": "Darsh_Jain",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745915212,
+  "maxRating": 1885,
+  "organization": "IITROORKEE",
+  "rating": 1800
+},
+{
+  "_id": {
+    "$oid": "68110309bb069a690cdbac69"
+  },
+  "handle": "__Chirag__",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745928828,
+  "maxRating": 1630,
+  "organization": "IITBHU",
+  "rating": 1399
+},
+{
+  "_id": {
+    "$oid": "68110309bb069a690cdbac6a"
+  },
+  "handle": "dhruvpansuriya05",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745924928,
+  "maxRating": 1564,
+  "organization": "IITGUWAHATI",
+  "rating": 1534
+},
+{
+  "_id": {
+    "$oid": "68110309bb069a690cdbac6b"
+  },
+  "handle": "rishirathore214",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745902773,
+  "maxRating": 1185,
+  "organization": "IITINDORE",
+  "rating": 1184
+},
+{
+  "_id": {
+    "$oid": "6811030abb069a690cdbac6c"
+  },
+  "handle": "uttej_777",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745942157,
+  "maxRating": 1870,
+  "organization": "IITPATNA",
+  "rating": 1790
+},
+{
+  "_id": {
+    "$oid": "6811030abb069a690cdbac6d"
+  },
+  "handle": "__praveen",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745854516,
+  "maxRating": 1672,
+  "organization": "IITGUWAHATI",
+  "rating": 1672
+},
+{
+  "_id": {
+    "$oid": "6811030bbb069a690cdbac6e"
+  },
+  "handle": "Boogeyman912",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745892512,
+  "maxRating": 1463,
+  "organization": "IITBHU",
+  "rating": 1463
+},
+{
+  "_id": {
+    "$oid": "6811030bbb069a690cdbac6f"
+  },
+  "handle": "Jatin_prime",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745931752,
+  "maxRating": 1675,
+  "organization": "IITBHU",
+  "rating": 1558
+},
+{
+  "_id": {
+    "$oid": "6811030cbb069a690cdbac70"
+  },
+  "handle": "apollo07",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745928902,
+  "maxRating": 1899,
+  "organization": "IITDELHI",
+  "rating": 1899
+},
+{
+  "_id": {
+    "$oid": "6811030cbb069a690cdbac71"
+  },
+  "handle": "Apurv_M",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745940746,
+  "maxRating": 1878,
+  "organization": "IITROORKEE",
+  "rating": 1762
+},
+{
+  "_id": {
+    "$oid": "6811030dbb069a690cdbac72"
+  },
+  "handle": "ayushdreams147",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745872737,
+  "maxRating": 1808,
+  "organization": "IITROORKEE",
+  "rating": 1721
+},
+{
+  "_id": {
+    "$oid": "6811030dbb069a690cdbac73"
+  },
+  "handle": "inifnite_307",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745942820,
+  "maxRating": 1403,
+  "organization": "IITKHARAGPUR",
+  "rating": 1309
+},
+{
+  "_id": {
+    "$oid": "6811030ebb069a690cdbac74"
+  },
+  "handle": "eskimo_of_sands",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745865613,
+  "maxRating": 1049,
+  "organization": "IITROORKEE",
+  "rating": 966
+},
+{
+  "_id": {
+    "$oid": "6811030ebb069a690cdbac75"
+  },
+  "handle": "code_guitar_master",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745760639,
+  "maxRating": 1196,
+  "organization": "IITBHU",
+  "rating": 1087
+},
+{
+  "_id": {
+    "$oid": "6811030fbb069a690cdbac76"
+  },
+  "handle": "guptaprakhar_01",
+  "college": "IITDHARWAD",
+  "lastOnlineTimeSeconds": 1745925278,
+  "maxRating": 1326,
+  "organization": "IITDHARWAD",
+  "rating": 1326
+},
+{
+  "_id": {
+    "$oid": "6811030fbb069a690cdbac77"
+  },
+  "handle": "Rittin_Sehgal",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745928327,
+  "maxRating": 1938,
+  "organization": "BITSPILANI",
+  "rating": 1879
+},
+{
+  "_id": {
+    "$oid": "68110310bb069a690cdbac78"
+  },
+  "handle": "uday3421",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745926474,
+  "maxRating": 1766,
+  "organization": "IITBOMBAY",
+  "rating": 1766
+},
+{
+  "_id": {
+    "$oid": "68110310bb069a690cdbac79"
+  },
+  "handle": "arahan_673",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745892486,
+  "maxRating": 1888,
+  "organization": "IITROORKEE",
+  "rating": 1760
+},
+{
+  "_id": {
+    "$oid": "68110310bb069a690cdbac7a"
+  },
+  "handle": "Adhoc",
+  "college": "IITKHARAGPUR",
+  "lastOnlineTimeSeconds": 1745943530,
+  "maxRating": 1658,
+  "organization": "IITKHARAGPUR",
+  "rating": 1557
+},
+{
+  "_id": {
+    "$oid": "68110311bb069a690cdbac7b"
+  },
+  "handle": "ANIKET_IITB",
+  "college": "IITBOMBAY",
+  "lastOnlineTimeSeconds": 1745864510,
+  "maxRating": 1629,
+  "organization": "IITBOMBAY",
+  "rating": 1560
+},
+{
+  "_id": {
+    "$oid": "68110311bb069a690cdbac7c"
+  },
+  "handle": "DreamyDusk",
+  "college": "IITBHU",
+  "lastOnlineTimeSeconds": 1745826101,
+  "maxRating": 1372,
+  "organization": "IITBHU",
+  "rating": 1314
+},
+{
+  "_id": {
+    "$oid": "68110312bb069a690cdbac7d"
+  },
+  "handle": "Arjav_Jain",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745923440,
+  "maxRating": 1999,
+  "organization": "IITDELHI",
+  "rating": 1999
+},
+{
+  "_id": {
+    "$oid": "68110312bb069a690cdbac7e"
+  },
+  "handle": "Rakshit_1",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745932689,
+  "maxRating": 1652,
+  "organization": "IITPATNA",
+  "rating": 1561
+},
+{
+  "_id": {
+    "$oid": "68110313bb069a690cdbac7f"
+  },
+  "handle": "sai-17",
+  "college": "IITINDORE",
+  "lastOnlineTimeSeconds": 1745940115,
+  "maxRating": 2271,
+  "organization": "IITINDORE",
+  "rating": 2234
+},
+{
+  "_id": {
+    "$oid": "68110313bb069a690cdbac80"
+  },
+  "handle": "Ravi___09",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745936539,
+  "maxRating": 1382,
+  "organization": "IITROORKEE",
+  "rating": 1382
+},
+{
+  "_id": {
+    "$oid": "68110313bb069a690cdbac81"
+  },
+  "handle": "The_Dz",
+  "college": "IITGUWAHATI",
+  "lastOnlineTimeSeconds": 1745935812,
+  "maxRating": 1518,
+  "organization": "IITGUWAHATI",
+  "rating": 1518
+},
+{
+  "_id": {
+    "$oid": "68110314bb069a690cdbac82"
+  },
+  "handle": "sanchithuria",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745864858,
+  "maxRating": 1104,
+  "organization": "BITSPILANI",
+  "rating": 1103
+},
+{
+  "_id": {
+    "$oid": "68110314bb069a690cdbac83"
+  },
+  "handle": "mamunbhabtamsd77",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745888004,
+  "maxRating": 973,
+  "organization": "IITROORKEE",
+  "rating": 973
+},
+{
+  "_id": {
+    "$oid": "68110315bb069a690cdbac84"
+  },
+  "handle": "gyroooo",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745939049,
+  "maxRating": 1264,
+  "organization": "IITDELHI",
+  "rating": 1235
+},
+{
+  "_id": {
+    "$oid": "68110315bb069a690cdbac85"
+  },
+  "handle": "mohdfahad",
+  "college": "IITKANPUR",
+  "lastOnlineTimeSeconds": 1745938748,
+  "maxRating": 1664,
+  "organization": "IITKANPUR",
+  "rating": 1653
+},
+{
+  "_id": {
+    "$oid": "68110316bb069a690cdbac86"
+  },
+  "handle": "sparsh_16",
+  "college": "IITDELHI",
+  "lastOnlineTimeSeconds": 1745889049,
+  "maxRating": 2083,
+  "organization": "IITDELHI",
+  "rating": 1916
+},
+{
+  "_id": {
+    "$oid": "68110316bb069a690cdbac87"
+  },
+  "handle": "HyperBoolean",
+  "college": "IITHYDERABAD",
+  "lastOnlineTimeSeconds": 1745857943,
+  "maxRating": 1503,
+  "organization": "IITHYDERABAD",
+  "rating": 1387
+},
+{
+  "_id": {
+    "$oid": "68110317bb069a690cdbac88"
+  },
+  "handle": "fluffy_24",
+  "college": "IITDHANBAD",
+  "lastOnlineTimeSeconds": 1745858951,
+  "maxRating": 1002,
+  "organization": "IITDHANBAD",
+  "rating": 964
+},
+{
+  "_id": {
+    "$oid": "68110317bb069a690cdbac89"
+  },
+  "handle": "AK0001",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745905335,
+  "maxRating": 1548,
+  "organization": "BITSPILANI",
+  "rating": 1548
+},
+{
+  "_id": {
+    "$oid": "68110317bb069a690cdbac8a"
+  },
+  "handle": "aryankesharwani142004",
+  "college": "IITPATNA",
+  "lastOnlineTimeSeconds": 1745919219,
+  "maxRating": 1819,
+  "organization": "IITPATNA",
+  "rating": 1714
+},
+{
+  "_id": {
+    "$oid": "68110318bb069a690cdbac8b"
+  },
+  "handle": "iamaryankr",
+  "college": "IITROORKEE",
+  "lastOnlineTimeSeconds": 1745858955,
+  "maxRating": 1983,
+  "organization": "IITROORKEE",
+  "rating": 1929
+},
+{
+  "_id": {
+    "$oid": "68110318bb069a690cdbac8c"
+  },
+  "handle": "doppelganger1729",
+  "college": "BITSPILANI",
+  "lastOnlineTimeSeconds": 1745870607,
+  "maxRating": 1540,
+  "organization": "BITSPILANI",
+  "rating": 1453
+}]
