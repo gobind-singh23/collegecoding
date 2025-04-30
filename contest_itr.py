@@ -2,7 +2,7 @@ import requests
 import time
 from get_iit_guys import get_valid_participants_with_org
 from extract_div import extract_division
-from add_to_database import store_valid_participants_in_users
+from add_to_database import update_users_from_api, update_contests, update_problems_from_participants, update_tags_table
 def get_recent_contests(n=10):
     # API URL
     url = "https://codeforces.com/api/contest.list"
@@ -21,6 +21,7 @@ def get_recent_contests(n=10):
 
     # Get the most recent 'n' contests
     recent_contests = contests[:n]
+    print(f'{recent_contests} + \n')
     return recent_contests
 
 def get_participants_from_contest(contest_id):
@@ -71,15 +72,18 @@ def get_all_participants(contests):
 
 # Example usage
 if __name__ == "__main__":
-    contests = get_recent_contests(1)
+    contests = get_recent_contests(3)
+    update_contests(contests)
     all_participants = get_all_participants(contests)
     # print(f"Fetched {len(contests)} contests.")
     # print("Some example participants:", list(all_participants))
     valid_participants = get_valid_participants_with_org(all_participants)
     print(f"Total valid participants with known organizations: {len(valid_participants)}")
-    for p in valid_participants[:5]:  # Print first 10 as example
-        print(p)
-    store_valid_participants_in_users(valid_participants, db_name='collegecoding',collection_name='users')
-    for contest in contests[:5]:  # Just printing first 5 for demo
-        division = extract_division(contest['name'])
-        # print(f"Name: {contest['name']}, ID: {contest['id']}, Division: {division}")
+    # for p in valid_participants[:5]:  # Print first 10 as example
+    #     print(p)
+    # update_users_from_api(valid_participants)
+    # update_problems_from_participants(valid_participants)
+    update_tags_table(valid_participants)
+    # for contest in contests[:5]:  # Just printing first 5 for demo
+    #     division = extract_division(contest['name'])
+    #     print(f"Name: {contest['name']}, ID: {contest['id']}, Division: {division}")

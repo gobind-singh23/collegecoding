@@ -28,7 +28,7 @@ def get_valid_participants_with_org(participants):
     valid_participants = []
     participants = list(participants)
 
-    batch_size = 1000  # API allows a big number, but small batch is safer
+    batch_size = 100  # API allows a big number, but small batch is safer
     for i in range(0, len(participants), batch_size):
         batch = participants[i:i+batch_size]
         user_info_list = get_user_info(batch)

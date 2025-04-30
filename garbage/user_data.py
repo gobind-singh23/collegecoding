@@ -2,7 +2,7 @@ import requests
 import json
 
 def get_user_info(handle):
-    url = f"https://codeforces.com/api/user.status?handle={handle}&from=1&"
+    url = f"https://codeforces.com/api/user.info?handles={handle}"
     response = requests.get(url)
     # print(len(response.json()['result']['rows']))
     if response.status_code == 200:
@@ -12,7 +12,7 @@ def get_user_info(handle):
     return None
 
 if __name__ == "__main__":
-    handle = "codersingh23"
+    handle = "Kohinoor"
     info = get_user_info(handle)
     
     # if info:
