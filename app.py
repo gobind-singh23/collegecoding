@@ -1,4 +1,20 @@
 import streamlit as st
+from college_map import _canonical_map
+import os
+import json
+
+def load_all_data(data_folder="database"):
+    all_data = []
+    for filename in os.listdir(data_folder):
+        if filename.endswith(".json"):
+            with open(os.path.join(data_folder, filename), "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                    all_data.extend(data)  # or all_data.append(data) if it's a dict
+                except Exception as e:
+                    print(f"Error loading {filename}: {e}")
+    return all_data
+
 
 # Main app
 def main():
@@ -46,8 +62,8 @@ def main():
             # College filter for User vs User comparison - now multiselect
             if comparison_type == "User vs User":
                 # Mock college list - replace with actual data later
-                college_options = ["All", "MIT", "Stanford", "Harvard", "UC Berkeley", "IIT Bombay", "BITS Pilani"]
-                
+                college_options =list(_canonical_map.keys())
+                college_options.append("All")
                 selected_colleges = st.multiselect(
                     "Filter by Colleges",
                     options=college_options,
