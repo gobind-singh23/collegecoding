@@ -2,7 +2,7 @@ import streamlit as st
 from college_map import _canonical_map
 import os
 import json
-
+import pandas as pd
 def load_all_data(data_folder="database"):
     all_data = []
     for filename in os.listdir(data_folder):
@@ -181,7 +181,11 @@ def main():
                 st.subheader("User vs User Comparison")
                 if selected_colleges !=["All"]:
                     # Filter data based on selected colleges
-                    data = [user["handle"] for user in data if user.get("college") in selected_colleges]
+                    data = [user for user in data if user.get("college") in selected_colleges]
+                if(formula_option=="rating"):
+                    data=sorted(data, key=lambda u: u.get("rating", 0), reverse=True)      
+                elif(formula_option=="maxRating"):
+                    data=sorted(data, key=lambda u: u.get("maxRating", 0), reverse=True)           
                 # st.write("User comparison results will appear here after filtering")
                 # # Placeholder for demonstration
                 # st.info("Selected Filters:")
@@ -201,7 +205,8 @@ def main():
                 #     st.write(f"- Tags: {', '.join(selected_tags) if selected_tags else 'None'}")
                 #     st.write(f"- Last {last_n_contests} Contests")
                 #     st.write(f"- Div: {div_k}")
-                st.write(data)
+                df = pd.DataFrame(data)
+                st.dataframe(df)
             else:
                 st.subheader("College vs College Comparison")
                 # st.write("College comparison results will appear here after filtering")
