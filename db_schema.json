@@ -1,0 +1,235 @@
+{
+  "collections": [
+    {
+      "name": "problems",
+      "indexes": [
+        {
+          "key": {
+            "_id": 1
+          }
+        },
+        {
+          "key": {
+            "problemId": 1,
+            "organisation": 1
+          }
+        }
+      ],
+      "uniqueIndexes": [
+        {
+          "key": {
+            "problemId": 1,
+            "organisation": 1
+          }
+        }
+      ],
+      "document": {
+        "properties": {
+          "_id": {
+            "bsonType": "string"
+          },
+          "problemId": {
+            "bsonType": "string"
+          },
+          "organisation": {
+            "bsonType": "string"
+          },
+          "solves": {
+            "bsonType": "int"
+          },
+          "tag": {
+            "bsonType": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "tags",
+      "indexes": [
+        {
+          "key": {
+            "_id": 1
+          }
+        },
+        {
+          "key": {
+            "userId": 1,
+            "div": 1
+          }
+        }
+      ],
+      "uniqueIndexes": [
+        {
+          "key": {
+            "userId": 1,
+            "div": 1
+          }
+        }
+      ],
+      "document": {
+        "properties": {
+          "_id": {
+            "bsonType": "string"
+          },
+          "div": {
+            "bsonType": "string"
+          },
+          "userId": {
+            "bsonType": "string"
+          },
+          "binary_search": {
+            "bsonType": "int"
+          },
+          "brute_force": {
+            "bsonType": "int"
+          },
+          "constructive_algorithms": {
+            "bsonType": "int"
+          },
+          "data_structures": {
+            "bsonType": "int"
+          },
+          "dfs_and_similar": {
+            "bsonType": "int"
+          },
+          "dp": {
+            "bsonType": "int"
+          },
+          "greedy": {
+            "bsonType": "int"
+          },
+          "implementation": {
+            "bsonType": "int"
+          },
+          "math": {
+            "bsonType": "int"
+          },
+          "sorting": {
+            "bsonType": "int"
+          }
+        }
+      }
+    },
+    {
+      "name": "users",
+      "indexes": [
+        {
+          "key": {
+            "_id": 1
+          }
+        },
+        {
+          "key": {
+            "handle": 1
+          }
+        }
+      ],
+      "uniqueIndexes": [
+        {
+          "key": {
+            "handle": 1
+          }
+        }
+      ],
+      "document": {
+        "properties": {
+          "_id": {
+            "bsonType": "string"
+          },
+          "handle": {
+            "bsonType": "string"
+          },
+          "college": {
+            "bsonType": "string"
+          },
+          "lastOnlineTimeSeconds": {
+            "bsonType": "int"
+          },
+          "maxRating": {
+            "bsonType": "int"
+          },
+          "organization": {
+            "bsonType": "string"
+          },
+          "rating": {
+            "bsonType": "int"
+          }
+        }
+      }
+    },
+    {
+      "name": "contests",
+      "indexes": [
+        {
+          "key": {
+            "_id": 1
+          }
+        },
+        {
+          "key": {
+            "contestId": 1
+          }
+        }
+      ],
+      "uniqueIndexes": [
+        {
+          "key": {
+            "contestId": 1
+          }
+        }
+      ],
+      "document": {
+        "properties": {
+          "_id": {
+            "bsonType": "string"
+          },
+          "contestId": {
+            "bsonType": "int"
+          },
+          "div": {
+            "bsonType": "string"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "time": {
+            "bsonType": "int"
+          }
+        }
+      }
+    },
+    {
+      "name": "rating",
+      "indexes": [
+        {
+          "key": {
+            "_id": 1
+          }
+        },
+        {
+          "key": {
+            "handle": 1,
+            "contestId": 1
+          }
+        }
+      ],
+      "uniqueIndexes": [
+        {
+          "key": {
+            "handle": 1,
+            "contestId": 1
+          }
+        }
+      ],
+      "document": {
+        "properties": {}
+      }
+    }
+  ],
+  "version": 1
+}

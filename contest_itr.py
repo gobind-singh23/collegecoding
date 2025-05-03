@@ -81,8 +81,8 @@ if __name__ == "__main__":
     print(f"Total valid participants with known organizations: {len(valid_participants)}")
     # for p in valid_participants[:5]:  # Print first 10 as example
     #     print(p)
-    # update_users_from_api(valid_participants)
-    # update_problems_from_participants(valid_participants)
+    update_users_from_api(valid_participants)
+    update_problems_from_participants(valid_participants)
     update_tags_table(valid_participants)
     # for contest in contests[:5]:  # Just printing first 5 for demo
     #     division = extract_division(contest['name'])
