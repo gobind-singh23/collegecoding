@@ -19,6 +19,7 @@ def load_all_data(data_folder="database"):
 # Main app
 def main():
     # Set page configuration
+    data=load_all_data()
     st.set_page_config(
         page_title="CodeForces Analytics",
         page_icon="📊",
@@ -53,6 +54,7 @@ def main():
         filter_col, results_col = st.columns([1, 3])
         
         # Filters in the left column
+
         with filter_col:
             st.header("Filters")
             
@@ -177,50 +179,51 @@ def main():
             
             if comparison_type == "User vs User":
                 st.subheader("User vs User Comparison")
-                st.write("User comparison results will appear here after filtering")
-                
-                # Placeholder for demonstration
-                st.info("Selected Filters:")
-                st.write(f"- Colleges: {', '.join(selected_colleges)}")
-                
-                if is_crazy_selected:
-                    st.write(f"- Crazy Feature: {crazy_feature}")
+                if selected_colleges !=["All"]:
+                    # Filter data based on selected colleges
+                    data = [user["handle"] for user in data if user.get("college") in selected_colleges]
+                # st.write("User comparison results will appear here after filtering")
+                # # Placeholder for demonstration
+                # st.info("Selected Filters:")
+                # st.write(f"- Colleges: {', '.join(selected_colleges)}")
+                #  if is_crazy_selected:
+                #     st.write(f"- Crazy Feature: {crazy_feature}")
                     
-                    # Display additional parameters for crazy features
-                    if crazy_feature == "Top 10 in last N contests":
-                        st.write(f"  - Number of contests: {top_n_contests}")
-                    elif crazy_feature == "Rising stars":
-                        st.write(f"  - Time period: {time_period}")
-                    elif crazy_feature == "Tag based problem rankings":
-                        st.write(f"  - Tag for ranking: {tag_for_ranking}")
-                else:
-                    st.write(f"- Formula: {formula_option}")
-                    st.write(f"- Tags: {', '.join(selected_tags) if selected_tags else 'None'}")
-                    st.write(f"- Last {last_n_contests} Contests")
-                    st.write(f"- Div: {div_k}")
-                
+                #     # Display additional parameters for crazy features
+                #     if crazy_feature == "Top 10 in last N contests":
+                #         st.write(f"  - Number of contests: {top_n_contests}")
+                #     elif crazy_feature == "Rising stars":
+                #         st.write(f"  - Time period: {time_period}")
+                #     elif crazy_feature == "Tag based problem rankings":
+                #         st.write(f"  - Tag for ranking: {tag_for_ranking}")
+                # else:
+                #     st.write(f"- Formula: {formula_option}")
+                #     st.write(f"- Tags: {', '.join(selected_tags) if selected_tags else 'None'}")
+                #     st.write(f"- Last {last_n_contests} Contests")
+                #     st.write(f"- Div: {div_k}")
+                st.write(data)
             else:
                 st.subheader("College vs College Comparison")
-                st.write("College comparison results will appear here after filtering")
+                # st.write("College comparison results will appear here after filtering")
                 
-                # Placeholder for demonstration
-                st.info("Selected Filters:")
+                # # Placeholder for demonstration
+                # st.info("Selected Filters:")
                 
-                if is_crazy_selected:
-                    st.write(f"- Crazy Feature: {crazy_feature}")
+                # if is_crazy_selected:
+                #     st.write(f"- Crazy Feature: {crazy_feature}")
                     
-                    # Display additional parameters for crazy features
-                    if crazy_feature == "Top 10 in last N contests":
-                        st.write(f"  - Number of contests: {top_n_contests}")
-                    elif crazy_feature == "Rising stars":
-                        st.write(f"  - Time period: {time_period}")
-                    elif crazy_feature == "Tag based problem rankings":
-                        st.write(f"  - Tag for ranking: {tag_for_ranking}")
-                else:
-                    st.write(f"- Formula: {formula_option}")
-                    st.write(f"- Tags: {', '.join(selected_tags) if selected_tags else 'None'}")
-                    st.write(f"- Last {last_n_contests} Contests")
-                    st.write(f"- Div: {div_k}")
+                #     # Display additional parameters for crazy features
+                #     if crazy_feature == "Top 10 in last N contests":
+                #         st.write(f"  - Number of contests: {top_n_contests}")
+                #     elif crazy_feature == "Rising stars":
+                #         st.write(f"  - Time period: {time_period}")
+                #     elif crazy_feature == "Tag based problem rankings":
+                #         st.write(f"  - Tag for ranking: {tag_for_ranking}")
+                # else:
+                #     st.write(f"- Formula: {formula_option}")
+                #     st.write(f"- Tags: {', '.join(selected_tags) if selected_tags else 'None'}")
+                #     st.write(f"- Last {last_n_contests} Contests")
+                #     st.write(f"- Div: {div_k}")
 
 if __name__ == "__main__":
     main()
