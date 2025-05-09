@@ -47,7 +47,7 @@ def rank_users_by_selected_tags(user_data, tag_data, selected_tags):
         "greedy": "greedy",
         "implementation": "implementation",
         "math": "math",
-        "sorting": "sorting"
+        # "sorting": "sorting"
     }
     
     # Calculate tag scores for each user
@@ -169,12 +169,17 @@ def main():
                     "DFS and Similar"
                 ]
                 selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
+                st.subheader("Data Ordering")
+                data_ordering_option = st.selectbox("Data Ordering", options=["Ascending Order","Descending Order"])
+                st.subheader("Candidate Title")
+                candidate_title__option = st.selectbox("Candidate Title", options=["Newbie", "Pupil","Expert","Candidate Master","Master","International Master","Grandmaster"])
+
             else:
                 # Defaults when crazy feature is active
                 formula_option = "rating"
                 selected_tags = []
 
-            apply_filters = st.button("Apply Filters")
+            #apply_filters = st.button("Apply Filters")
 
         with results_col:
             st.header("Results")
@@ -269,7 +274,7 @@ def main():
                     df = pd.DataFrame(display_data)
                     st.dataframe(df)
                     
-                elif formula_option == "rating":
+                elif formula_option == "rating" and data_ordering_option=="Descending Order":
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=True)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
@@ -278,9 +283,29 @@ def main():
                         "Max Rating": u.get("maxRating", 0)
                     } for u in filtered_data])
                     st.dataframe(df)
+
+                elif formula_option == "rating" and data_ordering_option=="Ascending Order":
+                    filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=False)
+                    df = pd.DataFrame([{
+                        "Handle": u.get("handle", ""),
+                        "College": u.get("college", ""),
+                        "Rating": u.get("rating", 0),
+                        "Max Rating": u.get("maxRating", 0)
+                    } for u in filtered_data])
+                    st.dataframe(df)
                     
-                elif formula_option == "maxRating":
+                elif formula_option == "maxRating" and data_ordering_option=="Descending Order":
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=True)
+                    df = pd.DataFrame([{
+                        "Handle": u.get("handle", ""),
+                        "College": u.get("college", ""),
+                        "Rating": u.get("rating", 0),
+                        "Max Rating": u.get("maxRating", 0)
+                    } for u in filtered_data])
+                    st.dataframe(df)
+
+                elif formula_option == "maxRating" and data_ordering_option=="Ascending Order":
+                    filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=False)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
                         "College": u.get("college", ""),
