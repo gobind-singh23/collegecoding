@@ -47,7 +47,7 @@ def rank_users_by_selected_tags(user_data, tag_data, selected_tags):
         "greedy": "greedy",
         "implementation": "implementation",
         "math": "math",
-        "sorting": "sorting"
+        # "sorting": "sorting"
     }
     
     # Calculate tag scores for each user
@@ -181,14 +181,14 @@ def main():
                     "DFS and Similar"
                 ]
                 selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
-                st.subheader("Contest Filters")
-                div_k_options = ["Div 0", "Div 1", "Div 2", "Div 3", "Div 4"]
-                div_k = st.selectbox("Only Div K", options=div_k_options, index=0)
+                # st.subheader("Contest Filters")
+                # div_k_options = ["Div 0", "Div 1", "Div 2", "Div 3", "Div 4"]
+                # div_k = st.selectbox("Only Div K", options=div_k_options, index=0)
             else:
                 # Defaults when crazy feature is active
                 formula_option = "rating"
                 selected_tags = []
-                div_k = "Div 0"
+                div_k = ""
 
             apply_filters = st.button("Apply Filters")
 
@@ -245,7 +245,7 @@ def main():
                     for user in filtered_data:
                         user_info = {
                             "Handle": user.get("handle", ""),
-                            "Name": user.get("name", ""),
+                            #"Name": user.get("name", ""),
                             "College": user.get("college", ""),
                             "Rating": user.get("rating", 0),
                             "Max Rating": user.get("maxRating", 0),
@@ -260,15 +260,15 @@ def main():
                             user_info[f"{display_name} Problems"] = user.get(f"_{db_field}_count", 0)
                         
                         display_data.append(user_info)
-                    if div_k:
-                        filtered_data = [u for u in filtered_data if u.get("div") == div_k]
+                    # if div_k!="":
+                    #     filtered_data = [u for u in filtered_data if u.get("div") == div_k]
                     df = pd.DataFrame(display_data)
                     
                 elif formula_option == "rating":
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=True)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
-                        "Name": u.get("name", ""),
+                        #"Name": u.get("name", ""),
                         "College": u.get("college", ""),
                         "Rating": u.get("rating", 0),
                         "Max Rating": u.get("maxRating", 0)
@@ -278,7 +278,7 @@ def main():
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=True)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
-                        "Name": u.get("name", ""),
+                        #"Name": u.get("name", ""),
                         "College": u.get("college", ""),
                         "Rating": u.get("rating", 0),
                         "Max Rating": u.get("maxRating", 0)
@@ -319,8 +319,8 @@ def main():
                 
                 # Filter users by division if selected
                 filtered_users = user_data
-                if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
-                    filtered_users = [u for u in filtered_users if u.get("div") == div_k]
+                # if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
+                #     filtered_users = [u for u in filtered_users if u.get("div") == div_k]
                 
                 # Create a map from userId to tag data for faster lookup
                 tag_map = {entry.get("userId", ""): entry for entry in tag_data}
