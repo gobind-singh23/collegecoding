@@ -189,8 +189,8 @@ def main():
 
                 # Formula & other filters (hidden if a crazy feature is selected)
                 if not is_crazy_selected:
-                    st.subheader("Formula Filters")
-                    formula_option = st.selectbox("Formula", options=["rating", "maxRating"])
+                    # First show tag options since they take precedence
+                    st.subheader("Problem Tags")
                     tag_options = [
                         "Greedy", 
                         "DP", 
@@ -202,22 +202,35 @@ def main():
                         "Constructive Algorithms",
                         "DFS and Similar"
                     ]
-                    selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
-                    st.subheader("Data Ordering")
-                    data_ordering_option = st.selectbox("Data Ordering", options=["Ascending Order","Descending Order"])
-                    st.subheader("Candidate Title")
-                    candidate_title_option = st.selectbox("Candidate Title", options=["Newbie", "Pupil","Specialist","Expert","Candidate Master","Master","International Master","Grandmaster"])
+                    selected_tags = st.multiselect("Select Tags", options=tag_options, default=[])
+                    
+                    if selected_tags:
+                        st.info("When problem tags are selected, users are ranked by the number of problems solved in these categories. Other filters are not applicable.")
+                        # Set default values for other filters that won't be shown
+                        formula_option = "rating"
+                        data_ordering_option = "Descending Order"
+                        candidate_title_option = "All"  # Default value, won't be used
+                    else:
+                        # Only show these filters if no tags are selected
+                        st.subheader("Formula Filters")
+                        formula_option = st.selectbox("Formula", options=["rating", "maxRating"])
+                        st.subheader("Data Ordering")
+                        data_ordering_option = st.selectbox("Data Ordering", options=["Ascending Order","Descending Order"])
+                        st.subheader("Candidate Title")
+                        candidate_title_option = st.selectbox("Candidate Title", options=["All", "Newbie", "Pupil","Specialist","Expert","Candidate Master","Master","International Master","Grandmaster"])
                 else:
                     # Defaults when crazy feature is active
                     formula_option = "rating"
                     selected_tags = []
                     data_ordering_option = "Descending Order"
+                    candidate_title_option = "All"  # Set default
             
             # College vs College specific filters (simplified UI)
             else:
                 selected_colleges = ["All"]  # Default value
                 is_crazy_selected = False    # No crazy features
                 selected_tags = []           # No tags
+                candidate_title_option = "All"  # Set default
                 
                 # Simple formula filter with rating and maxRating options
                 st.subheader("Formula Filters")
@@ -320,10 +333,22 @@ def main():
                         
                         df = pd.DataFrame(display_data)
                         st.dataframe(df)
-                        
                     
                     elif formula_option == "rating" and data_ordering_option=="Descending Order":
-                        if candidate_title_option=="Newbie":
+                        if candidate_title_option == "All":
+                            # Show all users sorted by rating in descending order
+                            filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0)
+                            } for u in filtered_data])
+                            st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(filtered_data)
+                        
+                        elif candidate_title_option=="Newbie":
                             newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
                             newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=True)
                             df = pd.DataFrame([{
@@ -436,7 +461,20 @@ def main():
                                 plot_rating_histogram(grandmaster)
                     
                     elif formula_option == "rating" and data_ordering_option=="Ascending Order":
-                        if candidate_title_option=="Newbie":
+                        if candidate_title_option == "All":
+                            # Show all users sorted by rating in ascending order
+                            filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0)
+                            } for u in filtered_data])
+                            st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(filtered_data)
+                                
+                        elif candidate_title_option=="Newbie":
                             newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
                             newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=False)
                             df = pd.DataFrame([{
@@ -549,7 +587,20 @@ def main():
                                 plot_rating_histogram(grandmaster)
                     
                     elif formula_option == "maxRating" and data_ordering_option=="Descending Order":
-                        if candidate_title_option=="Newbie":
+                        if candidate_title_option == "All":
+                            # Show all users sorted by maxRating in descending order
+                            filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0)
+                            } for u in filtered_data])
+                            st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(filtered_data)
+                                
+                        elif candidate_title_option=="Newbie":
                             newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
                             newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=True)
                             df = pd.DataFrame([{
@@ -662,7 +713,20 @@ def main():
                                 plot_max_rating_histogram(grandmaster)
                     
                     elif formula_option == "maxRating" and data_ordering_option=="Ascending Order":
-                        if candidate_title_option=="Newbie":
+                        if candidate_title_option == "All":
+                            # Show all users sorted by maxRating in ascending order
+                            filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0)
+                            } for u in filtered_data])
+                            st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(filtered_data)
+                                
+                        elif candidate_title_option=="Newbie":
                             newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
                             newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=False)
                             df = pd.DataFrame([{
