@@ -47,7 +47,7 @@ def rank_users_by_selected_tags(user_data, tag_data, selected_tags):
         "greedy": "greedy",
         "implementation": "implementation",
         "math": "math",
-        # "sorting": "sorting"
+        "sorting": "sorting"
     }
     
     # Calculate tag scores for each user
@@ -94,6 +94,9 @@ def main():
         layout="wide",
         initial_sidebar_state="expanded"
     )
+    
+    # Hide error messages
+    st.set_option('client.showErrorDetails', False)
 
     # Session state defaults
     if "page" not in st.session_state:
@@ -122,7 +125,7 @@ def main():
             st.header("Filters")
             comparison_type = st.radio("Comparison Type", ["User vs User", "College vs College"])
 
-            # College multi‐select
+            # User vs User specific filters
             if comparison_type == "User vs User":
                 college_options = list(_canonical_map.keys()) + ["All"]
                 selected_colleges = st.multiselect(
@@ -134,52 +137,62 @@ def main():
                 if "All" in selected_colleges and len(selected_colleges) > 1:
                     selected_colleges = ["All"]
                     st.warning("When 'All' is selected, other college options are ignored.")
+
+                # Crazy features
+                st.subheader("Crazy Features")
+                def on_crazy_feature_change():
+                    st.session_state.crazy_selected = True
+
+                crazy_feature = st.selectbox(
+                    "Select Feature",
+                    options=[
+                        "None",
+                        "Top 3 from each college",
+                    ],
+                    index=0,
+                    on_change=on_crazy_feature_change
+                )
+                is_crazy_selected = crazy_feature != "None"
+
+                # Formula & other filters (hidden if a crazy feature is selected)
+                if not is_crazy_selected:
+                    st.subheader("Formula Filters")
+                    formula_option = st.selectbox("Formula", options=["rating", "maxRating"])
+                    tag_options = [
+                        "Greedy", 
+                        "DP", 
+                        "Math", 
+                        "Implementation", 
+                        "Brute Force", 
+                        "Data Structures", 
+                        "Binary Search",
+                        "Constructive Algorithms",
+                        "DFS and Similar"
+                    ]
+                    selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
+                    st.subheader("Data Ordering")
+                    data_ordering_option = st.selectbox("Data Ordering", options=["Ascending Order","Descending Order"])
+                    st.subheader("Candidate Title")
+                    candidate_title_option = st.selectbox("Candidate Title", options=["Newbie", "Pupil","Specialist","Expert","Candidate Master","Master","International Master","Grandmaster"])
+                else:
+                    # Defaults when crazy feature is active
+                    formula_option = "rating"
+                    selected_tags = []
+                    data_ordering_option = "Descending Order"
+            
+            # College vs College specific filters (simplified UI)
             else:
-                selected_colleges = ["All"]
-
-            # Crazy features
-            st.subheader("Crazy Features")
-            def on_crazy_feature_change():
-                st.session_state.crazy_selected = True
-
-            crazy_feature = st.selectbox(
-                "Select Feature",
-                options=[
-                    "None",
-                    "Top 3 from each college",
-                ],
-                index=0,
-                on_change=on_crazy_feature_change
-            )
-            is_crazy_selected = crazy_feature != "None"
-
-            # Formula & other filters (hidden if a crazy feature is selected)
-            if not is_crazy_selected:
+                selected_colleges = ["All"]  # Default value
+                is_crazy_selected = False    # No crazy features
+                selected_tags = []           # No tags
+                
+                # Simple formula filter with rating and maxRating options
                 st.subheader("Formula Filters")
-                formula_option = st.selectbox("Formula", options=["rating", "maxRating"])
-                tag_options = [
-                    "Greedy", 
-                    "DP", 
-                    "Math", 
-                    "Implementation", 
-                    "Brute Force", 
-                    "Data Structures", 
-                    "Binary Search",
-                    "Constructive Algorithms",
-                    "DFS and Similar"
-                ]
-                selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
-                st.subheader("Data Ordering")
-                data_ordering_option = st.selectbox("Data Ordering", options=["Ascending Order","Descending Order"])
-                st.subheader("Candidate Title")
-                candidate_title__option = st.selectbox("Candidate Title", options=["Newbie", "Pupil","Specialist","Expert","Candidate Master","Master","International Master","Grandmaster"])
-
-            else:
-                # Defaults when crazy feature is active
-                formula_option = "rating"
-                selected_tags = []
-
-            #apply_filters = st.button("Apply Filters")
+                formula_option = st.selectbox("Formula", options=["Avg Rating", "Max Rating"])
+                
+                # Add sort order option
+                st.subheader("Sort Order")
+                data_ordering_option = st.selectbox("Order", options=["Descending Order","Ascending Order"])
 
         with results_col:
             st.header("Results")
@@ -220,528 +233,473 @@ def main():
                     "sorting": "Sorting"
                 }
 
-                # Crazy features logic
-                if is_crazy_selected and crazy_feature == "Top 3 from each college":
-                    # Convert filtered_data to DataFrame with consistent column names
-                    df_data = [{
-                        "Handle": u.get("handle", ""),
-                        "College": u.get("college", "Unknown"),
-                        "Rating": u.get("rating", 0),
-                        "Max Rating": u.get("maxRating", 0)
-                    } for u in filtered_data]
+                try:
+                    # Crazy features logic
+                    if is_crazy_selected and crazy_feature == "Top 3 from each college":
+                        # Convert filtered_data to DataFrame with consistent column names
+                        df_data = [{
+                            "Handle": u.get("handle", ""),
+                            "College": u.get("college", "Unknown"),
+                            "Rating": u.get("rating", 0),
+                            "Max Rating": u.get("maxRating", 0)
+                        } for u in filtered_data]
+                        
+                        # Create DataFrame
+                        df = pd.DataFrame(df_data)
+                        
+                        # Sort by rating or maxRating based on the selected formula
+                        sort_by = "Rating" if formula_option == "rating" else "Max Rating"
+                        df = df.sort_values(by=sort_by, ascending=False)
+                        
+                        # Group by college and get top 3 from each
+                        top_users_df = df.groupby("College").head(3).reset_index(drop=True)
+                        
+                        # Sort by college name to keep colleges together
+                        top_users_df = top_users_df.sort_values(by="College")
+                        
+                        # Display the DataFrame
+                        st.dataframe(top_users_df)
                     
-                    # Create DataFrame
-                    df = pd.DataFrame(df_data)
+                    # Standard ranking logic
+                    elif selected_tags:
+                        filtered_data = rank_users_by_selected_tags(filtered_data, tag_data, selected_tags)
+                        
+                        # Create a DataFrame with user information and tag counts
+                        display_data = []
+                        
+                        for user in filtered_data:
+                            user_info = {
+                                "Handle": user.get("handle", ""),
+                                "College": user.get("college", ""),
+                                "Rating": user.get("rating", 0),
+                                "Max Rating": user.get("maxRating", 0),
+                                "Problems Solved": user.get("_matching_tag_count", 0)  # Sum of all selected tags
+                            }
+                            
+                            # Add individual tag counts
+                            for tag in selected_tags:
+                                tag_lower = tag.lower()
+                                db_field = tag_name_map.get(tag_lower, tag_lower)
+                                display_name = db_to_display.get(db_field, tag)
+                                user_info[f"{display_name} Problems"] = user.get(f"_{db_field}_count", 0)
+                            
+                            display_data.append(user_info)
+                        
+                        df = pd.DataFrame(display_data)
+                        st.dataframe(df)
                     
-                    # Sort by rating or maxRating based on the selected formula
-                    sort_by = "Rating" if formula_option == "rating" else "Max Rating"
-                    df = df.sort_values(by=sort_by, ascending=False)
+                    elif formula_option == "rating" and data_ordering_option=="Descending Order":
+                        if candidate_title_option=="Newbie":
+                            newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
+                            newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Newbie"
+                            } for u in newbies])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Pupil":
+                            pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
+                            pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Pupil"
+                            } for u in pupils])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Specialist":
+                            specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
+                            specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Specialist"
+                            } for u in specialist])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Expert":
+                            expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
+                            expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Expert"
+                            } for u in expert])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Candidate Master":
+                            candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
+                            candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Candidate Master"
+                            } for u in candidate_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Master":
+                            master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
+                            master = sorted(master, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Master"
+                            } for u in master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="International Master":
+                            international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
+                            international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"International Master"
+                            } for u in international_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Grandmaster":
+                            grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
+                            grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Grandmaster"
+                            } for u in grandmaster])
+                            st.dataframe(df)
                     
-                    # Group by college and get top 3 from each
-                    top_users_df = df.groupby("College").head(3).reset_index(drop=True)
+                    elif formula_option == "rating" and data_ordering_option=="Ascending Order":
+                        if candidate_title_option=="Newbie":
+                            newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
+                            newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Newbie"
+                            } for u in newbies])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Pupil":
+                            pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
+                            pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Pupil"
+                            } for u in pupils])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Specialist":
+                            specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
+                            specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Specialist"
+                            } for u in specialist])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Expert":
+                            expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
+                            expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Expert"
+                            } for u in expert])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Candidate Master":
+                            candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
+                            candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Candidate Master"
+                            } for u in candidate_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Master":
+                            master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
+                            master = sorted(master, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Master"
+                            } for u in master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="International Master":
+                            international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
+                            international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"International Master"
+                            } for u in international_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Grandmaster":
+                            grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
+                            grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Grandmaster"
+                            } for u in grandmaster])
+                            st.dataframe(df)
                     
-                    # Sort by college name to keep colleges together
-                    top_users_df = top_users_df.sort_values(by="College")
+                    elif formula_option == "maxRating" and data_ordering_option=="Descending Order":
+                        if candidate_title_option=="Newbie":
+                            newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
+                            newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Newbie"
+                            } for u in newbies])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Pupil":
+                            pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
+                            pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Pupil"
+                            } for u in pupils])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Specialist":
+                            specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
+                            specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Specialist"
+                            } for u in specialist])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Expert":
+                            expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
+                            expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Expert"
+                            } for u in expert])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Candidate Master":
+                            candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
+                            candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Candidate Master"
+                            } for u in candidate_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Master":
+                            master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
+                            master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Master"
+                            } for u in master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="International Master":
+                            international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
+                            international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"International Master"
+                            } for u in international_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Grandmaster":
+                            grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
+                            grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=True)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Grandmaster"
+                            } for u in grandmaster])
+                            st.dataframe(df)
                     
-                    # Display the DataFrame
-                    st.dataframe(top_users_df)
+                    elif formula_option == "maxRating" and data_ordering_option=="Ascending Order":
+                        if candidate_title_option=="Newbie":
+                            newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
+                            newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Newbie"
+                            } for u in newbies])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Pupil":
+                            pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
+                            pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Pupil"
+                            } for u in pupils])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Specialist":
+                            specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
+                            specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Specialist"
+                            } for u in specialist])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Expert":
+                            expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
+                            expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Expert"
+                            } for u in expert])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Candidate Master":
+                            candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
+                            candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Candidate Master"
+                            } for u in candidate_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Master":
+                            master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
+                            master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Master"
+                            } for u in master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="International Master":
+                            international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
+                            international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"International Master"
+                            } for u in international_master])
+                            st.dataframe(df)
+                        elif candidate_title_option=="Grandmaster":
+                            grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
+                            grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=False)
+                            df = pd.DataFrame([{
+                                "Handle": u.get("handle", ""),
+                                "College": u.get("college", ""),
+                                "Rating": u.get("rating", 0),
+                                "Max Rating": u.get("maxRating", 0),
+                                "Candidate Title":"Grandmaster"
+                            } for u in grandmaster])
+                            st.dataframe(df)
                 
-                # Standard ranking logic
-                elif selected_tags:
-                    filtered_data = rank_users_by_selected_tags(filtered_data, tag_data, selected_tags)
-                    
-                    # Create a DataFrame with user information and tag counts
-                    display_data = []
-                    
-                    for user in filtered_data:
-                        user_info = {
-                            "Handle": user.get("handle", ""),
-                            "College": user.get("college", ""),
-                            "Rating": user.get("rating", 0),
-                            "Max Rating": user.get("maxRating", 0),
-                            "Problems Solved": user.get("_matching_tag_count", 0)  # Sum of all selected tags
-                        }
-                        
-                        # Add individual tag counts
-                        for tag in selected_tags:
-                            tag_lower = tag.lower()
-                            db_field = tag_name_map.get(tag_lower, tag_lower)
-                            display_name = db_to_display.get(db_field, tag)
-                            user_info[f"{display_name} Problems"] = user.get(f"_{db_field}_count", 0)
-                        
-                        display_data.append(user_info)
-                    
-                    df = pd.DataFrame(display_data)
-                    st.dataframe(df)
-                    
-                elif formula_option == "rating" and data_ordering_option=="Descending Order":
-                    if candidate_title__option=="Newbie":
-                        newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
-                        newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Newbie"
-                        } for u in newbies])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Pupil":
-                        pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
-                        pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Pupils"
-                        } for u in pupils])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Specialist":
-                        specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
-                        specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Specialist"
-                        } for u in specialist])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Expert":
-                        expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
-                        expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Expert"
-                        } for u in expert])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Candidate Master":
-                        candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
-                        candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Candidate Master"
-                        } for u in candidate_master])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Master":
-                        master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
-                        master = sorted(master, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Master"
-                        } for u in master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="International Master":
-                        international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
-                        international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"International Master"
-                        } for u in international_master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Grandmaster":
-                        grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
-                        grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Grandmaster"
-                        } for u in grandmaster])
-                        st.dataframe(df)
-
-                elif formula_option == "rating" and data_ordering_option=="Ascending Order":
-                    if candidate_title__option=="Newbie":
-                        newbies = [u for u in filtered_data if int(u.get("rating", 0)) <= 1199]
-                        newbies = sorted(newbies, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Newbie"
-                        } for u in newbies])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Pupil":
-                        pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
-                        pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Pupils"
-                        } for u in pupils])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Specialist":
-                        specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
-                        specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Specialist"
-                        } for u in specialist])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Expert":
-                        expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
-                        expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Expert"
-                        } for u in expert])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Candidate Master":
-                        candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
-                        candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Candidate Master"
-                        } for u in candidate_master])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Master":
-                        master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
-                        master = sorted(master, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Master"
-                        } for u in master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="International Master":
-                        international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
-                        international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"International Master"
-                        } for u in international_master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Grandmaster":
-                        grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
-                        grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Grandmaster"
-                        } for u in grandmaster])
-                        st.dataframe(df)
-                    
-                elif formula_option == "maxRating" and data_ordering_option=="Descending Order":
-                    if candidate_title__option=="Newbie":
-                        newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
-                        newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Newbie"
-                        } for u in newbies])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Pupil":
-                        pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
-                        pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Pupils"
-                        } for u in pupils])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Specialist":
-                        specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
-                        specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Specialist"
-                        } for u in specialist])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Expert":
-                        expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
-                        expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Expert"
-                        } for u in expert])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Candidate Master":
-                        candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
-                        candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Candidate Master"
-                        } for u in candidate_master])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Master":
-                        master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
-                        master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Master"
-                        } for u in master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="International Master":
-                        international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
-                        international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"International Master"
-                        } for u in international_master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Grandmaster":
-                        grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
-                        grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=True)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Grandmaster"
-                        } for u in grandmaster])
-                        st.dataframe(df)
-
-                elif formula_option == "maxRating" and data_ordering_option=="Ascending Order":
-                    if candidate_title__option=="Newbie":
-                        newbies = [u for u in filtered_data if int(u.get("maxRating", 0)) <= 1199]
-                        newbies = sorted(newbies, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Newbie"
-                        } for u in newbies])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Pupil":
-                        pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
-                        pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Pupils"
-                        } for u in pupils])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Specialist":
-                        specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
-                        specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Specialist"
-                        } for u in specialist])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Expert":
-                        expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
-                        expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Expert"
-                        } for u in expert])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Candidate Master":
-                        candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
-                        candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Candidate Master"
-                        } for u in candidate_master])
-                        st.dataframe(df)
-                    elif candidate_title__option=="Master":
-                        master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
-                        master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Master"
-                        } for u in master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="International Master":
-                        international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
-                        international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"International Master"
-                        } for u in international_master])
-                        st.dataframe(df)
-
-                    elif candidate_title__option=="Grandmaster":
-                        grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
-                        grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=False)
-                        df = pd.DataFrame([{
-                            "Handle": u.get("handle", ""),
-                            "College": u.get("college", ""),
-                            "Rating": u.get("rating", 0),
-                            "Max Rating": u.get("maxRating", 0),
-                            "Candidate Title":"Grandmaster"
-                        } for u in grandmaster])
-                        st.dataframe(df)
+                except Exception as e:
+                    st.error("An error occurred while processing the data. Please try different filters.")
+                    print(f"Error: {e}")
 
             else:
                 st.subheader("College vs College Comparison")
-                # Map for converting display tag names to database field names
-                tag_name_map = {
-                    "brute force": "brute_force",
-                    "data structures": "data_structures",
-                    "binary search": "binary_search",
-                    "constructive algorithms": "constructive_algorithms",
-                    "dfs and similar": "dfs_and_similar",
-                    "dp": "dp",
-                    "greedy": "greedy",
-                    "implementation": "implementation",
-                    "math": "math",
-                    "sorting": "sorting"
-                }
                 
-                # Map for converting database field names to display names
-                db_to_display = {
-                    "brute_force": "Brute Force",
-                    "data_structures": "Data Structures",
-                    "binary_search": "Binary Search",
-                    "constructive_algorithms": "Constructive Algorithms",
-                    "dfs_and_similar": "DFS and Similar",
-                    "dp": "DP",
-                    "greedy": "Greedy",
-                    "implementation": "Implementation",
-                    "math": "Math",
-                    "sorting": "Sorting"
-                }
-                
-                # Filter users by division if selected
-                filtered_users = user_data
-                
-                # Create a map from userId to tag data for faster lookup
-                tag_map = {entry.get("userId", ""): entry for entry in tag_data}
-                
-                # Group users by college and calculate aggregated tag statistics
-                college_stats = {}
-                
-                for user in filtered_users:
-                    college = user.get("college", "Unknown")
-                    if college not in college_stats:
-                        college_stats[college] = {
-                            "College": college,
-                            "User Count": 0,
-                            "Avg Rating": 0,
-                            "Total Problems": 0
-                        }
-                        # Initialize tag counts
-                        for tag in selected_tags:
-                            tag_lower = tag.lower()
-                            db_field = tag_name_map.get(tag_lower, tag_lower)
-                            display_name = db_to_display.get(db_field, tag)
-                            college_stats[college][f"{display_name} Problems"] = 0
+                try:
+                    # Filter users
+                    filtered_users = user_data
                     
-                    college_stats[college]["User Count"] += 1
-                    college_stats[college]["Avg Rating"] += user.get("rating", 0)
+                    # Group users by college and calculate statistics
+                    college_stats = {}
                     
-                    # Find tag data for this user
-                    user_id = user.get("handle", "")
-                    if user_id in tag_map:
-                        user_tag_entry = tag_map[user_id]
+                    for user in filtered_users:
+                        college = user.get("college", "Unknown")
+                        if college not in college_stats:
+                            college_stats[college] = {
+                                "College": college,
+                                "User Count": 0,
+                                "Total Rating": 0,
+                                "Avg Rating": 0,
+                                "Max Rating": 0  # Track maximum rating in each college
+                            }
                         
-                        # Sum tag counts
-                        tag_total = 0
-                        for tag in selected_tags:
-                            tag_lower = tag.lower()
-                            db_field = tag_name_map.get(tag_lower, tag_lower)
-                            display_name = db_to_display.get(db_field, tag)
-                            
-                            tag_count = user_tag_entry.get(db_field, 0)
-                            college_stats[college][f"{display_name} Problems"] += tag_count
-                            tag_total += tag_count
+                        college_stats[college]["User Count"] += 1
+                        college_stats[college]["Total Rating"] += user.get("rating", 0)
                         
-                        college_stats[college]["Total Problems"] += tag_total
+                        # Track maximum rating for each college
+                        user_max_rating = user.get("maxRating", 0)
+                        if user_max_rating > college_stats[college]["Max Rating"]:
+                            college_stats[college]["Max Rating"] = user_max_rating
+                    
+                    # Calculate averages
+                    for college in college_stats:
+                        if college_stats[college]["User Count"] > 0:
+                            college_stats[college]["Avg Rating"] = college_stats[college]["Total Rating"] / college_stats[college]["User Count"]
+                    
+                    # Create DataFrame and sort based on formula option and order
+                    college_df = pd.DataFrame(list(college_stats.values()))
+                    ascending = (data_ordering_option == "Ascending Order")
+                    
+                    if formula_option == "Avg Rating":
+                        college_df = college_df.sort_values("Avg Rating", ascending=ascending)
+                    elif formula_option == "Max Rating":
+                        college_df = college_df.sort_values("Max Rating", ascending=ascending)
+                    
+                    st.dataframe(college_df)
                 
-                # Calculate averages and create DataFrame
-                for college in college_stats:
-                    if college_stats[college]["User Count"] > 0:
-                        college_stats[college]["Avg Rating"] /= college_stats[college]["User Count"]
-                
-                college_df = pd.DataFrame(list(college_stats.values()))
-                if selected_tags:
-                    college_df = college_df.sort_values("Total Problems", ascending=False)
-                else:
-                    college_df = college_df.sort_values("Avg Rating", ascending=False)
-                
-                st.dataframe(college_df)
+                except Exception as e:
+                    st.error("An error occurred while processing college data. Please try different filters.")
+                    print(f"Error: {e}")
 
 if __name__ == "__main__":
     main()
