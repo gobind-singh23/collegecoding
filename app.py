@@ -47,7 +47,7 @@ def rank_users_by_selected_tags(user_data, tag_data, selected_tags):
         "greedy": "greedy",
         "implementation": "implementation",
         "math": "math",
-        # "sorting": "sorting"
+        "sorting": "sorting"
     }
     
     # Calculate tag scores for each user
@@ -146,24 +146,12 @@ def main():
                 "Select Feature",
                 options=[
                     "None",
-                    "Top 10 in last N contests",
-                    "Most active coder/college",
-                    "Rising stars",
-                    "Last contest speed",
-                    "Tag based problem rankings"
+                    "Top 3 from each college",
                 ],
                 index=0,
                 on_change=on_crazy_feature_change
             )
             is_crazy_selected = crazy_feature != "None"
-
-            # Crazy‐feature parameters
-            if crazy_feature == "Top 10 in last N contests":
-                top_n_contests = st.number_input("Number of contests", min_value=1, max_value=50, value=5)
-            elif crazy_feature == "Rising stars":
-                time_period = st.selectbox("Time period", ["Last month", "Last 3 months", "Last 6 months", "Last year"])
-            elif crazy_feature == "Tag based problem rankings":
-                tag_for_ranking = st.selectbox("Select tag for ranking", ["Greedy", "DP", "Math", "Implementation", "Brute Force"])
 
             # Formula & other filters (hidden if a crazy feature is selected)
             if not is_crazy_selected:
@@ -181,14 +169,10 @@ def main():
                     "DFS and Similar"
                 ]
                 selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
-                # st.subheader("Contest Filters")
-                # div_k_options = ["Div 0", "Div 1", "Div 2", "Div 3", "Div 4"]
-                # div_k = st.selectbox("Only Div K", options=div_k_options, index=0)
             else:
                 # Defaults when crazy feature is active
                 formula_option = "rating"
                 selected_tags = []
-                div_k = ""
 
             apply_filters = st.button("Apply Filters")
 
@@ -202,10 +186,6 @@ def main():
                 filtered_data = user_data
                 if selected_colleges != ["All"]:
                     filtered_data = [u for u in filtered_data if u.get("college") in selected_colleges]
-
-                # Apply division filter if selected (before any other processing)
-                # if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
-                #     filtered_data = [u for u in filtered_data if u.get("div") == div_k]
 
                 # Map for converting display tag names to database field names
                 tag_name_map = {
@@ -235,8 +215,34 @@ def main():
                     "sorting": "Sorting"
                 }
 
-                # Ranking logic
-                if selected_tags:
+                # Crazy features logic
+                if is_crazy_selected and crazy_feature == "Top 3 from each college":
+                    # Convert filtered_data to DataFrame with consistent column names
+                    df_data = [{
+                        "Handle": u.get("handle", ""),
+                        "College": u.get("college", "Unknown"),
+                        "Rating": u.get("rating", 0),
+                        "Max Rating": u.get("maxRating", 0)
+                    } for u in filtered_data]
+                    
+                    # Create DataFrame
+                    df = pd.DataFrame(df_data)
+                    
+                    # Sort by rating or maxRating based on the selected formula
+                    sort_by = "Rating" if formula_option == "rating" else "Max Rating"
+                    df = df.sort_values(by=sort_by, ascending=False)
+                    
+                    # Group by college and get top 3 from each
+                    top_users_df = df.groupby("College").head(3).reset_index(drop=True)
+                    
+                    # Sort by college name to keep colleges together
+                    top_users_df = top_users_df.sort_values(by="College")
+                    
+                    # Display the DataFrame
+                    st.dataframe(top_users_df)
+                
+                # Standard ranking logic
+                elif selected_tags:
                     filtered_data = rank_users_by_selected_tags(filtered_data, tag_data, selected_tags)
                     
                     # Create a DataFrame with user information and tag counts
@@ -245,7 +251,6 @@ def main():
                     for user in filtered_data:
                         user_info = {
                             "Handle": user.get("handle", ""),
-                            #"Name": user.get("name", ""),
                             "College": user.get("college", ""),
                             "Rating": user.get("rating", 0),
                             "Max Rating": user.get("maxRating", 0),
@@ -260,32 +265,29 @@ def main():
                             user_info[f"{display_name} Problems"] = user.get(f"_{db_field}_count", 0)
                         
                         display_data.append(user_info)
-                    # if div_k!="":
-                    #     filtered_data = [u for u in filtered_data if u.get("div") == div_k]
+                    
                     df = pd.DataFrame(display_data)
+                    st.dataframe(df)
                     
                 elif formula_option == "rating":
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("rating", 0), reverse=True)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
-                        #"Name": u.get("name", ""),
                         "College": u.get("college", ""),
                         "Rating": u.get("rating", 0),
                         "Max Rating": u.get("maxRating", 0)
                     } for u in filtered_data])
+                    st.dataframe(df)
                     
                 elif formula_option == "maxRating":
                     filtered_data = sorted(filtered_data, key=lambda u: u.get("maxRating", 0), reverse=True)
                     df = pd.DataFrame([{
                         "Handle": u.get("handle", ""),
-                        #"Name": u.get("name", ""),
                         "College": u.get("college", ""),
                         "Rating": u.get("rating", 0),
                         "Max Rating": u.get("maxRating", 0)
                     } for u in filtered_data])
-
-                # Display DataFrame
-                st.dataframe(df)
+                    st.dataframe(df)
 
             else:
                 st.subheader("College vs College Comparison")
@@ -319,8 +321,6 @@ def main():
                 
                 # Filter users by division if selected
                 filtered_users = user_data
-                # if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
-                #     filtered_users = [u for u in filtered_users if u.get("div") == div_k]
                 
                 # Create a map from userId to tag data for faster lookup
                 tag_map = {entry.get("userId", ""): entry for entry in tag_data}
