@@ -3,6 +3,39 @@ from college_map import _canonical_map
 import os
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
+
+def plot_rating_histogram(data):
+    """
+    data: list of user‐dicts with a 'rating' key
+    """
+    ratings = [u.get("rating", 0) for u in data]
+    if not ratings:
+        st.warning("No ratings to plot.")
+        return
+
+    fig, ax = plt.subplots()
+    ax.hist(ratings, bins=20, color="#4c72b0", edgecolor="white")
+    ax.set_title("Distribution of User Ratings")
+    ax.set_xlabel("Rating")
+    ax.set_ylabel("Number of Users")
+    st.pyplot(fig)
+
+def plot_max_rating_histogram(data):
+    """
+    data: list of user‐dicts with a 'rating' key
+    """
+    ratings = [u.get("maxRating", 0) for u in data]
+    if not ratings:
+        st.warning("No ratings to plot.")
+        return
+
+    fig, ax = plt.subplots()
+    ax.hist(ratings, bins=20, color="#4c72b0", edgecolor="white")
+    ax.set_title("Distribution of User Ratings")
+    ax.set_xlabel("Max Rating")
+    ax.set_ylabel("Number of Users")
+    st.pyplot(fig)
 
 def load_all_data(data_folder="database"):
     all_data = []
@@ -139,7 +172,7 @@ def main():
                     st.warning("When 'All' is selected, other college options are ignored.")
 
                 # Crazy features
-                st.subheader("Crazy Features")
+                st.subheader("Retrieval Type")
                 def on_crazy_feature_change():
                     st.session_state.crazy_selected = True
 
@@ -287,6 +320,7 @@ def main():
                         
                         df = pd.DataFrame(display_data)
                         st.dataframe(df)
+                        
                     
                     elif formula_option == "rating" and data_ordering_option=="Descending Order":
                         if candidate_title_option=="Newbie":
@@ -300,6 +334,9 @@ def main():
                                 "Candidate Title":"Newbie"
                             } for u in newbies])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(newbies)
+
                         elif candidate_title_option=="Pupil":
                             pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
                             pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=True)
@@ -311,6 +348,9 @@ def main():
                                 "Candidate Title":"Pupil"
                             } for u in pupils])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(pupils)
+
                         elif candidate_title_option=="Specialist":
                             specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
                             specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=True)
@@ -322,6 +362,9 @@ def main():
                                 "Candidate Title":"Specialist"
                             } for u in specialist])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(specialist)
+
                         elif candidate_title_option=="Expert":
                             expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
                             expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=True)
@@ -333,6 +376,9 @@ def main():
                                 "Candidate Title":"Expert"
                             } for u in expert])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(expert)
+
                         elif candidate_title_option=="Candidate Master":
                             candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
                             candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=True)
@@ -344,6 +390,9 @@ def main():
                                 "Candidate Title":"Candidate Master"
                             } for u in candidate_master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(candidate_master)
+
                         elif candidate_title_option=="Master":
                             master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
                             master = sorted(master, key=lambda u: u.get("rating", 0), reverse=True)
@@ -355,6 +404,9 @@ def main():
                                 "Candidate Title":"Master"
                             } for u in master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(master)
+
                         elif candidate_title_option=="International Master":
                             international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
                             international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=True)
@@ -366,6 +418,9 @@ def main():
                                 "Candidate Title":"International Master"
                             } for u in international_master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(international_master)
+
                         elif candidate_title_option=="Grandmaster":
                             grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
                             grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=True)
@@ -377,6 +432,8 @@ def main():
                                 "Candidate Title":"Grandmaster"
                             } for u in grandmaster])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(grandmaster)
                     
                     elif formula_option == "rating" and data_ordering_option=="Ascending Order":
                         if candidate_title_option=="Newbie":
@@ -390,6 +447,9 @@ def main():
                                 "Candidate Title":"Newbie"
                             } for u in newbies])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(newbies)
+
                         elif candidate_title_option=="Pupil":
                             pupils = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1399 and int(u.get("rating", 0)) >= 1200)]
                             pupils = sorted(pupils, key=lambda u: u.get("rating", 0), reverse=False)
@@ -401,6 +461,9 @@ def main():
                                 "Candidate Title":"Pupil"
                             } for u in pupils])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(pupils)
+
                         elif candidate_title_option=="Specialist":
                             specialist = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1599 and int(u.get("rating", 0)) >= 1400)]
                             specialist = sorted(specialist, key=lambda u: u.get("rating", 0), reverse=False)
@@ -412,6 +475,9 @@ def main():
                                 "Candidate Title":"Specialist"
                             } for u in specialist])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(specialist)
+
                         elif candidate_title_option=="Expert":
                             expert = [u for u in filtered_data if (int(u.get("rating", 0)) <= 1899 and int(u.get("rating", 0)) >= 1600)]
                             expert = sorted(expert, key=lambda u: u.get("rating", 0), reverse=False)
@@ -423,6 +489,9 @@ def main():
                                 "Candidate Title":"Expert"
                             } for u in expert])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(expert)
+
                         elif candidate_title_option=="Candidate Master":
                             candidate_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2100 and int(u.get("rating", 0)) >= 1900)]
                             candidate_master = sorted(candidate_master, key=lambda u: u.get("rating", 0), reverse=False)
@@ -434,6 +503,9 @@ def main():
                                 "Candidate Title":"Candidate Master"
                             } for u in candidate_master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(candidate_master)
+
                         elif candidate_title_option=="Master":
                             master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2299 and int(u.get("rating", 0)) >= 2100)]
                             master = sorted(master, key=lambda u: u.get("rating", 0), reverse=False)
@@ -445,6 +517,9 @@ def main():
                                 "Candidate Title":"Master"
                             } for u in master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(master)
+
                         elif candidate_title_option=="International Master":
                             international_master = [u for u in filtered_data if (int(u.get("rating", 0)) <= 2399 and int(u.get("rating", 0)) >= 2300)]
                             international_master = sorted(international_master, key=lambda u: u.get("rating", 0), reverse=False)
@@ -456,6 +531,9 @@ def main():
                                 "Candidate Title":"International Master"
                             } for u in international_master])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(international_master)
+
                         elif candidate_title_option=="Grandmaster":
                             grandmaster = [u for u in filtered_data if (int(u.get("rating", 0)) >= 2400)]
                             grandmaster = sorted(grandmaster, key=lambda u: u.get("rating", 0), reverse=False)
@@ -467,6 +545,8 @@ def main():
                                 "Candidate Title":"Grandmaster"
                             } for u in grandmaster])
                             st.dataframe(df)
+                            if st.button("Show Rating Distribution"):
+                                plot_rating_histogram(grandmaster)
                     
                     elif formula_option == "maxRating" and data_ordering_option=="Descending Order":
                         if candidate_title_option=="Newbie":
@@ -480,6 +560,9 @@ def main():
                                 "Candidate Title":"Newbie"
                             } for u in newbies])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(newbies)
+
                         elif candidate_title_option=="Pupil":
                             pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
                             pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -491,6 +574,9 @@ def main():
                                 "Candidate Title":"Pupil"
                             } for u in pupils])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(pupils)
+
                         elif candidate_title_option=="Specialist":
                             specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
                             specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -502,6 +588,9 @@ def main():
                                 "Candidate Title":"Specialist"
                             } for u in specialist])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(specialist)
+
                         elif candidate_title_option=="Expert":
                             expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
                             expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -513,6 +602,9 @@ def main():
                                 "Candidate Title":"Expert"
                             } for u in expert])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(expert)
+
                         elif candidate_title_option=="Candidate Master":
                             candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
                             candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -524,6 +616,9 @@ def main():
                                 "Candidate Title":"Candidate Master"
                             } for u in candidate_master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(candidate_master)
+                                
                         elif candidate_title_option=="Master":
                             master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
                             master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -535,6 +630,9 @@ def main():
                                 "Candidate Title":"Master"
                             } for u in master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(master)
+
                         elif candidate_title_option=="International Master":
                             international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
                             international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -546,6 +644,9 @@ def main():
                                 "Candidate Title":"International Master"
                             } for u in international_master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(international_master)
+
                         elif candidate_title_option=="Grandmaster":
                             grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
                             grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=True)
@@ -557,6 +658,8 @@ def main():
                                 "Candidate Title":"Grandmaster"
                             } for u in grandmaster])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(grandmaster)
                     
                     elif formula_option == "maxRating" and data_ordering_option=="Ascending Order":
                         if candidate_title_option=="Newbie":
@@ -570,6 +673,9 @@ def main():
                                 "Candidate Title":"Newbie"
                             } for u in newbies])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(newbies)
+
                         elif candidate_title_option=="Pupil":
                             pupils = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1399 and int(u.get("maxRating", 0)) >= 1200)]
                             pupils = sorted(pupils, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -581,6 +687,9 @@ def main():
                                 "Candidate Title":"Pupil"
                             } for u in pupils])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(pupils)
+
                         elif candidate_title_option=="Specialist":
                             specialist = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1599 and int(u.get("maxRating", 0)) >= 1400)]
                             specialist = sorted(specialist, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -592,6 +701,9 @@ def main():
                                 "Candidate Title":"Specialist"
                             } for u in specialist])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(specialist)
+
                         elif candidate_title_option=="Expert":
                             expert = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 1899 and int(u.get("maxRating", 0)) >= 1600)]
                             expert = sorted(expert, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -603,6 +715,9 @@ def main():
                                 "Candidate Title":"Expert"
                             } for u in expert])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(expert)
+
                         elif candidate_title_option=="Candidate Master":
                             candidate_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2100 and int(u.get("maxRating", 0)) >= 1900)]
                             candidate_master = sorted(candidate_master, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -614,6 +729,9 @@ def main():
                                 "Candidate Title":"Candidate Master"
                             } for u in candidate_master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(candidate_master)
+
                         elif candidate_title_option=="Master":
                             master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2299 and int(u.get("maxRating", 0)) >= 2100)]
                             master = sorted(master, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -625,6 +743,9 @@ def main():
                                 "Candidate Title":"Master"
                             } for u in master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(master)
+
                         elif candidate_title_option=="International Master":
                             international_master = [u for u in filtered_data if (int(u.get("maxRating", 0)) <= 2399 and int(u.get("maxRating", 0)) >= 2300)]
                             international_master = sorted(international_master, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -636,6 +757,9 @@ def main():
                                 "Candidate Title":"International Master"
                             } for u in international_master])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(international_master)
+
                         elif candidate_title_option=="Grandmaster":
                             grandmaster = [u for u in filtered_data if (int(u.get("maxRating", 0)) >= 2400)]
                             grandmaster = sorted(grandmaster, key=lambda u: u.get("maxRating", 0), reverse=False)
@@ -647,6 +771,8 @@ def main():
                                 "Candidate Title":"Grandmaster"
                             } for u in grandmaster])
                             st.dataframe(df)
+                            if st.button("Show Max Rating Distribution"):
+                                plot_max_rating_histogram(grandmaster)
                 
                 except Exception as e:
                     st.error("An error occurred while processing the data. Please try different filters.")
