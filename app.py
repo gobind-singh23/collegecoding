@@ -181,16 +181,14 @@ def main():
                     "DFS and Similar"
                 ]
                 selected_tags = st.multiselect("Problem Tags", options=tag_options, default=[])
-                # st.subheader("Contest Filters")
-                # last_n_contests = st.number_input("Last N Contests", min_value=1, max_value=200, value=10)
-                div_k_options = ["None", "1", "2", "3", "4"]
+                st.subheader("Contest Filters")
+                div_k_options = ["Div 0", "Div 1", "Div 2", "Div 3", "Div 4"]
                 div_k = st.selectbox("Only Div K", options=div_k_options, index=0)
             else:
                 # Defaults when crazy feature is active
                 formula_option = "rating"
                 selected_tags = []
-                last_n_contests = 10
-                div_k = "None"
+                div_k = "Div 0"
 
             apply_filters = st.button("Apply Filters")
 
@@ -204,6 +202,10 @@ def main():
                 filtered_data = user_data
                 if selected_colleges != ["All"]:
                     filtered_data = [u for u in filtered_data if u.get("college") in selected_colleges]
+
+                # Apply division filter if selected (before any other processing)
+                # if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
+                #     filtered_data = [u for u in filtered_data if u.get("div") == div_k]
 
                 # Map for converting display tag names to database field names
                 tag_name_map = {
@@ -236,16 +238,7 @@ def main():
                 # Ranking logic
                 if selected_tags:
                     filtered_data = rank_users_by_selected_tags(filtered_data, tag_data, selected_tags)
-                    # if div_k:
-                    #     filtered_data = [u for u in filtered_data if u.get("div") == div_k]
-                    #     df = pd.DataFrame([{
-                    #         "Handle": u.get("handle", ""),
-                    #         "Name": u.get("name", ""),
-                    #         "College": u.get("college", ""),
-                    #         "Rating": u.get("rating", 0),
-                    #         "Max Rating": u.get("maxRating", 0)
-                    #     } for u in filtered_data])
-
+                    
                     # Create a DataFrame with user information and tag counts
                     display_data = []
                     
@@ -267,7 +260,8 @@ def main():
                             user_info[f"{display_name} Problems"] = user.get(f"_{db_field}_count", 0)
                         
                         display_data.append(user_info)
-                    
+                    if div_k:
+                        filtered_data = [u for u in filtered_data if u.get("div") == div_k]
                     df = pd.DataFrame(display_data)
                     
                 elif formula_option == "rating":
@@ -289,7 +283,6 @@ def main():
                         "Rating": u.get("rating", 0),
                         "Max Rating": u.get("maxRating", 0)
                     } for u in filtered_data])
-                div_k = int(div_k) if div_k != "None" else None
 
                 # Display DataFrame
                 st.dataframe(df)
@@ -324,13 +317,18 @@ def main():
                     "sorting": "Sorting"
                 }
                 
+                # Filter users by division if selected
+                filtered_users = user_data
+                if div_k != "Div 0":  # Skip filtering if "Div 0" is selected
+                    filtered_users = [u for u in filtered_users if u.get("div") == div_k]
+                
                 # Create a map from userId to tag data for faster lookup
                 tag_map = {entry.get("userId", ""): entry for entry in tag_data}
                 
                 # Group users by college and calculate aggregated tag statistics
                 college_stats = {}
                 
-                for user in user_data:
+                for user in filtered_users:
                     college = user.get("college", "Unknown")
                     if college not in college_stats:
                         college_stats[college] = {
