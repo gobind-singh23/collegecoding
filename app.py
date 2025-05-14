@@ -4,7 +4,7 @@ import os
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from llm import process_llm_query
 def plot_rating_histogram(data):
     """
     data: list of user‐dicts with a 'rating' key
@@ -115,6 +115,63 @@ def rank_users_by_selected_tags(user_data, tag_data, selected_tags):
     # Sort users by their tag scores in descending order
     return sorted(user_data, key=lambda u: u.get("_matching_tag_count", 0), reverse=True)
 
+import requests
+
+def fetch_and_display_user_data(user_handle):
+    # Fetch user info
+    user_info_url = f"https://codeforces.com/api/user.info?handles={user_handle}"
+    user_rating_url = f"https://codeforces.com/api/user.rating?handle={user_handle}"
+
+    try:
+        user_info_response = requests.get(user_info_url)
+        user_rating_response = requests.get(user_rating_url)
+
+        if user_info_response.status_code != 200 or user_rating_response.status_code != 200:
+            st.error("Please provide valid user handle")
+            return
+
+        user_info = user_info_response.json()
+        user_rating = user_rating_response.json()
+
+        if user_info['status'] != 'OK' or user_rating['status'] != 'OK':
+            st.error("Invalid response from Codeforces API.")
+            return
+
+        user = user_info['result'][0]
+        rating_history = user_rating['result']
+
+        # User statistics
+        rating = user.get("rating", "Unrated")
+        max_rating = user.get("maxRating", "N/A")
+        rank = user.get("rank", "N/A")
+        problems_solved = user.get("contribution", "N/A")  # Contribution is shown instead of problems solved, since there's no direct API for problems solved
+
+        # Fill in left column
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("User Statistics")
+            st.write(f"Rating: {rating}")
+            st.write(f"Max Rating: {max_rating}")
+            st.write(f"Rank: {rank}")
+            st.write(f"Contribution: {problems_solved}")
+
+        # Fill in right column
+        with col2:
+            st.subheader("Recent Performance")
+            if rating_history:
+                last_contests = rating_history[-5:]
+                for contest in reversed(last_contests):
+                    contest_name = contest['contestName']
+                    new_rating = contest['newRating']
+                    old_rating = contest['oldRating']
+                    st.write(f"**{contest_name}**: {old_rating} → {new_rating}")
+            else:
+                st.write("No contest history available.")
+
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+
+
 def main():
     # Load data
     user_data = load_all_data()
@@ -132,6 +189,14 @@ def main():
     st.set_option('client.showErrorDetails', False)
 
     # Session state defaults
+    if "user_handle" not in st.session_state:
+        st.session_state.user_handle = ""
+    if "llm_query" not in st.session_state:
+        st.session_state.llm_query = ""
+    if "llm_response" not in st.session_state:
+        st.session_state.llm_response = ""
+
+
     if "page" not in st.session_state:
         st.session_state.page = "home"
     if "crazy_selected" not in st.session_state:
@@ -147,7 +212,102 @@ def main():
     # Home page
     if st.session_state.page == "home":
         st.title("CodeForces Analytics Dashboard - Home Page")
-        st.write("This is the home page. Content will be added later.")
+        # Add user input bar
+        user_handle = st.text_input(
+            "Enter CodeForces Handle:", 
+            value=st.session_state.user_handle,
+            placeholder="e.g., tourist"
+        )
+        
+        # Button to search for user
+        if st.button("Search"):
+            if user_handle:
+                st.session_state.user_handle = user_handle
+                st.success(f"Searching for user: {user_handle}")
+                fetch_and_display_user_data(user_handle)
+                # st.info("User profile information will be displayed here")
+                
+                # # Placeholder for user statistics
+                # col1, col2 = st.columns(2)
+                # with col1:
+                #     st.subheader("User Statistics")
+                #     st.write("Rating: ...")
+                #     st.write("Max Rating: ...")
+                #     st.write("Rank: ...")
+                #     st.write("Problems Solved: ...")
+                
+                # with col2:
+                #     st.subheader("Recent Performance")
+                #     st.write("Last 5 contests performance will be shown here")
+            else:
+                st.warning("Please enter a valid CodeForces handle")
+        
+        # Add separator
+        st.markdown("---")
+        
+        # Add LLM query section
+        st.subheader("CodeForces AI Assistant")
+        
+        # Initialize session state for LLM query if not exists
+        if "llm_query" not in st.session_state:
+            st.session_state.llm_query = ""
+        if "llm_response" not in st.session_state:
+            st.session_state.llm_response = ""
+        
+        # Text area for LLM query
+        llm_query = st.text_area(
+            "Get similar questions for a particular question:",
+            value=st.session_state.llm_query,
+            placeholder="e.g., What's the best way to improve my rating? How do I solve dynamic programming problems?",
+            height=100
+        )
+        
+        # Function to process LLM query (using the imported function)
+        # Button to submit query
+        if st.button("Ask AI Assistant"):
+            if llm_query:
+                st.session_state.llm_query = llm_query
+                
+                with st.spinner("AI is thinking..."):
+                    # Call the imported process_llm_query function
+                    response = process_llm_query(llm_query)
+                    st.session_state.llm_response = response
+                
+                # Display the response
+                st.success("Query processed successfully!")
+                st.markdown("### AI Response:")
+                
+                # Check if response is a list of dictionaries
+                if isinstance(response, list) and all(isinstance(item, dict) for item in response):
+                    # Create an expander for viewing raw JSON (for debugging)
+                    with st.expander("View Raw Response Data"):
+                        st.json(response)
+                    
+                    # Display each item in the response list in a more user-friendly way
+                    for i, item in enumerate(response):
+                        with st.container():
+                            # Use a card-like presentation with a divider between items
+                            st.subheader(f"Response Item {i+1}")
+                            
+                            # Display key fields with proper formatting
+                            for key, value in item.items():
+                                if key.lower() in ['content', 'text', 'message']:
+                                    st.markdown(f"**{key}:**")
+                                    st.markdown(value)
+                                elif isinstance(value, (dict, list)):
+                                    st.markdown(f"**{key}:**")
+                                    st.json(value)
+                                else:
+                                    st.markdown(f"**{key}:** {value}")
+                            
+                            # Add a divider between items if not the last one
+                            if i < len(response) - 1:
+                                st.divider()
+                else:
+                    # Fallback for non-list or non-dict responses
+                    st.markdown(str(response))
+            else:
+                st.warning("Please enter a query first")
 
     # Compare page
     elif st.session_state.page == "compare":

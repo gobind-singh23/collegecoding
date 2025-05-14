@@ -1,290 +1,388 @@
+#!/usr/bin/env python3
+"""
+data_extractor.py - Module for loading Codeforces data into Qdrant and retrieving similar questions
+
+This script provides functionality to:
+1. Precompute embeddings for the Codeforces dataset and store them for faster loading
+2. Initialize a Qdrant vector database collection with precomputed embeddings
+3. Query for similar questions based on semantic similarity
+"""
+
 import os
-from typing import Dict, Any, Optional
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-import json
-from unsloth import FastLanguageModel
-class LLMRouter:
+import pickle
+import time
+from typing import List, Dict, Any, Optional, Union, Tuple
+from pathlib import Path
+import numpy as np
+import qdrant_client
+from qdrant_client.http import models
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+# Constants
+COLLECTION_NAME = "codeforces_problems"
+EMBEDDING_DIM = 384  # Default for all-MiniLM-L6-v2
+MODEL_NAME = "all-MiniLM-L6-v2"
+DATA_DIR = Path("codeforces_data")
+EMBEDDINGS_FILE = DATA_DIR / "codeforces_embeddings.pkl"
+METADATA_FILE = DATA_DIR / "codeforces_metadata.pkl"
+
+
+def precompute_embeddings(force_recompute: bool = False) -> Tuple[np.ndarray, List[Dict[str, Any]]]:
     """
-    A class that routes LLM queries to the appropriate specialized model based on query content.
-    """
-    
-    def __init__(self, 
-                 master_model_id: str = "microsoft/phi-2",
-                 mongodb_model_id: str = "Chirayu/phi-2-mongodb",
-                 codeforces_model_id: str = "qgallouedec/gemma-3-27b-it-codeforces-SFT"):
-        """
-        Initialize the LLM router with the specified models.
-        
-        Args:
-            master_model_id: Model ID for the master LLM (classifier)
-            mongodb_model_id: Model ID for the MongoDB query generator
-            codeforces_model_id: Model ID for the CodeForces problem solver
-        """
-        self.master_model_id = master_model_id
-        self.mongodb_model_id = mongodb_model_id
-        self.codeforces_model_id = codeforces_model_id
-        
-        # Load the master model (smaller model for classification)
-        print(f"Loading master model: {master_model_id}")
-        self.master_tokenizer = AutoTokenizer.from_pretrained(master_model_id, trust_remote_code= True)
-        self.master_model = AutoModelForCausalLM.from_pretrained(
-            master_model_id,
-            torch_dtype=torch.float16,
-            device_map="auto",
-            trust_remote_code = True
-        )
-        
-        # Initialize the slave models as None (load on-demand to save memory)
-        self.mongodb_tokenizer = None
-        self.mongodb_model = None
-        self.codeforces_tokenizer = None
-        self.codeforces_model = None
-        
-        # Flag to track which models are loaded
-        self.mongodb_loaded = False
-        self.codeforces_loaded = False
-    
-    def _load_mongodb_model(self):
-        """Load the MongoDB query generator model"""
-        if not self.mongodb_loaded:
-            print(f"Loading MongoDB model: {self.mongodb_model_id}")
-            self.mongodb_tokenizer = AutoTokenizer.from_pretrained(self.mongodb_model_id)
-            self.mongodb_model = AutoModelForCausalLM.from_pretrained(
-                self.mongodb_model_id,
-                torch_dtype=torch.float16,
-                device_map="auto"
-            )
-            self.mongodb_loaded = True
-    
-    def _load_codeforces_model(self):
-        """Load the CodeForces problem solver model"""
-        if not self.codeforces_loaded:
-            print(f"Loading CodeForces model: {self.codeforces_model_id}")
-            self.codeforces_tokenizer = AutoTokenizer.from_pretrained(self.codeforces_model_id)
-            self.codeforces_model = AutoModelForCausalLM.from_pretrained(
-                self.codeforces_model_id,
-                torch_dtype=torch.float16,
-                device_map="auto"
-            )
-            self.codeforces_loaded = True
-    
-    def _classify_query(self, query: str) -> str:
-        """
-        Use the master model to classify whether the query is for MongoDB or CodeForces.
-        
-        Args:
-            query: The user query
-            
-        Returns:
-            Classification result: "mongodb" or "codeforces"
-        """
-        # Prepare prompt for classification
-        classification_prompt = f"""
-        You are a query classifier that determines the right specialized model to handle a user query.
-        
-        The query will be sent to one of two specialized models:
-        1. MongoDB Query Generator: For queries about database operations, MongoDB queries, aggregation, or data retrieval.
-        2. CodeForces Problem Solver: For queries about competitive programming, algorithmic problems, or specific CodeForces challenges.
-        
-        User Query: {query}
-        
-        Which specialized model should handle this query? Respond with only one word: "mongodb" or "codeforces".
-        """
-        
-        # Generate a response from the master model
-        inputs = self.master_tokenizer(classification_prompt, return_tensors="pt").to(self.master_model.device)
-        with torch.no_grad():
-            output = self.master_model.generate(
-                **inputs,
-                max_new_tokens=10,
-                temperature=0.2,
-                do_sample=False
-            )
-        
-        response = self.master_tokenizer.decode(output[0], skip_special_tokens=True)
-        
-        # Extract classification from response
-        response = response.lower().strip()
-        if "mongodb" in response:
-            return "mongodb"
-        elif "codeforces" in response:
-            return "codeforces"
-        else:
-            # Default to CodeForces if classification is unclear
-            return "codeforces"
-    
-    def _generate_mongodb_query(self, query: str, db_schema: str) -> str:
-        """
-        Generate a MongoDB query based on the user's query.
-        
-        Args:
-            query: The user query
-            
-        Returns:
-            Generated MongoDB query
-        """
-        self._load_mongodb_model()
-        
-        # Format the prompt for MongoDB query generation
-        with open("db_schema.json", "r") as f:
-            db_schema = json.load(f)
-
-        prompt = f"""<s> 
-        Task Description:
-        Your task is to create a MongoDB query that accurately fulfills the provided Instruct while strictly adhering to the given MongoDB schema. Ensure that the query solely relies on keys and columns present in the schema. Minimize the usage of lookup operations wherever feasible to enhance query efficiency.
-
-        MongoDB Schema: 
-        {db_schema}
-
-        ### Instruct:
-        {query}
-
-        ### Output:
-        """
-        
-        inputs = self.mongodb_tokenizer(prompt, return_tensors="pt").to(self.mongodb_model.device)
-        with torch.no_grad():
-            output = self.mongodb_model.generate(
-                **inputs,
-                max_new_tokens=512,
-                temperature=0.7,
-                do_sample=True
-            )
-        
-        response = self.mongodb_tokenizer.decode(output[0], skip_special_tokens=True)
-        return response
-    
-    def _solve_codeforces_problem(self, query: str) -> str:
-        """
-        Generate a solution for a CodeForces problem based on the user's query.
-        
-        Args:
-            query: The user query
-            
-        Returns:
-            Generated solution or explanation
-        """
-        self._load_codeforces_model()
-        
-        # Format the prompt for CodeForces problem-solving
-        prompt = f"""
-        You are a competitive programming expert specializing in CodeForces problems.
-        
-        User Query: {query}
-        
-        Provide a detailed explanation or solution:
-        """
-        
-        inputs = self.codeforces_tokenizer(prompt, return_tensors="pt").to(self.codeforces_model.device)
-        with torch.no_grad():
-            output = self.codeforces_model.generate(
-                **inputs,
-                max_new_tokens=1024,
-                temperature=0.7,
-                do_sample=True
-            )
-        
-        response = self.codeforces_tokenizer.decode(output[0], skip_special_tokens=True)
-        return response
-    
-    def process_query(self, query: str) -> Dict[str, Any]:
-        """
-        Process a user query by first classifying it and then routing to the appropriate model.
-        
-        Args:
-            query: The user query
-            
-        Returns:
-            Dictionary containing the query, model used, and response
-        """
-        # Classify the query
-        query_type = self._classify_query(query)
-        
-        # Route to the appropriate model
-        if query_type == "mongodb":
-            response = self._generate_mongodb_query(query, "db_schema.json")
-            model_used = self.mongodb_model_id
-        else:  # Default to codeforces
-            response = self._solve_codeforces_problem(query)
-            model_used = self.codeforces_model_id
-        
-        # Return the results
-        return {
-            "query": query,
-            "query_type": query_type,
-            "model_used": model_used,
-            "response": response
-        }
-    
-    def unload_models(self, keep_master: bool = True):
-        """
-        Unload models to free up GPU memory
-        
-        Args:
-            keep_master: Whether to keep the master model loaded
-        """
-        if self.mongodb_loaded:
-            del self.mongodb_model
-            del self.mongodb_tokenizer
-            self.mongodb_model = None
-            self.mongodb_tokenizer = None
-            self.mongodb_loaded = False
-            torch.cuda.empty_cache()
-        
-        if self.codeforces_loaded:
-            del self.codeforces_model
-            del self.codeforces_tokenizer
-            self.codeforces_model = None
-            self.codeforces_tokenizer = None
-            self.codeforces_loaded = False
-            torch.cuda.empty_cache()
-        
-        if not keep_master:
-            del self.master_model
-            del self.master_tokenizer
-            self.master_model = None
-            self.master_tokenizer = None
-            torch.cuda.empty_cache()
-
-# Function to create a singleton instance
-_llm_router = None
-
-def get_llm_router() -> LLMRouter:
-    """
-    Get a singleton instance of the LLMRouter.
-    
-    Returns:
-        LLMRouter instance
-    """
-    global _llm_router
-    if _llm_router is None:
-        _llm_router = LLMRouter()
-    return _llm_router
-
-# Simple wrapper function for the Streamlit app
-def process_llm_query(query: str) -> str:
-    """
-    Process an LLM query for the Streamlit app.
+    Precompute embeddings for the Codeforces dataset and save them to disk.
     
     Args:
-        query: The user query
+        force_recompute: If True, recompute embeddings even if they already exist
         
     Returns:
-        Formatted response string
+        A tuple of (embeddings array, metadata list)
     """
-    router = get_llm_router()
-    result = router.process_query(query)
+    # Create data directory if it doesn't exist
+    DATA_DIR.mkdir(exist_ok=True)
     
-    # Format the response for the UI
-    response = f"""
-    Query: {result['query']}
+    # Check if embeddings already exist
+    if not force_recompute and EMBEDDINGS_FILE.exists() and METADATA_FILE.exists():
+        print(f"Loading precomputed embeddings from {EMBEDDINGS_FILE}")
+        with open(EMBEDDINGS_FILE, 'rb') as f:
+            embeddings = pickle.load(f)
+        with open(METADATA_FILE, 'rb') as f:
+            metadata = pickle.load(f)
+        return embeddings, metadata
     
-    Query Type: {result['query_type'].upper()}
-    Model Used: {result['model_used']}
+    # Load the dataset and compute embeddings
+    print("Loading Codeforces dataset from Hugging Face...")
+    start_time = time.time()
+    dataset = load_dataset("open-r1/codeforces")
+    print(f"Dataset loaded in {time.time() - start_time:.2f} seconds")
     
-    Response:
-    {result['response']}
+    # Initialize the model
+    model = SentenceTransformer(MODEL_NAME)
+    
+    # Extract all problem statements and metadata
+    problems = dataset['train']
+    
+    # Prepare problem texts for embedding (combining important fields)
+    problem_texts = []
+    for item in problems:
+        # Combine fields for better semantic search
+        text = f"Title: {item.get('title', '')}\n\n"
+        text += f"Description: {item.get('description', '')}\n\n"
+        
+        if item.get('input_format'):
+            text += f"Input Format: {item.get('input_format', '')}\n\n"
+        
+        if item.get('output_format'):
+            text += f"Output Format: {item.get('output_format', '')}"
+        
+        problem_texts.append(text)
+    
+    # Prepare metadata with only the important fields
+    metadata = [
+        {
+            "id": item.get("id", ""),
+            "contest_name": item.get("contest_name", ""),
+            "description": item.get("description", ""),
+            "input_format": item.get("input_format", ""),
+            "output_format": item.get("output_format", ""),
+            "title": item.get("title", "")  # Include title for display purposes
+        }
+        for item in problems
+    ]
+    
+    # Compute embeddings (batched to save memory)
+    print(f"Computing embeddings for {len(problem_texts)} problems...")
+    start_time = time.time()
+    embeddings = model.encode(
+        problem_texts, 
+        show_progress_bar=True, 
+        batch_size=32,
+        convert_to_numpy=True
+    )
+    print(f"Embeddings computed in {time.time() - start_time:.2f} seconds")
+    
+    # Save embeddings and metadata to disk
+    with open(EMBEDDINGS_FILE, 'wb') as f:
+        pickle.dump(embeddings, f)
+    with open(METADATA_FILE, 'wb') as f:
+        pickle.dump(metadata, f)
+        
+    print(f"Saved embeddings to {EMBEDDINGS_FILE} and metadata to {METADATA_FILE}")
+    
+    return embeddings, metadata
+
+
+class CodeforcesProblemDB:
+    """Manager for Codeforces problem vector database."""
+    
+    def __init__(self, 
+                 use_precomputed: bool = True, 
+                 recreate_collection: bool = False,
+                 qdrant_location: str = ":memory:",
+                 qdrant_port: Optional[int] = None):
+        """
+        Initialize the Codeforces problem database.
+        
+        Args:
+            use_precomputed: Whether to use precomputed embeddings
+            recreate_collection: If True, delete and recreate the collection if it exists
+            qdrant_location: Location for Qdrant database (":memory:" or file path)
+            qdrant_port: Port for Qdrant server (None for in-memory or local file)
+        """
+        # Initialize the sentence transformer model
+        self.model = SentenceTransformer(MODEL_NAME)
+        
+        # Initialize Qdrant client
+        if qdrant_port is not None:
+            self.client = qdrant_client.QdrantClient(
+                location=qdrant_location,
+                port=qdrant_port
+            )
+        else:
+            self.client = qdrant_client.QdrantClient(path=qdrant_location)
+        
+        # Check if collection exists and create if needed
+        collections = self.client.get_collections().collections
+        collection_exists = any(collection.name == COLLECTION_NAME for collection in collections)
+        
+        if collection_exists and recreate_collection:
+            self.client.delete_collection(COLLECTION_NAME)
+            collection_exists = False
+            
+        if not collection_exists:
+            self._create_collection()
+            if use_precomputed:
+                self._load_precomputed_embeddings()
+            else:
+                self._load_dataset()
+    
+    def _create_collection(self):
+        """Create a new collection in Qdrant for Codeforces problems."""
+        self.client.create_collection(
+            collection_name=COLLECTION_NAME,
+            vectors_config=models.VectorParams(
+                size=EMBEDDING_DIM,
+                distance=models.Distance.COSINE
+            )
+        )
+    
+    def _load_precomputed_embeddings(self):
+        """Load precomputed embeddings into Qdrant."""
+        print("Loading precomputed embeddings into Qdrant...")
+        start_time = time.time()
+        
+        # Load embeddings and metadata
+        embeddings, metadata = precompute_embeddings()
+        
+        # Insert in batches
+        batch_size = 100
+        total_records = len(embeddings)
+        
+        for i in range(0, total_records, batch_size):
+            end_idx = min(i + batch_size, total_records)
+            batch_embeddings = embeddings[i:end_idx]
+            batch_metadata = metadata[i:end_idx]
+            
+            # Prepare points to insert
+            points = [
+                models.PointStruct(
+                    id=i + idx,
+                    vector=embedding.tolist(),
+                    payload=metadata_item
+                )
+                for idx, (embedding, metadata_item) in enumerate(zip(batch_embeddings, batch_metadata))
+            ]
+            
+            # Insert into Qdrant
+            self.client.upsert(
+                collection_name=COLLECTION_NAME,
+                points=points
+            )
+            
+            print(f"Inserted {end_idx}/{total_records} problems")
+        
+        print(f"Finished loading in {time.time() - start_time:.2f} seconds")
+    
+    def _load_dataset(self):
+        """Load Codeforces dataset from Hugging Face and insert into Qdrant."""
+        print("Loading Codeforces dataset from Hugging Face...")
+        dataset = load_dataset("open-r1/codeforces")
+        
+        # Process and insert batches
+        batch_size = 100
+        total_records = len(dataset['train'])
+        
+        for i in range(0, total_records, batch_size):
+            end_idx = min(i + batch_size, total_records)
+            batch = dataset['train'][i:end_idx]
+            
+            # Extract problem texts for embedding
+            problem_texts = []
+            for item in batch:
+                # Combine fields for better semantic search
+                text = f"Title: {item.get('title', '')}\n\n"
+                text += f"Description: {item.get('description', '')}\n\n"
+                
+                if item.get('input_format'):
+                    text += f"Input Format: {item.get('input_format', '')}\n\n"
+                
+                if item.get('output_format'):
+                    text += f"Output Format: {item.get('output_format', '')}"
+                
+                problem_texts.append(text)
+            
+            # Generate embeddings
+            embeddings = self.model.encode(problem_texts)
+            
+            # Prepare points to insert with only the important fields
+            points = [
+                models.PointStruct(
+                    id=i + idx,
+                    vector=embedding.tolist(),
+                    payload={
+                        "id": batch[idx].get("id", ""),
+                        "contest_name": batch[idx].get("contest_name", ""),
+                        "description": batch[idx].get("description", ""),
+                        "input_format": batch[idx].get("input_format", ""),
+                        "output_format": batch[idx].get("output_format", ""),
+                        "title": batch[idx].get("title", "")  # Include title for display purposes
+                    }
+                )
+                for idx, embedding in enumerate(embeddings)
+            ]
+            
+            # Insert into Qdrant
+            self.client.upsert(
+                collection_name=COLLECTION_NAME,
+                points=points
+            )
+            
+            print(f"Inserted {end_idx}/{total_records} problems")
+    
+    def search_similar_problems(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """
+        Search for similar problems in the database.
+        
+        Args:
+            query: The problem statement to search for
+            limit: Maximum number of results to return
+            
+        Returns:
+            List of similar problems with their metadata
+        """
+        # Generate embedding for the query
+        query_vector = self.model.encode(query).tolist()
+        
+        # Search in Qdrant
+        search_results = self.client.search(
+            collection_name=COLLECTION_NAME,
+            query_vector=query_vector,
+            limit=limit
+        )
+        
+        # Format results
+        results = []
+        for result in search_results:
+            problem_data = result.payload
+            problem_data["similarity_score"] = result.score
+            results.append(problem_data)
+            
+        return results
+
+
+# Create a global instance of the database
+_db_instance = None
+
+def get_db_instance(
+    recreate: bool = False,
+    use_precomputed: bool = True,
+    qdrant_location: str = ":memory:",
+    qdrant_port: Optional[int] = None
+) -> CodeforcesProblemDB:
+    """
+    Get or create the database instance.
+    
+    Args:
+        recreate: If True, recreate the database instance
+        use_precomputed: Whether to use precomputed embeddings
+        qdrant_location: Location for Qdrant database
+        qdrant_port: Port for Qdrant server
+        
+    Returns:
+        Database instance
+    """
+    global _db_instance
+    if _db_instance is None or recreate:
+        _db_instance = CodeforcesProblemDB(
+            use_precomputed=use_precomputed,
+            recreate_collection=recreate,
+            qdrant_location=qdrant_location,
+            qdrant_port=qdrant_port
+        )
+    return _db_instance
+
+
+def generate_embeddings_cache(force_recompute: bool = False) -> None:
+    """
+    Generate and cache embeddings for the Codeforces dataset.
+    This function should be called once before using the database in production.
+    
+    Args:
+        force_recompute: If True, recompute embeddings even if they already exist
+    """
+    print("Precomputing embeddings for the Codeforces dataset...")
+    precompute_embeddings(force_recompute=force_recompute)
+    print("Embedding generation complete.")
+
+
+def process_llm_query(
+    query: str, 
+    limit: int = 10,
+    use_precomputed: bool = True,
+    qdrant_location: str = ":memory:",
+    qdrant_port: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """
+    Process a query for finding similar Codeforces problems.
+    
+    Args:
+        query: A string describing a programming problem
+        limit: Maximum number of similar problems to return
+        use_precomputed: Whether to use precomputed embeddings
+        qdrant_location: Location for Qdrant database
+        qdrant_port: Port for Qdrant server
+        
+    Returns:
+        List of similar problems with their metadata
+    """
+    db = get_db_instance(
+        use_precomputed=use_precomputed,
+        qdrant_location=qdrant_location,
+        qdrant_port=qdrant_port
+    )
+    similar_problems = db.search_similar_problems(query, limit=limit)
+    return similar_problems
+
+
+if __name__ == "__main__":
+    # Generate the embeddings cache for future use
+    print("Generating embeddings cache...")
+    generate_embeddings_cache()
+    
+    # Example usage
+    test_query = """
+    You are given an array of n integers. Find the maximum sum of any contiguous subarray.
     """
     
-    return response
+    print("\nSearching for problems similar to:")
+    print(test_query)
+    print("\nResults:")
+    
+    results = process_llm_query(test_query, use_precomputed=True)
+    
+    for i, result in enumerate(results):
+        print(f"\n--- Result {i+1} (Score: {result['similarity_score']:.4f}) ---")
+        print(f"Title: {result['title']}")
+        print(f"ID: {result['id']}")
+        print(f"Contest: {result.get('contest_name', 'N/A')}")
+        print(f"\nDescription: {result['description'][:200]}...")
